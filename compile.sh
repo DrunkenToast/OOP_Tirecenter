@@ -1,0 +1,1 @@
+cd "/home/peter/Documents/projects/OOP_Tirecenter/src/" && g++ *.cpp -o /home/peter/Documents/projects/OOP_Tirecenter/build/main && /home/peter/Documents/projects/OOP_Tirecenter/build/main
