@@ -7,7 +7,5 @@ int login();
 
 int main()
 {
-    Menu menu;
-
-    menu.actionMenu(userPermissions[(int)menu.loginMenu()]);
+    Menu::actionMenu(userPermissions[(int)Menu::loginMenu()]);
 }

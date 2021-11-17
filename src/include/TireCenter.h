@@ -24,21 +24,21 @@ enum class Actions {
 };
 
 // Move to cpp
-const std::map <Actions, std::string> actionDescription {
-    {Actions::A_ADD, "Add article"},
-    {Actions::A_DELETE, "Delete article"},
-    {Actions::A_CHANGE, "Change article"},
-    {Actions::A_SEARCH, "Search articles"},
+// const std::map <Actions, std::string> actionDescription {
+//     {Actions::A_ADD, "Add article"},
+//     {Actions::A_DELETE, "Delete article"},
+//     {Actions::A_CHANGE, "Change article"},
+//     {Actions::A_SEARCH, "Search articles"},
 
-    {Actions::C_ADD, "Add customer"},
-    {Actions::C_DELETE, "Delete customer"},
-    {Actions::C_CHANGE, "Change customer"},
-    {Actions::C_SEARCH, "Search customers"},
+//     {Actions::C_ADD, "Add customer"},
+//     {Actions::C_DELETE, "Delete customer"},
+//     {Actions::C_CHANGE, "Change customer"},
+//     {Actions::C_SEARCH, "Search customers"},
 
-    {Actions::O_PLACE, "Place Order"},
+//     {Actions::O_PLACE, "Place Order"},
 
-    {Actions::I_SEARCH, "Search invoices"},
-};
+//     {Actions::I_SEARCH, "Search invoices"},
+// };
 
 const std::string actionDescriptions[] {
     "Add article", "Delete article", "Change article", "Search articles",
@@ -79,7 +79,7 @@ public:
 
     std::vector<Article> getArticles();
     void setArticles(std::vector<Article> a);
-    void addArticles(Article a);
+    void addArticle(Article a);
 
     std::vector<Customer> getCustomers();
     void setCustomers(std::vector<Customer> c);

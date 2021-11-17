@@ -7,11 +7,6 @@
 #include "include/Menu.h"
 #include "include/TireCenter.h"
 
-// Menu::Menu() 
-// {
-//     return;
-// }
-
 UserType Menu::loginMenu() 
 {
     int option;
@@ -30,7 +25,6 @@ UserType Menu::loginMenu()
     } 
 
     option--;
-    // return (UserType)option;
     return static_cast<UserType>(option);
 }
 
@@ -42,8 +36,9 @@ Actions Menu::actionMenu(std::vector<Actions> options)
     menuList  << "== Actions menu ==" << std::endl;
     for(unsigned int i = 0; i < options.size(); i++)
     {
-        menuList << "\t" << i+1 << ". " << actionDescription.at(options[i]) << std::endl;
+        menuList << "\t" << i+1 << ". " << actionDescriptions[(int)options[i]] << std::endl;
     }
+    menuList << "Pick an option: ";
 
     std::cout << menuList.str();
 

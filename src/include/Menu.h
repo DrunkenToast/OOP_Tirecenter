@@ -8,6 +8,6 @@ class Menu {
     public:
     // Menu();
 
-    UserType loginMenu();
-    Actions actionMenu(std::vector<Actions> options);
+    static UserType loginMenu();
+    static Actions actionMenu(std::vector<Actions> options);
 };
