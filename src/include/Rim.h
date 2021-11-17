@@ -16,6 +16,8 @@ class Rim : Article {
     std::string getColor();
     void setColor(std::string c);
 
+    virtual void showArticle() override;
+
     private:
     std::string color;
     bool aluminium;

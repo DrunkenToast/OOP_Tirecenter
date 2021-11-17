@@ -22,7 +22,6 @@ UserType Menu::loginMenu()
         << "Pick an option: ";
 
     std::cin >> option;
-    std::cout << "test";
 
     while (!(option >= 1 && option <= 2))
     {
@@ -41,7 +40,7 @@ Actions Menu::actionMenu(std::vector<Actions> options)
 
     std::stringstream menuList;
     menuList  << "== Actions menu ==" << std::endl;
-    for(int i = 0; i < options.size(); i++)
+    for(unsigned int i = 0; i < options.size(); i++)
     {
         menuList << "\t" << i+1 << ". " << actionDescription.at(options[i]) << std::endl;
     }
@@ -50,20 +49,11 @@ Actions Menu::actionMenu(std::vector<Actions> options)
 
     std::cin >> option;
 
-    while (!(option >= 1 && option <= 3))
+    while (!(option >= 1 && option <= options.size()))
     {
         std::cout << "Not a valid option, try again: ";
         std::cin >> option;
     }
 
-    switch (option)
-    {
-    case 1:
-        /* code */
-        break;
-    
-    default:
-        break;
-    }
-    return Actions::A_ADD;
+    return options[option-1];
 }

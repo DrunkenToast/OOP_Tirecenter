@@ -1,3 +1,4 @@
+#include <iostream>
 #include "include/Article.h"
 
 Article::Article() 
@@ -68,4 +69,14 @@ char Article::getType()
 void Article::setType(char t) 
 {
     type = t;
+}
+
+void Article::showArticle()
+{
+    std::cout << "== " << this->name << " ==" << std::endl
+        << "Manufacturer: " << this->manufacturer << std::endl
+        << "Stock: " << this->stock << std::endl
+        << "Diameter:" << this->diameter << std::endl
+        << "Price: " << this->price << std::endl
+        << "Type: " << this->type << std::endl;
 }

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "include/Tire.h"
 
 Tire::Tire()
@@ -46,4 +47,17 @@ char Tire::getSeason()
 void Tire::setSeason(char s)
 {
     season = s;
+}
+
+void Tire::showArticle()
+{
+    std::cout << "== " << this->name << " ==" << std::endl
+        << "Manufacturer: " << this->manufacturer << std::endl
+        << "Stock: " << this->stock << std::endl
+        << "Diameter:" << this->diameter << std::endl
+        << "Width: " << this->width << std::endl
+        << "Height: " << this->height << std::endl
+        << "Speed index: " << this->speedIndex << std::endl
+        << "Price: " << this->price << std::endl
+        << "Type: " << this->type << std::endl;
 }

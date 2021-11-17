@@ -15,7 +15,9 @@ class Customer {
     char getType();
     void setType(char t);
 
-    private:
+    virtual void showCustomer();
+
+    protected:
     std::string name, address;
     char type;
 };

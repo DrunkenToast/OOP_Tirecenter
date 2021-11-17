@@ -9,17 +9,24 @@ public:
 
     std::string getName();
     void setName(std::string n);
+
     std::string getManufacturer();
     void setManufacturer(std::string m);
+
     int getStock();
     void setStock(int s);
+
     int getDiameter();
     void setDiameter(int d);
+
     float getPrice();
     void setPrice(float p);
+
     char getType();
     void setType(char t);
-private:
+
+    virtual void showArticle();
+protected:
     std::string name, manufacturer;
     int stock, diameter;
     float price;

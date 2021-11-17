@@ -13,19 +13,21 @@ public:
     void setArticles(std::vector<Article> a);
     void addArticles(Article a);
 
-    std::vector<Customer> getCustomers();
-    void setCustomers(std::vector<Customer> c);
-    void addCustomers(Customer c);
+    Customer getCustomer();
+    void setCustomer(Customer c);
+
+    float getPrice();
+    void setPrice(float p);
 
     int getDiscount();
     void setDiscount(int d);
-    
-    float getPrice();
-    void setPrice(float p);
 private:
     std::vector<Article> articles;
-    std::vector<Customer> customers;
+    Customer customer;
     float price;
     int discount;
 
+    // What do these do??
+    // float calculateDiscount();
+    // float calculatePrice();
 };

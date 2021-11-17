@@ -1,3 +1,4 @@
+#include <iostream>
 #include "include/Company.h"
 
 Company::Company() 
@@ -28,4 +29,13 @@ int Company::getVolumeDiscount()
 void Company::setVolumeDiscount(int vd) 
 {
     volumeDiscount = vd;
+}
+
+void Company::showCustomer()
+{
+        std::cout << "== Company: " << this->name << " ==" << std::endl
+        << "Address: " << this->address << std::endl
+        << "Type: " << this->type << std::endl
+        << "VAT: " << this->vat << std::endl
+        << "Volume discount: " << this->volumeDiscount << std::endl;
 }

@@ -19,6 +19,8 @@ class Tire : Article {
     char getSeason();
     void setSeason(char s);
 
+    virtual void showArticle() override;
+
     private:
     int width, height;
     std::string speedIndex;

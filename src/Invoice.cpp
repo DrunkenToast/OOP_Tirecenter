@@ -25,19 +25,14 @@ void Invoice::addArticles(Article a)
     articles.push_back(a);
 }
 
-std::vector<Customer> Invoice::getCustomers() 
+Customer Invoice::getCustomer() 
 {
-    return customers;
+    return customer;
 }
 
-void Invoice::setCustomers(std::vector<Customer> c) 
+void Invoice::setCustomer(Customer c) 
 {
-    customers = c;
-}
-
-void Invoice::addCustomers(Customer c) 
-{
-    customers.push_back(c);
+    customer = c;
 }
 
 int Invoice::getDiscount() 

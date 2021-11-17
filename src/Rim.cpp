@@ -1,5 +1,6 @@
+#include <iostream>
 #include "include/Rim.h"
-
+#include "include/Article.h"
 
 Rim::Rim() 
 {
@@ -13,30 +14,43 @@ Rim::~Rim()
 
 int Rim::getWidth() 
 {
-    return width;
+    return this->width;
 }
 
 void Rim::setWidth(int w) 
 {
-    width = w;
+    this->width = w;
 }
 
 bool Rim::getAluminium() 
 {
-    return aluminium;
+    return this->aluminium;
 }
 
 void Rim::setAluminium(bool a) 
 {
-    aluminium = a;
+    this->aluminium = a;
 }
 
 std::string Rim::getColor() 
 {
-    return color;
+    return this->color;
 }
 
 void Rim::setColor(std::string c) 
 {
-    color = c;
+    this->color = c;
+}
+
+void Rim::showArticle()
+{
+    std::cout << "== " << this->name << " ==" << std::endl
+        << "Manufacturer: " << this->manufacturer << std::endl
+        << "Stock: " << this->stock << std::endl
+        << "Diameter:" << this->diameter << std::endl
+        << "Width: " << this->width << std::endl
+        << "Color: " << this->color << std::endl
+        << "Aluminium" << (this->aluminium ? "Yes" : "No") << std::endl
+        << "Price: " << this->price << std::endl
+        << "Type: " << this->type << std::endl;
 }

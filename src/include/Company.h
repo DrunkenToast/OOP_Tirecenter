@@ -13,6 +13,8 @@ class Company : Customer {
     int getVolumeDiscount();
     void setVolumeDiscount(int vd);
 
+    virtual void showCustomer() override;
+
     private:
     std::string vat;
     int volumeDiscount;

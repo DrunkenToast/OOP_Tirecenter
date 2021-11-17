@@ -1,3 +1,4 @@
+#include <iostream>
 #include "include/Customer.h"
 
 Customer::Customer() 
@@ -38,4 +39,11 @@ char Customer::getType()
 void Customer::setType(char t) 
 {
     type = t;
+}
+
+void Customer::showCustomer()
+{
+    std::cout << "== " << this->name << " ==" << std::endl
+        << "Address: " << this->address << std::endl
+        << "Type: " << this->type << std::endl;
 }
