@@ -2,9 +2,13 @@
 #include "Customer.h"
 #include <string>
 
-class Company : Customer {
+class Company
+    : public Customer
+{
     public:
-    Company();
+    Company(std::string name, std::string address, char type,
+        //Company specific
+        std::string vat);
     ~Company();
 
     std::string getVAT();

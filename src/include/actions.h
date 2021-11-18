@@ -1,5 +1,9 @@
 #include "include/TireCenter.h"
 
+/*
+    This h file mostly defines Use Cases, see Tire-Center-Use-Case.png
+*/
+
 Article* searchArticle(TireCenter &tirecenter);
 void addArticle(TireCenter &tirecenter);
 void deleteArticle(TireCenter &tirecenter);

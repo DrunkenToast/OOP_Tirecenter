@@ -3,7 +3,7 @@
 
 class Customer {
     public:
-    Customer();
+    Customer(std::string name, std::string address, char type);
     ~Customer();
 
     std::string getName();
@@ -17,7 +17,7 @@ class Customer {
 
     virtual void showCustomer();
 
-    protected:
+    private:
     std::string name, address;
     char type;
 };

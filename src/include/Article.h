@@ -4,7 +4,8 @@
 class Article
 {
 public:
-    Article();
+    Article(std::string name, std::string manufacturer,
+        int stock, int diameter, float price, char type);
     ~Article();
 
     std::string getName();
@@ -25,8 +26,8 @@ public:
     char getType();
     void setType(char t);
 
-    virtual void showArticle();
-protected:
+    void showArticle();
+private:
     std::string name, manufacturer;
     int stock, diameter;
     float price;

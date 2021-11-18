@@ -2,9 +2,14 @@
 #include "Article.h"
 #include <string>
 
-class Rim : Article {
+class Rim
+    : public Article
+{
     public:
-    Rim();
+    Rim(std::string name, std::string manufacturer,
+        int stock, int diameter, float price, char type,
+        //Rim specific
+        int width, bool isAluminium, std::string color);
     ~Rim();
 
     int getWidth();
@@ -16,10 +21,10 @@ class Rim : Article {
     std::string getColor();
     void setColor(std::string c);
 
-    virtual void showArticle() override;
+    void showArticle();
 
     private:
     std::string color;
-    bool aluminium;
+    bool isAluminium;
     int width;
 };

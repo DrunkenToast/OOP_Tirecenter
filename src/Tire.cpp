@@ -1,7 +1,12 @@
 #include <iostream>
 #include "include/Tire.h"
 
-Tire::Tire()
+Tire::Tire(std::string name, std::string manufacturer,
+        int stock, int diameter, float price, char type,
+        //Tire specific
+        int width, int height, std::string speedIndex, char season)
+    : Article(name, manufacturer, stock, diameter, price, type),
+        width(width), height(height), speedIndex(speedIndex), season(season)
 {
 }
 
@@ -51,13 +56,10 @@ void Tire::setSeason(char s)
 
 void Tire::showArticle()
 {
-    std::cout << "== " << this->name << " ==" << std::endl
-        << "Manufacturer: " << this->manufacturer << std::endl
-        << "Stock: " << this->stock << std::endl
-        << "Diameter:" << this->diameter << std::endl
-        << "Width: " << this->width << std::endl
-        << "Height: " << this->height << std::endl
-        << "Speed index: " << this->speedIndex << std::endl
-        << "Price: " << this->price << std::endl
-        << "Type: " << this->type << std::endl;
+    Article::showArticle();
+    std::cout
+        << "Width: " << getWidth() << std::endl
+        << "Height: " << getHeight() << std::endl
+        << "Speed index: " << getSpeedIndex() << std::endl
+        << "Season: " << getSeason() << std::endl;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "include/Customer.h"
 
-Customer::Customer() 
+Customer::Customer(std::string name, std::string address, char type) 
 {
     
 }
@@ -43,7 +43,7 @@ void Customer::setType(char t)
 
 void Customer::showCustomer()
 {
-    std::cout << "== " << this->name << " ==" << std::endl
-        << "Address: " << this->address << std::endl
-        << "Type: " << this->type << std::endl;
+    std::cout << "== " << getName() << " ==" << std::endl
+        << "Address: " << getAddress() << std::endl
+        << "Type: " << getType() << std::endl;
 }

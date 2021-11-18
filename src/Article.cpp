@@ -1,7 +1,10 @@
 #include <iostream>
 #include "include/Article.h"
 
-Article::Article() 
+Article::Article(std::string name, std::string manufacturer,
+    int stock, int diameter, float price, char type) 
+    : name(name), manufacturer(manufacturer), stock(stock), diameter(diameter),
+    price(price), type(type)
 {
     
 }
@@ -73,10 +76,10 @@ void Article::setType(char t)
 
 void Article::showArticle()
 {
-    std::cout << "== " << this->name << " ==" << std::endl
-        << "Manufacturer: " << this->manufacturer << std::endl
-        << "Stock: " << this->stock << std::endl
-        << "Diameter:" << this->diameter << std::endl
-        << "Price: " << this->price << std::endl
-        << "Type: " << this->type << std::endl;
+    std::cout << "== Article: " << getName() << " ==" << std::endl
+        << "Manufacturer: " << getManufacturer() << std::endl
+        << "Stock: " << getStock() << std::endl
+        << "Diameter:" << getDiameter() << std::endl
+        << "Price: " << getPrice() << std::endl
+        << "Type: " << getType() << std::endl;
 }

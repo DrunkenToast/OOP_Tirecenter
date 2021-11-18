@@ -2,7 +2,12 @@
 #include "include/Rim.h"
 #include "include/Article.h"
 
-Rim::Rim() 
+Rim::Rim(std::string name, std::string manufacturer,
+        int stock, int diameter, float price, char type,
+        //Rim specific
+        int width, bool isAluminium, std::string color)
+    : Article(name, manufacturer, stock, diameter, price, type),
+        width(width), isAluminium(isAluminium), color(color)
 {
     
 }
@@ -24,12 +29,12 @@ void Rim::setWidth(int w)
 
 bool Rim::getAluminium() 
 {
-    return this->aluminium;
+    return this->isAluminium;
 }
 
 void Rim::setAluminium(bool a) 
 {
-    this->aluminium = a;
+    this->isAluminium = a;
 }
 
 std::string Rim::getColor() 
@@ -44,13 +49,9 @@ void Rim::setColor(std::string c)
 
 void Rim::showArticle()
 {
-    std::cout << "== " << this->name << " ==" << std::endl
-        << "Manufacturer: " << this->manufacturer << std::endl
-        << "Stock: " << this->stock << std::endl
-        << "Diameter:" << this->diameter << std::endl
-        << "Width: " << this->width << std::endl
-        << "Color: " << this->color << std::endl
-        << "Aluminium" << (this->aluminium ? "Yes" : "No") << std::endl
-        << "Price: " << this->price << std::endl
-        << "Type: " << this->type << std::endl;
+    Article::showArticle();   
+    std::cout
+        << "Width: " << getWidth() << std::endl
+        << "Color: " << getColor() << std::endl
+        << "Aluminium: " << (getAluminium() ? "Yes" : "No") << std::endl;
 }

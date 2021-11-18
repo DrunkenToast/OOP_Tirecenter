@@ -2,9 +2,14 @@
 #include "Article.h"
 #include <string>
 
-class Tire : Article {
+class Tire 
+    : public Article 
+{
     public:
-    Tire();
+    Tire(std::string name, std::string manufacturer,
+        int stock, int diameter, float price, char type,
+        //Tire specific
+        int width, int height, std::string speedIndex, char season);
     ~Tire();
 
     int getWidth();
@@ -19,7 +24,7 @@ class Tire : Article {
     char getSeason();
     void setSeason(char s);
 
-    virtual void showArticle() override;
+    void showArticle();
 
     private:
     int width, height;

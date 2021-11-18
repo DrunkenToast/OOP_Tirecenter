@@ -33,9 +33,8 @@ void Company::setVolumeDiscount(int vd)
 
 void Company::showCustomer()
 {
-        std::cout << "== Company: " << this->name << " ==" << std::endl
-        << "Address: " << this->address << std::endl
-        << "Type: " << this->type << std::endl
-        << "VAT: " << this->vat << std::endl
-        << "Volume discount: " << this->volumeDiscount << std::endl;
+    Customer::showCustomer();
+    std::cout
+        << "VAT: " << getVAT() << std::endl
+        << "Volume discount: " << getVolumeDiscount() << std::endl;
 }
