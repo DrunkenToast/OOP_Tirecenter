@@ -52,3 +52,27 @@ Actions Menu::actionMenu(std::vector<Actions> options)
 
     return options[option-1];
 }
+int Menu::displayMenu(std::string title, std::vector<std::string> options)
+{
+    int option;
+
+    std::stringstream menuList;
+    menuList  << "== Actions menu ==" << std::endl;
+    for(unsigned int i = 0; i < options.size(); i++)
+    {
+        menuList << "\t" << i+1 << ". " << options.at(i) << std::endl;
+    }
+    menuList << "Pick an option: ";
+
+    std::cout << menuList.str();
+
+    std::cin >> option;
+
+    while (!(option >= 1 && option <= options.size()))
+    {
+        std::cout << "Not a valid option, try again: ";
+        std::cin >> option;
+    }
+
+    return option-1;
+}

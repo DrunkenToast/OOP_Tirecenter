@@ -1,7 +1,10 @@
 #include <iostream>
 #include "include/Company.h"
 
-Company::Company() 
+Company::Company(std::string name, std::string address, char type,
+        //Company specific
+        std::string vat, int valumeDiscount)
+    : Customer(name, address, type), vat(vat), volumeDiscount(volumeDiscount)
 {
     
 }

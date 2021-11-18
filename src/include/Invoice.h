@@ -6,7 +6,7 @@
 class Invoice
 {
 public:
-    Invoice();
+    // Invoice();
     ~Invoice();
 
     std::vector<Article> getArticles();

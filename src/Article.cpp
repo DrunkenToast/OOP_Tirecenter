@@ -76,7 +76,7 @@ void Article::setType(char t)
 
 void Article::showArticle()
 {
-    std::cout << "== Article: " << getName() << " ==" << std::endl
+    std::cout << std::endl << "== Article: " << getName() << " ==" << std::endl
         << "Manufacturer: " << getManufacturer() << std::endl
         << "Stock: " << getStock() << std::endl
         << "Diameter:" << getDiameter() << std::endl

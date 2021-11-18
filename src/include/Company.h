@@ -8,7 +8,7 @@ class Company
     public:
     Company(std::string name, std::string address, char type,
         //Company specific
-        std::string vat);
+        std::string vat, int valumeDiscount);
     ~Company();
 
     std::string getVAT();
