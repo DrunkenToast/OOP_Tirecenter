@@ -21,6 +21,8 @@ public:
 
     int getDiscount();
     void setDiscount(int d);
+
+    void showInvoice();
 private:
     std::vector<Article> articles;
     Customer customer;

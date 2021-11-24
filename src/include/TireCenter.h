@@ -3,6 +3,7 @@
 #include <vector>
 #include "Article.h"
 #include "Customer.h"
+#include "Invoice.h"
 #include <map>
 
 enum class Actions {
@@ -85,8 +86,12 @@ public:
     void setCustomers(std::vector<Customer> c);
     void addCustomers(Customer c);
 
+    std::vector<Invoice> getInvoices();
+    void setInvoices(std::vector<Invoice> i);
+
 private:
     std::string name, address;
     std::vector<Article> articles;
     std::vector<Customer> customers;
+    std::vector<Invoice> invoices;
 };

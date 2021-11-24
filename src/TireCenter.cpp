@@ -59,3 +59,13 @@ void TireCenter::addCustomers(Customer c)
 {
     customers.push_back(c);
 }
+
+std::vector<Invoice> TireCenter::getInvoices() 
+{
+    return invoices;
+}
+
+void TireCenter::setInvoices(std::vector<Invoice> i) 
+{
+    invoices = i;
+}

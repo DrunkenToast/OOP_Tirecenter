@@ -3,6 +3,7 @@
 #include <sstream>
 #include <array>
 #include <vector>
+#include <stdexcept>
 
 #include "include/Menu.h"
 #include "include/TireCenter.h"
@@ -30,7 +31,7 @@ UserType Menu::loginMenu()
 
 Actions Menu::actionMenu(std::vector<Actions> options)
 {
-    int option;
+    unsigned int option;
 
     std::stringstream menuList;
     menuList  << "== Actions menu ==" << std::endl;
@@ -52,12 +53,13 @@ Actions Menu::actionMenu(std::vector<Actions> options)
 
     return options[option-1];
 }
+
 int Menu::displayMenu(std::string title, std::vector<std::string> options)
 {
     int option;
 
     std::stringstream menuList;
-    menuList  << "== Actions menu ==" << std::endl;
+    menuList  << "== " << title << " ==" << std::endl;
     for(unsigned int i = 0; i < options.size(); i++)
     {
         menuList << "\t" << i+1 << ". " << options.at(i) << std::endl;
@@ -75,4 +77,63 @@ int Menu::displayMenu(std::string title, std::vector<std::string> options)
     }
 
     return option-1;
+}
+
+void Menu::editArticle(Article &art, char type)
+{
+    std::string name;
+    std::string manufacturer;
+    int stock, diameter;
+    float price;
+
+    // General article settings
+    std::cout << "name: ";
+    std::cin >> name;
+
+    std::cout << "manufacturer: ";
+    std::cin >> manufacturer;
+
+    std::cout << "stock: ";
+    std::cin >> stock;
+
+    std::cout << "diameter: ";
+    std::cin >> diameter;
+
+    std::cout << "price: ";
+    std::cin >> price;
+
+    if (type == 'T')
+    {
+        
+    }
+    else if (type == 'R')
+    {
+        int width;
+        bool isAluminium;
+        char optionAl;
+        std::string color;
+
+        std::cout << "width: ";
+        std::cin >> width;
+
+        std::cout << "Is aluminium (Y/n): ";
+        std::cin >> optionAl;
+        if (optionAl == 'n')
+        {
+            isAluminium = false;
+        }
+        else
+        {
+            isAluminium = true;
+        }
+
+        std::cout << "color: ";
+        std::cin >> color;
+
+
+    }
+    else
+    {
+        throw std::invalid_argument("Received something else other than T or R.");
+    }
 }

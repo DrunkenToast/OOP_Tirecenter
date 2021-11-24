@@ -1,3 +1,4 @@
+#include <iostream>
 #include "include/Invoice.h"
 
 // Invoice::Invoice() 
@@ -53,4 +54,13 @@ float Invoice::getPrice()
 void Invoice::setPrice(float p) 
 {
     price = p;
+}
+
+void Invoice::showInvoice() 
+{
+    std::cout << "== Invoice ==" << std::endl
+        << "Customer: " << getCustomer().getName() << std::endl
+        << "Price" << getPrice() << std::endl
+        << "Discount: " << getDiscount() << std::endl
+        << "articles: ..." << std::endl; // TODO, just loop and add to string
 }
