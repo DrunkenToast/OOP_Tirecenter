@@ -1,0 +1,689 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Thu Nov 25 09:53:52 2021
+
+# Variables
+
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
+# makefile (from 'Makefile', line 24)
+SRC = $(wildcard src/*.cpp) 
+# environment
+KWIN_TRIPLE_BUFFER = 1
+# environment
+GTK_RC_FILES = /etc/gtk/gtkrc:/home/peter/.gtkrc:/home/peter/.config/gtkrc
+# environment
+STARSHIP_SESSION_KEY = 1641216962326351
+# environment
+__GL_MaxFramesAllowed = 1
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-df6ee47a-54e4-4f90-903c-3088a349bb95.sock
+# environment
+LC_NAME = en_US.UTF-8
+# environment
+LC_NUMERIC = en_US.UTF-8
+# environment
+VSCODE_CWD = /home/peter
+# environment
+GPG_TTY = not a tty
+# environment
+LC_ADDRESS = en_US.UTF-8
+# default
+MAKE_COMMAND := make
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# makefile (from 'Makefile', line 20)
+OBJ_DIR := ./build/objects
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/peter/Documents/projects/OOP_Tirecenter
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+MAIL = /var/spool/mail/peter
+# environment
+OLDPWD = /home/peter
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/peter/.config/Code/CachedData/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+# environment
+LANG = C
+# environment
+XAUTHORITY = /home/peter/.Xauthority
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/peter/Documents/projects/OOP_Tirecenter
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_CONFIG_DIRS = /home/peter/.config/kdedefaults:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XCURSOR_THEME = breeze_cursors
+# environment
+XDG_SESSION_DESKTOP = KDE
+# environment
+VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=ef70f978-d492-40cd-aa57-b5a86ae64643&iid=ef70f978-d492-40cd-aa57-b5a86ae64643&sid=ef70f978-d492-40cd-aa57-b5a86ae64643","uploadToServer":true}
+# makefile (from 'build/objects/src/main.d', line 1)
+MAKEFILE_LIST := Makefile build/objects/src/Article.d build/objects/src/Company.d build/objects/src/Customer.d build/objects/src/Invoice.d build/objects/src/Menu.d build/objects/src/Rim.d build/objects/src/Tire.d build/objects/src/TireCenter.d build/objects/src/actions.d build/objects/src/main.d
+# automatic
+@F = $(notdir $@)
+# environment
+ZSH = /home/peter/.oh-my-zsh
+# environment
+PT8HOME = /opt/packettracer/
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 10012
+# environment
+XDG_SESSION_TYPE = x11
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/toaster:@/tmp/.ICE-unix/6792,unix/toaster:/tmp/.ICE-unix/6792
+# automatic
+*F = $(notdir $*)
+# environment
+QT_QPA_PLATFORMTHEME = qt5ct
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# makefile (from 'Makefile', line 23)
+INCLUDE = -Iinclude/
+# environment
+BREAKPAD_DUMP_LOCATION = /home/peter/.config/Code/exthost Crash Reports
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/jvm/default/bin
+# default
+MAKEFILES := 
+# environment
+LC_MONETARY = nl_BE.UTF-8
+# environment
+MOTD_SHOWN = pam
+# automatic
+^F = $(notdir $^)
+# makefile (from 'Makefile', line 30)
+DEPENDENCIES := ./build/objects/src/Article.d ./build/objects/src/Company.d ./build/objects/src/Customer.d ./build/objects/src/Invoice.d ./build/objects/src/Menu.d ./build/objects/src/Rim.d ./build/objects/src/Tire.d ./build/objects/src/TireCenter.d ./build/objects/src/actions.d ./build/objects/src/main.d
+# environment
+LC_TIME = nl_BE.UTF-8
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+LC_TELEPHONE = nl_BE.UTF-8
+# automatic
+?F = $(notdir $?)
+# environment
+KDE_APPLICATIONS_AS_SCOPE = 1
+# environment
+XDG_SEAT = seat0
+# environment
+XDG_CURRENT_DESKTOP = KDE
+# environment
+LS_COLORS = 
+# automatic
++F = $(notdir $+)
+# environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# environment
+LESS = -R
+# environment
+DESKTOP_SESSION = plasma
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = KDE
+# makefile (from 'Makefile', line 29)
+OBJECTS := ./build/objects/src/Article.o ./build/objects/src/Company.o ./build/objects/src/Customer.o ./build/objects/src/Invoice.o ./build/objects/src/Menu.o ./build/objects/src/Rim.o ./build/objects/src/Tire.o ./build/objects/src/TireCenter.o ./build/objects/src/actions.o ./build/objects/src/main.o
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+BROWSER = firefox
+# environment
+LOGNAME = peter
+# environment
+XDG_VTNR = 1
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 6413
+# environment
+EDITOR = nano
+# environment
+DISPLAY = :0
+# environment
+GTK_MODULES = canberra-gtk-module
+# environment
+USER = peter
+# default
+MAKE_VERSION := 4.3
+# environment
+KDE_SESSION_UID = 1000
+# makefile (from 'Makefile', line 19)
+BUILD = ./build
+# makefile (from 'Makefile', line 18)
+LDFLAGS = -L/usr/lib -lstdc++ -lm -lncurses
+# makefile (from 'Makefile', line 21)
+APP_DIR := ./build
+# environment
+LC_MEASUREMENT = nl_BE.UTF-8
+# environment
+STARSHIP_SHELL = zsh
+# environment
+PAGER = less
+# environment
+_ = /usr/bin/make
+# environment
+LC_PAPER = en_US.UTF-8
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+GTK2_RC_FILES = /etc/gtk-2.0/gtkrc:/home/peter/.gtkrc-2.0:/home/peter/.config/gtkrc-2.0
+# environment
+HOME = /home/peter
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-68c0f3d2-1.62.3-main.sock
+# environment
+XDG_SESSION_ID = 2
+# environment
+XCURSOR_SIZE = 24
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# makefile (from 'Makefile', line 22)
+TARGET = tirecenter
+# environment
+QT_AUTO_SCREEN_SCALE_FACTOR = 1
+# makefile (from 'Makefile', line 17)
+CXXFLAGS = -std=c++20 -pedantic-errors -Wall -Wextra 
+# environment
+KDE_SESSION_VERSION = 5
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
+# makefile (from 'Makefile', line 16)
+CXX = g++
+# environment
+KDE_FULL_SESSION = true
+# environment
+LC_IDENTIFICATION = en_US.UTF-8
+# variable set hash-table stats:
+# Load=129/1024=13%, Rehash=0, Collisions=15/205=7%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src (device 66309, inode 4366380): 14 files, no impossibilities.
+ 
+# . (device 66309, inode 4366363): 15 files, no impossibilities.
+
+# 29 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+build/objects/%.o: %.cpp
+#  recipe to execute (from 'Makefile', line 36):
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -MMD -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+# Not a target:
+src/Rim.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Customer.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/objects/src/Company.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:09.640950809
+#  File has been updated.
+#  Successfully updated.
+
+build/objects/src/Customer.o: src/Customer.cpp src/include/Customer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/objects/src/Menu.o: src/Menu.cpp src/include/Menu.h src/include/TireCenter.h src/include/Article.h src/include/Customer.h src/include/Invoice.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/objects/src/main.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:12.824258102
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/Invoice.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/objects/src/Rim.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:14.777575458
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/include/Article.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/TireCenter.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/include/Invoice.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Tire.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/actions.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# makefile (from 'Makefile', line 54)
+debug: CXXFLAGS += -DDEBUG -g3
+debug: all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/3=0%
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-16 17:15:27.219962317
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+build/objects/src/Invoice.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:11.387603188
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/include/Menu.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/objects/src/Company.o: src/Company.cpp src/include/Company.h src/include/Customer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/objects/src/Article.o: src/Article.cpp src/include/Article.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Article.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/main.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 71):
+	-@rm -rvf $(OBJ_DIR)/*
+	-@rm -rvf $(APP_DIR)/*
+
+# Not a target:
+src/include/Customer.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Company.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/include/actions.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+info:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 75):
+	@echo "[*] Compiler:        ${CXX}         "
+	@echo "[*] Compiler flags:  ${CXXFLAGS}    "
+	@echo "[*] Linker flags:    ${LDFLAGS}     "
+	@echo "[*] Application dir: ${APP_DIR}     "
+	@echo "[*] Object dir:      ${OBJ_DIR}     "
+	@echo "[*] Sources:         ${SRC}         "
+	@echo "[*] Objects:         ${OBJECTS}     "
+	@echo "[*] Dependencies:    ${DEPENDENCIES}"
+
+# Not a target:
+build/objects/src/Customer.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:10.397611286
+#  File has been updated.
+#  Successfully updated.
+
+launch:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 65):
+	$(APP_DIR)/$(TARGET)
+
+# Not a target:
+build/objects/src/TireCenter.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:15.870899848
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/include/TireCenter.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/objects/src/Tire.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:16.467561634
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/include/Rim.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/objects/src/main.o: src/main.cpp src/include/TireCenter.h src/include/Article.h src/include/Customer.h src/include/Invoice.h src/include/Menu.h src/include/actions.h src/include/Tire.h src/include/Rim.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: build build/tirecenter
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+
+run: all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 62):
+	$(APP_DIR)/$(TARGET)
+
+build:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/13=15%
+#  recipe to execute (from 'Makefile', line 51):
+	@mkdir -p $(APP_DIR)
+	@mkdir -p $(OBJ_DIR)
+
+# Not a target:
+build/objects/src/Article.d:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2021-11-24 15:39:08.864290496
+#  File has been updated.
+#  Successfully updated.
+
+build/objects/src/Tire.o: src/Tire.cpp src/include/Tire.h src/include/Article.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/objects/src/Rim.o: src/Rim.cpp src/include/Rim.h src/include/Article.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/objects/src/actions.o: src/actions.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Menu.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/tirecenter: build/objects/src/Article.o build/objects/src/Company.o build/objects/src/Customer.o build/objects/src/Invoice.o build/objects/src/Menu.o build/objects/src/Rim.o build/objects/src/Tire.o build/objects/src/TireCenter.o build/objects/src/actions.o build/objects/src/main.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 40):
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -o $(APP_DIR)/$(TARGET) $^ $(LDFLAGS)
+
+# Not a target:
+build/objects/src/actions.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:08.270962016
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/include/Tire.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+compile_commands:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/objects/src/Invoice.o: src/Invoice.cpp src/include/Invoice.h src/include/Article.h src/include/Customer.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/include/Company.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# makefile (from 'Makefile', line 58)
+release: CXXFLAGS += -O2
+release: all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/3=0%
+
+# Not a target:
+build/objects/src/Menu.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-11-24 15:39:13.974248695
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/objects/src/TireCenter.o: src/TireCenter.cpp src/include/TireCenter.h src/include/Article.h src/include/Customer.h src/include/Invoice.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all build clean debug release info run
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+gdb: debug
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	@gdb $(APP_DIR)/$(TARGET)
+
+# files hash-table stats:
+# Load=54/1024=5%, Rehash=0, Collisions=2/156=1%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 83 / storage = 1335 B / avg = 16 B
+# current buf: size = 8162 B / used = 1335 B / count = 83 / avg = 16 B
+
+# strcache performance: lookups = 169 / hit rate = 50%
+# hash-table stats:
+# Load=83/8192=1%, Rehash=0, Collisions=0/169=0%
+# Finished Make data base on Thu Nov 25 09:53:52 2021
+
+ 

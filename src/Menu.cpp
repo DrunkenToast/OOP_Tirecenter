@@ -54,9 +54,9 @@ Actions Menu::actionMenu(std::vector<Actions> options)
     return options[option-1];
 }
 
-int Menu::displayMenu(std::string title, std::vector<std::string> options)
+unsigned int Menu::displayMenu(std::string title, std::vector<std::string> options)
 {
-    int option;
+    unsigned int option;
 
     std::stringstream menuList;
     menuList  << "== " << title << " ==" << std::endl;

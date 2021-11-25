@@ -19,6 +19,6 @@ int main()
     TireCenter tirecenter;
     tirecenter.setArticles(articles);
     Menu::actionMenu(userPermissions[(int)Menu::loginMenu()]);
-    searchArticle(tirecenter, "test");
+    searchArticle(tirecenter);
     
 }
