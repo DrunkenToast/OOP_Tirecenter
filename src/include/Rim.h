@@ -10,18 +10,18 @@ class Rim
         int stock, int diameter, float price, char type,
         //Rim specific
         int width, bool isAluminium, std::string color);
-    ~Rim();
+    virtual ~Rim() = default;
 
-    int getWidth();
+    int getWidth() const;
     void setWidth(int w);
 
-    bool getAluminium();
+    bool getAluminium() const;
     void setAluminium(bool a);
 
-    std::string getColor();
+    std::string getColor() const;
     void setColor(std::string c);
 
-    void showArticle();
+    virtual void print() const;
 
     private:
     std::string color;

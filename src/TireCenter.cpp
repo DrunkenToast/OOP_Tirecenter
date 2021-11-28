@@ -30,7 +30,7 @@ void TireCenter::setAddress(std::string a)
     address = a;
 }
 
-std::vector<Article> TireCenter::getArticles() 
+std::vector<Article>& TireCenter::getArticles() 
 {
     return articles;
 }
@@ -45,7 +45,7 @@ void TireCenter::addArticle(Article a)
     articles.push_back(a); // maybe not good idea :D
 }
 
-std::vector<Customer> TireCenter::getCustomers() 
+std::vector<Customer>& TireCenter::getCustomers() 
 {
     return customers;
 }
@@ -60,7 +60,7 @@ void TireCenter::addCustomers(Customer c)
     customers.push_back(c);
 }
 
-std::vector<Invoice> TireCenter::getInvoices() 
+std::vector<Invoice>& TireCenter::getInvoices() 
 {
     return invoices;
 }

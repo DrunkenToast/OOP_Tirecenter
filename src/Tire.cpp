@@ -10,11 +10,7 @@ Tire::Tire(std::string name, std::string manufacturer,
 {
 }
 
-Tire::~Tire()
-{
-}
-
-int Tire::getWidth()
+int Tire::getWidth() const
 {
     return width;
 }
@@ -24,7 +20,7 @@ void Tire::setWidth(int w)
     width = w;
 }
 
-int Tire::getHeight()
+int Tire::getHeight() const
 {
     return height;
 }
@@ -34,7 +30,7 @@ void Tire::setHeight(int w)
     height = w;
 }
 
-std::string Tire::getSpeedIndex()
+std::string Tire::getSpeedIndex() const
 {
     return speedIndex;
 }
@@ -44,7 +40,7 @@ void Tire::setSpeedIndex(std::string speed)
     speedIndex = speed;
 }
 
-char Tire::getSeason()
+char Tire::getSeason() const
 {
     return season;
 }
@@ -54,9 +50,9 @@ void Tire::setSeason(char s)
     season = s;
 }
 
-void Tire::showArticle()
+void Tire::print() const
 {
-    Article::showArticle();
+    Article::print();
     std::cout
         << "Width: " << getWidth() << std::endl
         << "Height: " << getHeight() << std::endl

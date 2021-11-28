@@ -19,6 +19,20 @@ int main()
     TireCenter tirecenter;
     tirecenter.setArticles(articles);
     Menu::actionMenu(userPermissions[(int)Menu::loginMenu()]);
-    searchArticle(tirecenter);
+
+    switch (Menu::actionMenu(userPermissions[(int)Menu::loginMenu()]))
+    {
+    case Actions::A_ADD:
+        /* code */
+        break;
     
+    default:
+        break;
+    }
+
+    Article *article = searchArticle(tirecenter);
+    article->setName("lol");
+    searchArticle(tirecenter);
+
+    return 0;
 }

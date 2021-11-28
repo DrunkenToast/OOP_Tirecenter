@@ -9,12 +9,7 @@ Article::Article(std::string name, std::string manufacturer,
     
 }
 
-Article::~Article() 
-{
-    
-}
-
-std::string Article::getName() 
+std::string Article::getName() const
 {
     return name;
 }
@@ -24,7 +19,7 @@ void Article::setName(std::string n)
     name = n;
 }
 
-std::string Article::getManufacturer() 
+std::string Article::getManufacturer() const
 {
     return manufacturer;
 }
@@ -34,7 +29,7 @@ void Article::setManufacturer(std::string m)
     manufacturer = m;
 }
 
-int Article::getStock() 
+int Article::getStock() const
 {
     return stock;
 }
@@ -44,7 +39,7 @@ void Article::setStock(int s)
     stock = s;
 }
 
-int Article::getDiameter() 
+int Article::getDiameter() const
 {
     return diameter;
 }
@@ -54,7 +49,7 @@ void Article::setDiameter(int d)
     diameter = d;
 }
 
-float Article::getPrice() 
+float Article::getPrice() const
 {
     return price;
 }
@@ -64,7 +59,7 @@ void Article::setPrice(float p)
     price = p;
 }
 
-char Article::getType() 
+char Article::getType() const
 {
     return type;
 }
@@ -74,7 +69,7 @@ void Article::setType(char t)
     type = t;
 }
 
-void Article::showArticle()
+void Article::print() const
 {
     std::cout << std::endl << "== Article: " << getName() << " ==" << std::endl
         << "Manufacturer: " << getManufacturer() << std::endl

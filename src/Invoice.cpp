@@ -1,10 +1,11 @@
 #include <iostream>
 #include "include/Invoice.h"
 
-// Invoice::Invoice() 
-// {
+Invoice::Invoice(Customer customer, float price, int discount, std::vector<Article> articles)
+    : customer(customer), price(price), discount(discount), articles(articles)
+{
     
-// }
+}
 
 Invoice::~Invoice() 
 {
@@ -26,7 +27,7 @@ void Invoice::addArticles(Article a)
     articles.push_back(a);
 }
 
-Customer Invoice::getCustomer() 
+Customer Invoice::getCustomer() const
 {
     return customer;
 }
@@ -36,7 +37,7 @@ void Invoice::setCustomer(Customer c)
     customer = c;
 }
 
-int Invoice::getDiscount() 
+int Invoice::getDiscount() const
 {
     return discount;
 }
@@ -46,7 +47,7 @@ void Invoice::setDiscount(int d)
     discount = d;
 }
 
-float Invoice::getPrice() 
+float Invoice::getPrice() const
 {
     return price;
 }
@@ -56,7 +57,7 @@ void Invoice::setPrice(float p)
     price = p;
 }
 
-void Invoice::showInvoice() 
+void Invoice::print() const
 {
     std::cout << "== Invoice ==" << std::endl
         << "Customer: " << getCustomer().getName() << std::endl

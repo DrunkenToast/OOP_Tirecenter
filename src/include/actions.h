@@ -60,12 +60,16 @@ Article* searchArticle(TireCenter &tirecenter, bool showMenu = true, std::string
                 return NULL;
             case 1:
                 article = FilterKeyword(tirecenter);
+                break;
             case 2:
                 article = FilterTires(tirecenter);
+                break;
             case 3:
                 article =  FilterRims(tirecenter);
+                break;
             case 4:
                 article = FilterSize(tirecenter);
+                break;
             default:
                 break;
             }
@@ -105,7 +109,7 @@ Article* FilterKeyword(TireCenter &tc)
     std::cout << "found stuff";
 
     std::vector<std::string> options {"Cancel"};
-    for (auto i : found)
+    for (auto &i : found)
     {
         options.push_back(i->getName());
     }
@@ -199,7 +203,7 @@ void checkInvoices(TireCenter &tirecenter)
     std::vector<Invoice> invoices = tirecenter.getInvoices();
     for (auto&i : invoices)
     {
-        i.showInvoice();
+        i.print();
     }
 }
 

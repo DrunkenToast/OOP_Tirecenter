@@ -9,15 +9,15 @@ class Company
     Company(std::string name, std::string address, char type,
         //Company specific
         std::string vat, int valumeDiscount);
-    ~Company();
+    virtual ~Company() = default;
 
-    std::string getVAT();
+    std::string getVAT() const;
     void setVAT(std::string v);
 
-    int getVolumeDiscount();
+    int getVolumeDiscount() const;
     void setVolumeDiscount(int vd);
 
-    virtual void showCustomer() override;
+    virtual void print() const;
 
     private:
     std::string vat;

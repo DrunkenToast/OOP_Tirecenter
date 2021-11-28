@@ -6,23 +6,23 @@
 class Invoice
 {
 public:
-    // Invoice();
+    Invoice(Customer customer, float price, int discount, std::vector<Article> articles);
     ~Invoice();
 
     std::vector<Article> getArticles();
     void setArticles(std::vector<Article> a);
     void addArticles(Article a);
 
-    Customer getCustomer();
+    Customer getCustomer() const;
     void setCustomer(Customer c);
 
-    float getPrice();
+    float getPrice() const;
     void setPrice(float p);
 
-    int getDiscount();
+    int getDiscount() const;
     void setDiscount(int d);
 
-    void showInvoice();
+    void print() const;
 private:
     std::vector<Article> articles;
     Customer customer;

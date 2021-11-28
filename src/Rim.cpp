@@ -12,22 +12,17 @@ Rim::Rim(std::string name, std::string manufacturer,
     
 }
 
-Rim::~Rim() 
-{
-    
-}
-
-int Rim::getWidth() 
+int Rim::getWidth() const
 {
     return this->width;
 }
 
-void Rim::setWidth(int w) 
+void Rim::setWidth(int w)
 {
     this->width = w;
 }
 
-bool Rim::getAluminium() 
+bool Rim::getAluminium() const
 {
     return this->isAluminium;
 }
@@ -37,7 +32,7 @@ void Rim::setAluminium(bool a)
     this->isAluminium = a;
 }
 
-std::string Rim::getColor() 
+std::string Rim::getColor() const
 {
     return this->color;
 }
@@ -47,9 +42,9 @@ void Rim::setColor(std::string c)
     this->color = c;
 }
 
-void Rim::showArticle()
+void Rim::print() const
 {
-    Article::showArticle();   
+    Article::print();   
     std::cout
         << "Width: " << getWidth() << std::endl
         << "Color: " << getColor() << std::endl

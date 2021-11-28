@@ -9,12 +9,7 @@ Company::Company(std::string name, std::string address, char type,
     
 }
 
-Company::~Company() 
-{
-    
-}
-
-std::string Company::getVAT() 
+std::string Company::getVAT() const
 {
     return vat;
 }
@@ -24,7 +19,7 @@ void Company::setVAT(std::string v)
     vat = v;
 }
 
-int Company::getVolumeDiscount() 
+int Company::getVolumeDiscount() const
 {
     return volumeDiscount;
 }
@@ -34,9 +29,9 @@ void Company::setVolumeDiscount(int vd)
     volumeDiscount = vd;
 }
 
-void Company::showCustomer()
+void Company::print() const
 {
-    Customer::showCustomer();
+    Customer::print();
     std::cout
         << "VAT: " << getVAT() << std::endl
         << "Volume discount: " << getVolumeDiscount() << std::endl;

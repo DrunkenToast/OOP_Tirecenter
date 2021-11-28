@@ -10,21 +10,21 @@ class Tire
         int stock, int diameter, float price, char type,
         //Tire specific
         int width, int height, std::string speedIndex, char season);
-    ~Tire();
+    virtual ~Tire() = default;
 
-    int getWidth();
+    int getWidth() const;
     void setWidth(int w);
 
-    int getHeight();
+    int getHeight() const;
     void setHeight(int w);
 
-    std::string getSpeedIndex();
+    std::string getSpeedIndex() const;
     void setSpeedIndex(std::string speed);
 
-    char getSeason();
+    char getSeason() const;
     void setSeason(char s);
 
-    void showArticle();
+    virtual void print() const;
 
     private:
     int width, height;
