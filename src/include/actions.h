@@ -142,7 +142,7 @@ Tire* FilterTires(TireCenter &tc)
         }
     }
 
-    for (auto &tire : found)
+    for (auto &tire : tires)
     {
         if (tire->getDiameter() == needle)
         {
@@ -156,7 +156,7 @@ Tire* FilterTires(TireCenter &tc)
         options.push_back(i->getName());
     }
 
-    option = Menu::displayMenu("Pick a tire. Searched for diameter: \"" + needle + '"', options);
+    option = Menu::displayMenu("Pick a tire. Searched for diameter: \"" + std::to_string(needle) + '"', options);
     if (option == 0)
     {
         return NULL;
