@@ -26,7 +26,8 @@ public:
     char getType() const;
     void setType(char t);
 
-    void print() const;
+    void print() const; // TODO MAAK VIRTUAL!!
+
 private:
     std::string name, manufacturer;
     int stock, diameter;

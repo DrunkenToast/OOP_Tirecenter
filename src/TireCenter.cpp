@@ -30,34 +30,34 @@ void TireCenter::setAddress(std::string a)
     address = a;
 }
 
-std::vector<Article>& TireCenter::getArticles() 
+std::vector<Article*>& TireCenter::getArticles() 
 {
     return articles;
 }
 
-void TireCenter::setArticles(std::vector<Article> a) 
+void TireCenter::setArticles(std::vector<Article*> a) 
 {
     articles = a;
 }
 
 void TireCenter::addArticle(Article a) 
 {
-    articles.push_back(a); // maybe not good idea :D
+    articles.push_back(&a); // maybe not good idea :D
 }
 
-std::vector<Customer>& TireCenter::getCustomers() 
+std::vector<Customer*>& TireCenter::getCustomers() 
 {
     return customers;
 }
 
-void TireCenter::setCustomers(std::vector<Customer> c) 
+void TireCenter::setCustomers(std::vector<Customer*> c) 
 {
     customers = c;
 }
 
-void TireCenter::addCustomers(Customer c) 
+void TireCenter::addCustomer(Customer c) 
 {
-    customers.push_back(c);
+    customers.push_back(&c);
 }
 
 std::vector<Invoice>& TireCenter::getInvoices() 

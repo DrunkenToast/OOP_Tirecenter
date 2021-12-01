@@ -62,10 +62,10 @@ Article* searchArticle(TireCenter &tirecenter, bool showMenu = true, std::string
                 article = FilterKeyword(tirecenter);
                 break;
             case 2:
-                article = FilterTires(tirecenter);
+                article = dynamic_cast<Article*>(FilterTires(tirecenter));
                 break;
             case 3:
-                article =  FilterRims(tirecenter);
+                article = dynamic_cast<Article*>(FilterRims(tirecenter));
                 break;
             case 4:
                 article = FilterSize(tirecenter);
@@ -81,9 +81,9 @@ Article* searchArticle(TireCenter &tirecenter, bool showMenu = true, std::string
 
     for (auto &i : tirecenter.getArticles())
     {
-        if (i.getName().find(needle) != std::string::npos)
+        if (i->getName().find(needle) != std::string::npos)
         {
-            return &i;
+            return i;
         }
     }
     return NULL;
@@ -100,9 +100,9 @@ Article* FilterKeyword(TireCenter &tc)
 
     for (auto &art : tc.getArticles())
     {
-        if (art.getName().find(needle) != std::string::npos)
+        if (art->getName().find(needle) != std::string::npos)
         {
-            found.push_back(&art);
+            found.push_back(art);
         }
     }
 
@@ -126,14 +126,44 @@ Article* FilterKeyword(TireCenter &tc)
 
 Tire* FilterTires(TireCenter &tc)
 {
-    // unsigned int option;
-    // option = Menu::displayMenu("Filter tire", std::vector<std::string> {
-    //     "Filter by name",
-    //     "Filter by width",
-    //     "Filter by height",
-    //     "Filter by speed index",
-    //     "Filter by season"
-    // });
+    unsigned int option;
+    std::vector<Tire*> tires {};
+    std::vector<Tire*> found {};
+    int needle;
+
+    std::cout << "Diameter to filter tire: ";
+    std::cin >> needle;
+
+    for (auto &art : tc.getArticles())
+    {
+        if (art->getType() == 't')
+        {
+            tires.push_back(dynamic_cast<Tire*>(art));
+        }
+    }
+
+    for (auto &tire : found)
+    {
+        if (tire->getDiameter() == needle)
+        {
+            found.push_back(dynamic_cast<Tire*>(tire));
+        }
+    }
+
+    std::vector<std::string> options {"Cancel"};
+    for (auto &i : found)
+    {
+        options.push_back(i->getName());
+    }
+
+    option = Menu::displayMenu("Pick a tire. Searched for diameter: \"" + needle + '"', options);
+    if (option == 0)
+    {
+        return NULL;
+    }
+
+    std::cout << "returning!";
+    return tires.at(option-1); // -1 for cancel option
 }
 
 Rim* FilterRims(TireCenter &tc)
@@ -152,14 +182,14 @@ void addArticle(TireCenter &tirecenter)
     
 }
 
-void deleteArticle(TireCenter &tirecenter)
+void deleteArticle(TireCenter &tirecenter) // TODO full search
 {
-    std::vector<Article> articles = tirecenter.getArticles();
+    std::vector<Article*> articles = tirecenter.getArticles();
     std::vector<std::string> options;
     // List all article options
     for (auto &i : articles)
     {
-        options.push_back(i.getName());
+        options.push_back(i->getName());
     }
 
     int option = Menu::displayMenu("Choose article to delete", options);
@@ -176,20 +206,20 @@ Customer* searchCustomer(TireCenter &tirecenter, bool showMenu = true, std::stri
 
 void addCustomer(TireCenter &&tirecenter);
 
-void deleteCustomer(TireCenter &tirecenter)
+void deleteCustomer(TireCenter &tirecenter) // TODO full search
 {
-    std::vector<Article> articles = tirecenter.getArticles();
+    std::vector<Customer*> customers = tirecenter.getCustomers();
     std::vector<std::string> options;
     // List all article options
-    for (auto &i : articles)
+    for (auto &i : customers)
     {
-        options.push_back(i.getName());
+        options.push_back(i->getName());
     }
 
     int option = Menu::displayMenu("Choose article to delete", options);
 
-    articles.erase(articles.begin() + option);
-    std::cout << "Article removed";
+    customers.erase(customers.begin() + option);
+    std::cout << "customer removed";
 
     return;
 }

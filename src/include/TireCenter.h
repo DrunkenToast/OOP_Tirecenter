@@ -78,20 +78,20 @@ public:
     std::string getAddress();
     void setAddress(std::string a);
 
-    std::vector<Article>& getArticles();
-    void setArticles(std::vector<Article> a);
+    std::vector<Article*>& getArticles();
+    void setArticles(std::vector<Article*> a);
     void addArticle(Article a);
 
-    std::vector<Customer>& getCustomers();
-    void setCustomers(std::vector<Customer> c);
-    void addCustomers(Customer c);
+    std::vector<Customer*>& getCustomers();
+    void setCustomers(std::vector<Customer*> c);
+    void addCustomer(Customer c);
 
     std::vector<Invoice>& getInvoices();
     void setInvoices(std::vector<Invoice> i);
 
 private:
     std::string name, address;
-    std::vector<Article> articles;
-    std::vector<Customer> customers;
+    std::vector<Article*> articles;
+    std::vector<Customer*> customers;
     std::vector<Invoice> invoices;
 };

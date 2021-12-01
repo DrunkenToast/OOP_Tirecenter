@@ -8,30 +8,19 @@ int login();
 
 int main()
 {
-    std::vector<Article> articles {
-        Article("test", "brand", 100, 10, 20, 'r'),
-        Article("testers", "brand", 100, 10, 20, 'r'),
-        Article("juice", "brand", 100, 10, 20, 'r'),
-        Article("Popshow", "brand", 100, 10, 20, 'r'),
-        Article("orange", "brand", 100, 10, 20, 'r'),
-        Article("popsongs", "brand", 100, 10, 20, 'r'),
-    };
+    std::vector<Article*> articles;
+
+    articles.push_back(new Tire("test", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
+    articles.push_back(new Tire("testers", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
+    articles.push_back(new Tire("juice", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
+    articles.push_back(new Tire("Popshow", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
+    articles.push_back(new Tire("orange", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
+    articles.push_back(new Tire("popsongs", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
+
     TireCenter tirecenter;
     tirecenter.setArticles(articles);
     Menu::actionMenu(userPermissions[(int)Menu::loginMenu()]);
 
-    switch (Menu::actionMenu(userPermissions[(int)Menu::loginMenu()]))
-    {
-    case Actions::A_ADD:
-        /* code */
-        break;
-    
-    default:
-        break;
-    }
-
-    Article *article = searchArticle(tirecenter);
-    article->setName("lol");
     searchArticle(tirecenter);
 
     return 0;

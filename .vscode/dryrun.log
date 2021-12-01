@@ -1,28 +1,28 @@
-make debug --dry-run --always-make --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/peter/Documents/projects/OOP_Tirecenter'
 mkdir -p ./build
 mkdir -p ./build/objects
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/Article.cpp -MMD -o build/objects/src/Article.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Article.cpp -MMD -o build/objects/src/Article.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/Company.cpp -MMD -o build/objects/src/Company.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Company.cpp -MMD -o build/objects/src/Company.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/Customer.cpp -MMD -o build/objects/src/Customer.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Customer.cpp -MMD -o build/objects/src/Customer.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/Invoice.cpp -MMD -o build/objects/src/Invoice.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Invoice.cpp -MMD -o build/objects/src/Invoice.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/Menu.cpp -MMD -o build/objects/src/Menu.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Menu.cpp -MMD -o build/objects/src/Menu.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/Rim.cpp -MMD -o build/objects/src/Rim.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Rim.cpp -MMD -o build/objects/src/Rim.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/Tire.cpp -MMD -o build/objects/src/Tire.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Tire.cpp -MMD -o build/objects/src/Tire.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/TireCenter.cpp -MMD -o build/objects/src/TireCenter.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/TireCenter.cpp -MMD -o build/objects/src/TireCenter.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/actions.cpp -MMD -o build/objects/src/actions.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/actions.cpp -MMD -o build/objects/src/actions.o
 mkdir -p build/objects/src
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -Iinclude/ -c src/main.cpp -MMD -o build/objects/src/main.o
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/main.cpp -MMD -o build/objects/src/main.o
 mkdir -p build
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -DDEBUG -g3 -o ./build/tirecenter build/objects/src/Article.o build/objects/src/Company.o build/objects/src/Customer.o build/objects/src/Invoice.o build/objects/src/Menu.o build/objects/src/Rim.o build/objects/src/Tire.o build/objects/src/TireCenter.o build/objects/src/actions.o build/objects/src/main.o -L/usr/lib -lstdc++ -lm -lncurses
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -o ./build/tirecenter build/objects/src/Article.o build/objects/src/Company.o build/objects/src/Customer.o build/objects/src/Invoice.o build/objects/src/Menu.o build/objects/src/Rim.o build/objects/src/Tire.o build/objects/src/TireCenter.o build/objects/src/actions.o build/objects/src/main.o -L/usr/lib -lstdc++ -lm -lncurses
 make: Leaving directory '/home/peter/Documents/projects/OOP_Tirecenter'
  
