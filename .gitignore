@@ -2,3 +2,4 @@ build
 *.zip
 .directory
 .vscode
+data/*
