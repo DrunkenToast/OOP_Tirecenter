@@ -7,6 +7,9 @@
 #include <map>
 
 enum class Actions {
+    EXIT,
+    BACK,
+
     A_ADD,
     A_DELETE,
     A_CHANGE,
@@ -42,6 +45,7 @@ enum class Actions {
 // };
 
 const std::string actionDescriptions[] {
+    "Exit program", "Back to login",
     "Add article", "Delete article", "Change article", "Search articles",
     "Add customer", "Delete customer", "Change customer", "Search customers",
     "Place Order",
@@ -80,7 +84,7 @@ public:
 
     std::vector<Article*>& getArticles();
     void setArticles(std::vector<Article*> a);
-    void addArticle(Article a);
+    void addArticle(Article* a);
 
     std::vector<Customer*>& getCustomers();
     void setCustomers(std::vector<Customer*> c);

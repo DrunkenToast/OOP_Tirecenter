@@ -7,31 +7,35 @@
 
 #include "include/Menu.h"
 #include "include/TireCenter.h"
+#include "include/util.h"
 
 UserType Menu::loginMenu() 
 {
-    int option;
+    // int option;
+    // std::string buffer;
 
-    std::cout << "== Login menu ==" << std::endl
-        << "\t1. Owner" << std::endl
-        << "\t2. Employee" << std::endl
-        << "Pick an option: ";
+    // std::cout << "== Login menu ==" << std::endl
+    //     << "\t1. Owner" << std::endl
+    //     << "\t2. Employee" << std::endl
+    //     << "Pick an option: ";
 
-    std::cin >> option;
+    // getline(std::cin, buffer);
+    // option = std::stoi(buffer);
 
-    while (!(option >= 1 && option <= 2))
-    {
-        std::cout << "Not a valid option, try again: ";
-        std::cin >> option;
-    } 
+    // while (!(option >= 1 && option <= 2))
+    // {
+    //     std::cout << "Not a valid option, try again: ";
+    //     std::cin >> option;
+    // } 
 
-    option--;
-    return static_cast<UserType>(option);
+    // option--;
+    return static_cast<UserType>(displayMenu("Login menu", {"Owner", "Employee"}));
 }
 
 Actions Menu::actionMenu(std::vector<Actions> options)
 {
     unsigned int option;
+    std::string buffer;
 
     std::stringstream menuList;
     menuList  << "== Actions menu ==" << std::endl;
@@ -43,7 +47,8 @@ Actions Menu::actionMenu(std::vector<Actions> options)
 
     std::cout << menuList.str();
 
-    std::cin >> option;
+    getline(std::cin, buffer);
+    option = std::stoi(buffer);
 
     while (!(option >= 1 && option <= options.size()))
     {
@@ -57,6 +62,7 @@ Actions Menu::actionMenu(std::vector<Actions> options)
 unsigned int Menu::displayMenu(std::string title, std::vector<std::string> options)
 {
     unsigned int option;
+    std::string buffer;
 
     std::stringstream menuList;
     menuList  << "== " << title << " ==" << std::endl;
@@ -67,8 +73,10 @@ unsigned int Menu::displayMenu(std::string title, std::vector<std::string> optio
     menuList << "Pick an option: ";
 
     std::cout << menuList.str();
+    // std::cin >> option;
 
-    std::cin >> option;
+    getline(std::cin, buffer);
+    option = std::stoi(buffer);
 
     while (!(option >= 1 && option <= options.size()))
     {
@@ -76,64 +84,38 @@ unsigned int Menu::displayMenu(std::string title, std::vector<std::string> optio
         std::cin >> option;
     }
 
-    return option-1;
+    return (unsigned int)option-1;
 }
 
-void Menu::editArticle(Article &art, char type)
+bool Menu::boolMenu(std::string title)
 {
-    std::string name;
-    std::string manufacturer;
-    int stock, diameter;
-    float price;
+    std::string buffer;
+    bool option;
+    bool picked = false;
 
-    // General article settings
-    std::cout << "name: ";
-    std::cin >> name;
-
-    std::cout << "manufacturer: ";
-    std::cin >> manufacturer;
-
-    std::cout << "stock: ";
-    std::cin >> stock;
-
-    std::cout << "diameter: ";
-    std::cin >> diameter;
-
-    std::cout << "price: ";
-    std::cin >> price;
-
-    if (type == 'T')
+    do
     {
-        
-    }
-    else if (type == 'R')
-    {
-        int width;
-        bool isAluminium;
-        char optionAl;
-        std::string color;
+        std::cout << title << " (Yes/No): " ;
+        getline(std::cin, buffer);
+        Util::asciiToLower(buffer);
 
-        std::cout << "width: ";
-        std::cin >> width;
-
-        std::cout << "Is aluminium (Y/n): ";
-        std::cin >> optionAl;
-        if (optionAl == 'n')
+        if (
+            buffer == "yes" ||
+            buffer == "y" ||
+            buffer == "1"
+        )
         {
-            isAluminium = false;
+            picked = true;
+            return true;
         }
-        else
+        else if (
+            buffer == "no" ||
+            buffer == "n" ||
+            buffer == "0"
+        )
         {
-            isAluminium = true;
+            picked = true;
+            return false;
         }
-
-        std::cout << "color: ";
-        std::cin >> color;
-
-
-    }
-    else
-    {
-        throw std::invalid_argument("Received something else other than T or R.");
-    }
+    } while (!picked);
 }

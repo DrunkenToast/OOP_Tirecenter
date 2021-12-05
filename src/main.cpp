@@ -9,23 +9,82 @@ int login();
 
 int main()
 {
-    std::vector<Article*> articles;
-
-    articles.push_back(new Tire("test", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
-    articles.push_back(new Tire("testers", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
-    articles.push_back(new Rim("juice", "brand", 100, 10, 20, 'r', 20, true, "blue"));
-    articles.push_back(new Tire("Popshow", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
-    articles.push_back(new Rim("orange", "brand", 100, 10, 20, 'r', 20, 10, "orange"));
-    articles.push_back(new Tire("popsongs", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w'));
-
     TireCenter tirecenter;
     FileHandler fileHandler(tirecenter);
 
-    tirecenter.setArticles(articles);
+    fileHandler.loadAll();
 
-    fileHandler.loadArticles();
+    // std::cout << Menu::boolMenu("test");
+    UserType user = Menu::loginMenu();
 
-    // Menu::actionMenu(userPermissions[(int)Menu::loginMenu()]);
+
+    // Article* art = new Tire("test", "brand", 100, 10, 20, 't', 20, 10, "FWEAFEW", 'w');
+
+    // changeArticle(art);
+
+    switch (Menu::actionMenu(userPermissions[(int)user]))
+    {
+    //Article options
+    case Actions::A_ADD:
+    {
+        addArticle(tirecenter);
+        break;
+    }
+    case Actions::A_DELETE:
+    {
+        deleteArticle(tirecenter, searchArticle(tirecenter));
+        break;
+    }
+    case Actions::A_CHANGE:
+    {
+        changeArticle(searchArticle(tirecenter));
+        break;
+    }
+    case Actions::A_SEARCH:
+    {
+        searchArticle(tirecenter)->print();
+        break;
+    }
+    //Customer options
+    case Actions::C_ADD:
+    {
+        addArticle(tirecenter);
+        break;
+    }
+    case Actions::C_DELETE:
+    {
+        addArticle(tirecenter);
+        break;
+    }
+    case Actions::C_CHANGE:
+    {
+        addArticle(tirecenter);
+        break;
+    }
+    case Actions::C_SEARCH:
+    {
+        addArticle(tirecenter);
+        break;
+    }
+    // Order options
+    case Actions::O_PLACE:
+    {
+        addArticle(tirecenter);
+        break;
+    }
+
+    //Invoice options
+    case Actions::I_SEARCH:
+    {
+        addArticle(tirecenter);
+        break;
+    }
+
+    default:
+        break;
+    }
+
+    
 
     // searchArticle(tirecenter);
 

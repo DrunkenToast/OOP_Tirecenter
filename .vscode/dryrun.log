@@ -9,6 +9,8 @@ g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Company.cpp -MM
 mkdir -p build/objects/src
 g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Customer.cpp -MMD -o build/objects/src/Customer.o
 mkdir -p build/objects/src
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/FileHandler.cpp -MMD -o build/objects/src/FileHandler.o
+mkdir -p build/objects/src
 g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Invoice.cpp -MMD -o build/objects/src/Invoice.o
 mkdir -p build/objects/src
 g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Menu.cpp -MMD -o build/objects/src/Menu.o
@@ -23,6 +25,6 @@ g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/actions.cpp -MM
 mkdir -p build/objects/src
 g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/main.cpp -MMD -o build/objects/src/main.o
 mkdir -p build
-g++ -std=c++20 -pedantic-errors -Wall -Wextra  -o ./build/tirecenter build/objects/src/Article.o build/objects/src/Company.o build/objects/src/Customer.o build/objects/src/Invoice.o build/objects/src/Menu.o build/objects/src/Rim.o build/objects/src/Tire.o build/objects/src/TireCenter.o build/objects/src/actions.o build/objects/src/main.o -L/usr/lib -lstdc++ -lm -lncurses
+g++ -std=c++20 -pedantic-errors -Wall -Wextra  -o ./build/tirecenter build/objects/src/Article.o build/objects/src/Company.o build/objects/src/Customer.o build/objects/src/FileHandler.o build/objects/src/Invoice.o build/objects/src/Menu.o build/objects/src/Rim.o build/objects/src/Tire.o build/objects/src/TireCenter.o build/objects/src/actions.o build/objects/src/main.o -L/usr/lib -lstdc++ -lm -lncurses
 make: Leaving directory '/home/peter/Documents/projects/OOP_Tirecenter'
  

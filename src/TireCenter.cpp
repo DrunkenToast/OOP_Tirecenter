@@ -40,9 +40,9 @@ void TireCenter::setArticles(std::vector<Article*> a)
     articles = a;
 }
 
-void TireCenter::addArticle(Article a) 
+void TireCenter::addArticle(Article* a) 
 {
-    articles.push_back(&a); // maybe not good idea :D
+    articles.push_back(a); // maybe not good idea :D
 }
 
 std::vector<Customer*>& TireCenter::getCustomers() 

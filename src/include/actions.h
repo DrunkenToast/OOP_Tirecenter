@@ -3,6 +3,7 @@
 #include "Tire.h"
 #include "Rim.h"
 
+#include <iostream>
 #include <vector>
 
 /*
@@ -20,9 +21,9 @@ Article* FilterSize(TireCenter &tc);
 
 void addArticle(TireCenter &tirecenter);
 
-void deleteArticle(TireCenter &tirecenter);
+void deleteArticle(TireCenter &tirecenter, Article* art);
 
-void changeArticle(TireCenter &tirecenter);
+void changeArticle(Article* art);
 
 Customer* searchCustomer(TireCenter &tirecenter, bool showMenu, std::string needle);
 
@@ -96,7 +97,7 @@ Article* FilterKeyword(TireCenter &tc)
     std::string needle;
 
     std::cout << "Keyword to search: ";
-    std::cin >> needle;
+    getline(std::cin, needle);
 
     for (auto &art : tc.getArticles())
     {
@@ -175,32 +176,140 @@ Article* FilterSize(TireCenter &tc)
 void addArticle(TireCenter &tirecenter)
 {
     int option = Menu::displayMenu("Add article", std::vector<std::string> {"Exit", "Add tire", "Add rim"});
+    Article* art;
 
-    if (option == 0) {return;}
-
-    // General article options
-    
-}
-
-void deleteArticle(TireCenter &tirecenter) // TODO full search
-{
-    std::vector<Article*> articles = tirecenter.getArticles();
-    std::vector<std::string> options;
-    // List all article options
-    for (auto &i : articles)
+    switch (option)
     {
-        options.push_back(i->getName());
+    case 0:
+        return;    
+    case 1:
+    {
+        art = new Tire("New tire", "manufacturer", 1, 1, 1, 't', 1, 1, "speed index", 's');
+        break;
+    }
+    case 2:
+    {
+        art = new Rim("New rim", "manufacturer", 1, 1, 1, 'r', 1, true, "color");
+        break;
+    }
+    default:
+        return;
     }
 
-    int option = Menu::displayMenu("Choose article to delete", options);
+    changeArticle(art);
 
-    articles.erase(articles.begin() + option);
-    std::cout << "Article removed";
+    tirecenter.addArticle(art);
+}
 
+void deleteArticle(TireCenter &tirecenter, Article* art) // TODO full search
+{
+    std::vector<Article*> articles = tirecenter.getArticles();
+    art->print();
+    if (Menu::boolMenu("Are you sure you want to delete this article?"))
+    {
+        auto it = find(articles.begin(), articles.end(), art);
+
+        if(it != articles.end())
+        {
+            int index = it - articles.begin();
+            articles.erase(articles.begin() + index);
+            delete art;
+        }
+        else
+        {
+            std::cout << "Couldn't find article to delete!" << std::endl;
+        }
+    }
     return;
 }
 
-void changeArticle(TireCenter &tirecenter);
+void changeArticle(Article* art)
+{
+    // int option = Menu::displayMenu("Add article", std::vector<std::string> {"Exit", "Add tire", "Add rim"});
+    art->print();
+    std::cout << "== Editing " << (art->getType() == 't' ? "tire" : "rim")
+        << " \"" << art->getName() << "\" ==" << std::endl;
+
+    //article params
+    std::string name, manufacturer, buffer;
+    int stock, diameter;
+    float price;
+    char type;
+    //tire params
+    int width, height;
+    std::string speedIndex;
+    char season;
+    //rim params
+    bool isAluminium;
+    std::string color;
+
+    std::cout << "Name: ";
+    getline(std::cin, name);
+    std::cout << "Manufacturer: ";
+    getline(std::cin, manufacturer);
+    std::cout << "Stock: ";
+    getline(std::cin, buffer);
+    stock = std::stoi(buffer);
+    std::cout << "diameter: ";
+    getline(std::cin, buffer);
+    diameter = std::stoi(buffer);
+    std::cout << "Price: ";
+    getline(std::cin, buffer);
+    price = std::stof(buffer);
+
+    art->setName(name);
+    art->setManufacturer(manufacturer);
+    art->setStock(stock);
+    art->setDiameter(diameter);
+    art->setPrice(price);
+
+    switch (art->getType())
+    {
+    case 't':
+        {
+            Tire* tire = dynamic_cast<Tire*>(art);
+
+            type = 't';
+            std::cout << "Width: ";
+            getline(std::cin, buffer);
+            width = std::stoi(buffer);
+            std::cout << "Height: ";
+            getline(std::cin, buffer);
+            height = std::stoi(buffer);
+            std::cout << "Speed index: ";
+            getline(std::cin, speedIndex);
+            std::cout << "Season: ";
+            getline(std::cin, buffer);
+            season = buffer[0];
+
+            tire->setWidth(width);
+            tire->setHeight(height);
+            tire->setSpeedIndex(speedIndex);
+            tire->setSeason(season);
+
+            break;
+        }
+    case 'r':
+        {
+            Rim* rim = dynamic_cast<Rim*>(art);
+
+            type = 'r';
+            std::cout << "Width: ";
+            getline(std::cin, buffer);
+            width = std::stoi(buffer);
+            isAluminium = Menu::boolMenu("Is aluminium?");
+            std::cout << "Color: ";
+            getline(std::cin, color);
+
+            rim->setWidth(width);
+            rim->setAluminium(isAluminium);
+            rim->setColor(color);
+
+            break;
+        }
+    }
+    art->print();
+}
 
 Customer* searchCustomer(TireCenter &tirecenter, bool showMenu = true, std::string needle = "");
 

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Dec  2 12:33:36 2021
+# Make data base, printed on Sun Dec  5 14:11:11 2021
 
 # Variables
 
@@ -23,11 +23,11 @@ KWIN_TRIPLE_BUFFER = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/peter/.gtkrc:/home/peter/.config/gtkrc
 # environment
-STARSHIP_SESSION_KEY = 4404120531604615
+STARSHIP_SESSION_KEY = 6473210406641152
 # environment
 __GL_MaxFramesAllowed = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2f90d125-7366-4b46-9fd1-40eb93e5dddf.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a6e5dfed-5b8a-43a2-b732-ab4cced7308a.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -103,7 +103,7 @@ XDG_SESSION_DESKTOP = KDE
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=ef70f978-d492-40cd-aa57-b5a86ae64643&iid=ef70f978-d492-40cd-aa57-b5a86ae64643&sid=ef70f978-d492-40cd-aa57-b5a86ae64643","uploadToServer":true}
 # makefile (from 'build/objects/src/main.d', line 1)
-MAKEFILE_LIST := Makefile build/objects/src/Article.d build/objects/src/Company.d build/objects/src/Customer.d build/objects/src/Invoice.d build/objects/src/Menu.d build/objects/src/Rim.d build/objects/src/Tire.d build/objects/src/TireCenter.d build/objects/src/actions.d build/objects/src/main.d
+MAKEFILE_LIST := Makefile build/objects/src/Article.d build/objects/src/Company.d build/objects/src/Customer.d build/objects/src/FileHandler.d build/objects/src/Invoice.d build/objects/src/Menu.d build/objects/src/Rim.d build/objects/src/Tire.d build/objects/src/TireCenter.d build/objects/src/actions.d build/objects/src/main.d
 # automatic
 @F = $(notdir $@)
 # environment
@@ -113,13 +113,13 @@ PT8HOME = /opt/packettracer/
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 22693
+VSCODE_PID = 8414
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/toaster:@/tmp/.ICE-unix/5865,unix/toaster:/tmp/.ICE-unix/5865
+SESSION_MANAGER = local/toaster:@/tmp/.ICE-unix/2430,unix/toaster:/tmp/.ICE-unix/2430
 # automatic
 *F = $(notdir $*)
 # environment
@@ -159,7 +159,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # makefile (from 'Makefile', line 30)
-DEPENDENCIES := ./build/objects/src/Article.d ./build/objects/src/Company.d ./build/objects/src/Customer.d ./build/objects/src/Invoice.d ./build/objects/src/Menu.d ./build/objects/src/Rim.d ./build/objects/src/Tire.d ./build/objects/src/TireCenter.d ./build/objects/src/actions.d ./build/objects/src/main.d
+DEPENDENCIES := ./build/objects/src/Article.d ./build/objects/src/Company.d ./build/objects/src/Customer.d ./build/objects/src/FileHandler.d ./build/objects/src/Invoice.d ./build/objects/src/Menu.d ./build/objects/src/Rim.d ./build/objects/src/Tire.d ./build/objects/src/TireCenter.d ./build/objects/src/actions.d ./build/objects/src/main.d
 # environment
 LC_TIME = nl_BE.UTF-8
 # environment
@@ -187,7 +187,7 @@ DESKTOP_SESSION = plasma
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = KDE
 # makefile (from 'Makefile', line 29)
-OBJECTS := ./build/objects/src/Article.o ./build/objects/src/Company.o ./build/objects/src/Customer.o ./build/objects/src/Invoice.o ./build/objects/src/Menu.o ./build/objects/src/Rim.o ./build/objects/src/Tire.o ./build/objects/src/TireCenter.o ./build/objects/src/actions.o ./build/objects/src/main.o
+OBJECTS := ./build/objects/src/Article.o ./build/objects/src/Company.o ./build/objects/src/Customer.o ./build/objects/src/FileHandler.o ./build/objects/src/Invoice.o ./build/objects/src/Menu.o ./build/objects/src/Rim.o ./build/objects/src/Tire.o ./build/objects/src/TireCenter.o ./build/objects/src/actions.o ./build/objects/src/main.o
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -199,7 +199,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 5722
+SYSTEMD_EXEC_PID = 2189
 # environment
 EDITOR = nano
 # environment
@@ -269,7 +269,7 @@ KDE_FULL_SESSION = true
 # environment
 LC_IDENTIFICATION = en_US.UTF-8
 # variable set hash-table stats:
-# Load=129/1024=13%, Rehash=0, Collisions=15/205=7%
+# Load=129/1024=13%, Rehash=0, Collisions=15/207=7%
 
 # Pattern-specific Variable Values
 
@@ -277,11 +277,11 @@ LC_IDENTIFICATION = en_US.UTF-8
 
 # Directories
 
+# src (device 66309, inode 4366380): 15 files, no impossibilities.
+# . (device 66309, inode 4366363): 18 files, no impossibilities.
  
-# src (device 66309, inode 4366380): 14 files, no impossibilities.
-# . (device 66309, inode 4366363): 17 files, no impossibilities.
 
-# 31 files, no impossibilities in 2 directories.
+# 33 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -308,7 +308,7 @@ src/Customer.cpp:
 # Not a target:
 build/objects/src/Company.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:03.104957304
+#  Last modified 2021-12-02 13:53:01.526940942
 #  File has been updated.
 #  Successfully updated.
 
@@ -325,7 +325,7 @@ build/objects/src/Menu.o: src/Menu.cpp src/include/Menu.h src/include/TireCenter
 # Not a target:
 build/objects/src/main.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:05.558265892
+#  Last modified 2021-12-02 13:53:05.323579617
 #  File has been updated.
 #  Successfully updated.
 
@@ -338,7 +338,7 @@ src/Invoice.cpp:
 # Not a target:
 build/objects/src/Rim.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:07.018251167
+#  Last modified 2021-12-02 13:53:06.843568409
 #  File has been updated.
 #  Successfully updated.
 
@@ -390,9 +390,15 @@ Makefile:
 #  Successfully updated.
 
 # Not a target:
+src/include/FileHandler.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 build/objects/src/Invoice.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:04.394944292
+#  Last modified 2021-12-02 13:53:04.000256041
 #  File has been updated.
 #  Successfully updated.
 
@@ -469,7 +475,7 @@ info:
 # Not a target:
 build/objects/src/Customer.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:03.664951655
+#  Last modified 2021-12-02 13:53:02.273602104
 #  File has been updated.
 #  Successfully updated.
 
@@ -483,7 +489,7 @@ launch:
 # Not a target:
 build/objects/src/TireCenter.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:07.944908488
+#  Last modified 2021-12-02 13:53:07.546896556
 #  File has been updated.
 #  Successfully updated.
 
@@ -496,9 +502,15 @@ src/include/TireCenter.h:
 # Not a target:
 build/objects/src/Tire.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:08.574902134
+#  Last modified 2021-12-02 13:53:08.006893164
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+src/FileHandler.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/include/Rim.h:
@@ -512,7 +524,7 @@ src/include/Rim.h:
 #  Modification time never checked.
 #  File has not been updated.
 
-build/objects/src/main.o: src/main.cpp src/include/TireCenter.h src/include/Article.h src/include/Customer.h src/include/Invoice.h src/include/Menu.h src/include/actions.h src/include/Tire.h src/include/Rim.h
+build/objects/src/main.o: src/main.cpp src/include/TireCenter.h src/include/Article.h src/include/Customer.h src/include/Invoice.h src/include/Menu.h src/include/actions.h src/include/Tire.h src/include/Rim.h src/include/FileHandler.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -559,6 +571,7 @@ build:
 # automatic
 # | := 
 # variable set hash-table stats:
+ 
 # Load=8/32=25%, Rehash=0, Collisions=2/13=15%
 #  recipe to execute (from 'Makefile', line 51):
 	@mkdir -p $(APP_DIR)
@@ -567,8 +580,7 @@ build:
 # Not a target:
 build/objects/src/Article.d:
 #  Implicit rule search has been done.
- 
-#  Last modified 2021-12-01 12:35:02.534963053
+#  Last modified 2021-12-02 13:53:00.870279116
 #  File has been updated.
 #  Successfully updated.
 
@@ -593,7 +605,7 @@ src/Menu.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-build/tirecenter: build/objects/src/Article.o build/objects/src/Company.o build/objects/src/Customer.o build/objects/src/Invoice.o build/objects/src/Menu.o build/objects/src/Rim.o build/objects/src/Tire.o build/objects/src/TireCenter.o build/objects/src/actions.o build/objects/src/main.o
+build/tirecenter: build/objects/src/Article.o build/objects/src/Company.o build/objects/src/Customer.o build/objects/src/FileHandler.o build/objects/src/Invoice.o build/objects/src/Menu.o build/objects/src/Rim.o build/objects/src/Tire.o build/objects/src/TireCenter.o build/objects/src/actions.o build/objects/src/main.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -604,7 +616,7 @@ build/tirecenter: build/objects/src/Article.o build/objects/src/Company.o build/
 # Not a target:
 build/objects/src/actions.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:01.9949685
+#  Last modified 2021-12-02 13:53:00.306949935
 #  File has been updated.
 #  Successfully updated.
 
@@ -618,6 +630,13 @@ compile_commands:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+build/objects/src/FileHandler.d:
+#  Implicit rule search has been done.
+#  Last modified 2021-12-02 13:53:03.230261718
+#  File has been updated.
+#  Successfully updated.
 
 build/objects/src/Invoice.o: src/Invoice.cpp src/include/Invoice.h src/include/Article.h src/include/Customer.h
 #  Implicit rule search has not been done.
@@ -643,7 +662,7 @@ release: all
 # Not a target:
 build/objects/src/Menu.d:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 12:35:06.434923717
+#  Last modified 2021-12-02 13:53:06.246906143
 #  File has been updated.
 #  Successfully updated.
 
@@ -663,6 +682,11 @@ build/objects/src/TireCenter.o: src/TireCenter.cpp src/include/TireCenter.h src/
 #  Modification time never checked.
 #  File has not been updated.
 
+build/objects/src/FileHandler.o: src/FileHandler.cpp src/include/FileHandler.h src/include/TireCenter.h src/include/Article.h src/include/Customer.h src/include/Invoice.h src/include/Tire.h src/include/Rim.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 gdb: debug
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -671,19 +695,19 @@ gdb: debug
 	@gdb $(APP_DIR)/$(TARGET)
 
 # files hash-table stats:
-# Load=54/1024=5%, Rehash=0, Collisions=2/156=1%
+# Load=58/1024=6%, Rehash=0, Collisions=2/172=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 85 / storage = 1354 B / avg = 15 B
-# current buf: size = 8162 B / used = 1354 B / count = 85 / avg = 15 B
+# strcache buffers: 1 (0) / strings = 91 / storage = 1485 B / avg = 16 B
+# current buf: size = 8162 B / used = 1485 B / count = 91 / avg = 16 B
 
-# strcache performance: lookups = 171 / hit rate = 50%
+# strcache performance: lookups = 187 / hit rate = 51%
 # hash-table stats:
-# Load=85/8192=1%, Rehash=0, Collisions=0/171=0%
-# Finished Make data base on Thu Dec  2 12:33:36 2021
+# Load=91/8192=1%, Rehash=0, Collisions=0/187=0%
+# Finished Make data base on Sun Dec  5 14:11:11 2021
 
  
