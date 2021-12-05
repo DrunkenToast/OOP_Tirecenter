@@ -12,6 +12,16 @@ FileHandler::FileHandler(TireCenter &tc)
 {    
 }
 
+void FileHandler::saveAll() 
+{
+    this->saveArticles();
+}
+
+void FileHandler::loadAll() 
+{
+    this->loadArticles();
+}
+
 
 std::ofstream FileHandler::outputFile(char* filePath) 
 {
@@ -89,54 +99,70 @@ void FileHandler::loadArticles()
     std::vector<Article*> articles;
 
     std::string line;
+
+    //article params
+    std::string name, manufacturer;
+    int stock, diameter;
+    float price;
+    char type;
+    //tire params
+    int width, height;
+    std::string speedIndex;
+    char season;
+    //rim params
+    bool isAluminium;
+    std::string color;
+
     while(!file.eof())
     {
-        Article* art;
         getline(file, line);
-        art->setName(line); //Error here with casting /shrug
+        if (line == "") {break;} // Last line contains nothing
+        name = line;
         getline(file, line);
-        art->setManufacturer(line);
+        manufacturer = line;
         getline(file, line);
-        art->setStock(std::stoi(line));
+        stock = std::stoi(line);
         getline(file, line);
-        art->setDiameter(std::stoi(line));
+        diameter = std::stoi(line);
         getline(file, line);
-        art->setPrice(std::stof(line));
+        price = std::stof(line);
         getline(file, line);
-        art->setType(line[0]);
+        type = line[0];
 
-        switch (art->getType())
+        switch (type)
         {
         case 't':
             {
-                Tire* tire = dynamic_cast<Tire*>(art);
+                getline(file, line);
+                width = std::stoi(line);
+                getline(file, line);
+                height = std::stoi(line);
+                getline(file, line);
+                speedIndex = line;
+                getline(file, line);
+                season = line[0];
 
-                getline(file, line);
-                tire->setWidth(std::stoi(line));
-                getline(file, line);
-                tire->setHeight(std::stoi(line));
-                getline(file, line);
-                tire->setSpeedIndex(line);
-                getline(file, line);
-                tire->setSeason(line[0]);
+                articles.push_back(new Tire(name, manufacturer, stock, diameter, price, type,
+                    width, height, speedIndex, season));
                 break;
             }
         case 'r':
             {
-                Rim* rim = dynamic_cast<Rim*>(art);
-                
                 getline(file, line);
-                rim->setWidth(std::stoi(line));
+                width = std::stoi(line);
                 getline(file, line);
-                rim->setAluminium(std::stoi(line));
+                isAluminium = std::stoi(line);
                 getline(file, line);
-                rim->setColor(line);
+                color = line;
+
+                articles.push_back(new Rim(name, manufacturer, stock, diameter, price, type,
+                    width, isAluminium, color));
                 break;
             }
         default:
+            articles.push_back(new Article(name, manufacturer, stock, diameter, price, type));
             break;
         }
-        articles.push_back(art);
     }
 
     tc.setArticles(articles);
