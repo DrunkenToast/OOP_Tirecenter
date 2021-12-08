@@ -55,9 +55,9 @@ void TireCenter::setCustomers(std::vector<Customer*> c)
     customers = c;
 }
 
-void TireCenter::addCustomer(Customer c) 
+void TireCenter::addCustomer(Customer* c) 
 {
-    customers.push_back(&c);
+    customers.push_back(c);
 }
 
 std::vector<Invoice>& TireCenter::getInvoices() 

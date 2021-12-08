@@ -88,7 +88,7 @@ public:
 
     std::vector<Customer*>& getCustomers();
     void setCustomers(std::vector<Customer*> c);
-    void addCustomer(Customer c);
+    void addCustomer(Customer* c);
 
     std::vector<Invoice>& getInvoices();
     void setInvoices(std::vector<Invoice> i);
