@@ -2,9 +2,9 @@
 #include "include/Article.h"
 
 Article::Article(std::string name, std::string manufacturer,
-    int stock, int diameter, float price, char type) 
+    int stock, int diameter, float price) 
     : name(name), manufacturer(manufacturer), stock(stock), diameter(diameter),
-    price(price), type(type)
+    price(price)
 {
     
 }
@@ -59,15 +59,15 @@ void Article::setPrice(float p)
     price = p;
 }
 
-char Article::getType() const
-{
-    return type;
-}
+// char Article::getType() const
+// {
+//     return type;
+// }
 
-void Article::setType(char t) 
-{
-    type = t;
-}
+// void Article::setType(char t) 
+// {
+//     type = t;
+// }
 
 void Article::print() const
 {

@@ -7,10 +7,12 @@ class Tire
 {
     public:
     Tire(std::string name, std::string manufacturer,
-        int stock, int diameter, float price, char type,
+        int stock, int diameter, float price,
         //Tire specific
         int width, int height, std::string speedIndex, char season);
     virtual ~Tire() = default;
+
+    virtual char getType() const override;
 
     int getWidth() const;
     void setWidth(int w);
@@ -24,7 +26,7 @@ class Tire
     char getSeason() const;
     void setSeason(char s);
 
-    virtual void print() const;
+    virtual void print() const override;
 
     private:
     int width, height;

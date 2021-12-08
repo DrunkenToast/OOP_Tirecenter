@@ -7,10 +7,12 @@ class Rim
 {
     public:
     Rim(std::string name, std::string manufacturer,
-        int stock, int diameter, float price, char type,
+        int stock, int diameter, float price,
         //Rim specific
         int width, bool isAluminium, std::string color);
     virtual ~Rim() = default;
+
+    virtual char getType() const override;
 
     int getWidth() const;
     void setWidth(int w);
@@ -21,7 +23,7 @@ class Rim
     std::string getColor() const;
     void setColor(std::string c);
 
-    virtual void print() const;
+    virtual void print() const override;
 
     private:
     std::string color;
