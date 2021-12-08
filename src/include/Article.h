@@ -5,7 +5,7 @@ class Article
 {
 public:
     Article(std::string name, std::string manufacturer,
-        int stock, int diameter, float price, char type);
+        int stock, int diameter, float price /*, char type*/);
     virtual ~Article() = default;
 
     std::string getName() const;
@@ -23,14 +23,15 @@ public:
     float getPrice() const;
     void setPrice(float p);
 
-    char getType() const;
-    void setType(char t);
+    virtual char getType() const = 0; // Abstract class
+    // void setType(char t);
 
-    void print() const; // TODO MAAK VIRTUAL!!
+    virtual void print() const;
 
 private:
     std::string name, manufacturer;
     int stock, diameter;
     float price;
-    char type;
+// protected:
+//     char type;
 };
