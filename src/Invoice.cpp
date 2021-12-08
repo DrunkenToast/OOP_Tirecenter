@@ -1,8 +1,7 @@
 #include <iostream>
 #include "include/Invoice.h"
 
-Invoice::Invoice(Customer customer, float price, int discount, std::vector<Article> articles)
-    : customer(customer), price(price), discount(discount), articles(articles)
+Invoice::Invoice()
 {
     
 }
@@ -12,18 +11,19 @@ Invoice::~Invoice()
     
 }
 
-std::vector<Article> Invoice::getArticles() 
+std::vector<Article*> Invoice::getArticles() 
 {
     return articles;
 }
 
-void Invoice::setArticles(std::vector<Article> a) 
+void Invoice::setArticles(std::vector<Article*> a) 
 {
     articles = a;
 }
 
-void Invoice::addArticles(Article a) 
+void Invoice::addArticles(Article* a) 
 {
+    
     articles.push_back(a);
 }
 
