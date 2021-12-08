@@ -42,49 +42,51 @@ int main()
     }
     case Actions::A_SEARCH:
     {
-        searchArticle(tirecenter)->print();
+        Article* a;
+        a = searchArticle(tirecenter);
+        if (a != NULL) {a->print();}
         break;
     }
     //Customer options
     case Actions::C_ADD:
     {
-        addArticle(tirecenter);
+        addCustomer(tirecenter);
         break;
     }
     case Actions::C_DELETE:
     {
-        addArticle(tirecenter);
+        deleteCustomer(tirecenter);
         break;
     }
     case Actions::C_CHANGE:
     {
-        addArticle(tirecenter);
+        changeCustomer(tirecenter);
         break;
     }
     case Actions::C_SEARCH:
     {
-        addArticle(tirecenter);
+        Customer* c;
+        c = searchCustomer(tirecenter);
+        if (c != NULL) {c->print();}
         break;
     }
     // Order options
     case Actions::O_PLACE:
     {
-        addArticle(tirecenter);
+        placeOrder(tirecenter);
         break;
     }
 
     //Invoice options
     case Actions::I_SEARCH:
     {
-        addArticle(tirecenter);
+        checkInvoices(tirecenter);
         break;
     }
 
     default:
         break;
     }
-
-    
 
     // searchArticle(tirecenter);
 
