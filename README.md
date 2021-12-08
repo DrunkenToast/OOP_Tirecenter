@@ -8,11 +8,14 @@ Project focussed on C++ OOP about a tirecenter.
 
 ## TODO
 
-- Most use cases
-- Loading and saving
-  - Articles done
-- Error handling
-  - Wrong input types
-- Make functions for reading lines
-- Proper exit and back options in menus
-- Styling
+- [ ] Most use cases
+- [ ] Loading and saving
+  - [X] Articles
+- [ ] Error handling
+  - [ ] Wrong input types
+- [ ] Make functions for reading lines
+- [ ] Proper exit and back options in menus
+- [ ] Styling
+- [ ] Minimize warnings
+- [X] Abstract article class
+- [ ] Clean up parameters in actions (full tirecenter not necessary)
