@@ -142,7 +142,7 @@ void FileHandler::loadArticles()
                 getline(file, line);
                 season = line[0];
 
-                articles.push_back(new Tire(name, manufacturer, stock, diameter, price, type,
+                articles.push_back(new Tire(name, manufacturer, stock, diameter, price,
                     width, height, speedIndex, season));
                 break;
             }
@@ -155,13 +155,13 @@ void FileHandler::loadArticles()
                 getline(file, line);
                 color = line;
 
-                articles.push_back(new Rim(name, manufacturer, stock, diameter, price, type,
+                articles.push_back(new Rim(name, manufacturer, stock, diameter, price,
                     width, isAluminium, color));
                 break;
             }
-        default:
-            articles.push_back(new Article(name, manufacturer, stock, diameter, price, type));
-            break;
+        // default:
+        //     articles.push_back(new Article(name, manufacturer, stock, diameter, price, type));
+        //     break;
         }
     }
 
