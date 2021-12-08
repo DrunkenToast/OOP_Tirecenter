@@ -3,13 +3,18 @@
 #include "include/Article.h"
 
 Rim::Rim(std::string name, std::string manufacturer,
-        int stock, int diameter, float price, char type,
+        int stock, int diameter, float price,
         //Rim specific
         int width, bool isAluminium, std::string color)
-    : Article(name, manufacturer, stock, diameter, price, type),
+    : Article(name, manufacturer, stock, diameter, price),
         width(width), isAluminium(isAluminium), color(color)
 {
     
+}
+
+char Rim::getType() const 
+{
+    return 'r';
 }
 
 int Rim::getWidth() const

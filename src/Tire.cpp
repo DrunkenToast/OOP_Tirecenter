@@ -2,13 +2,19 @@
 #include "include/Tire.h"
 
 Tire::Tire(std::string name, std::string manufacturer,
-        int stock, int diameter, float price, char type,
+        int stock, int diameter, float price,
         //Tire specific
         int width, int height, std::string speedIndex, char season)
-    : Article(name, manufacturer, stock, diameter, price, type),
+    : Article(name, manufacturer, stock, diameter, price),
         width(width), height(height), speedIndex(speedIndex), season(season)
 {
 }
+
+char Tire::getType() const 
+{
+    return 'r';
+}
+
 
 int Tire::getWidth() const
 {
