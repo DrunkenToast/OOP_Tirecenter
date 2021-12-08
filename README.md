@@ -19,3 +19,5 @@ Project focussed on C++ OOP about a tirecenter.
 - [ ] Minimize warnings
 - [X] Abstract article class
 - [ ] Clean up parameters in actions (full tirecenter not necessary)
+- [ ] convert to `nullptr`
+- [ ] fix customer constructor

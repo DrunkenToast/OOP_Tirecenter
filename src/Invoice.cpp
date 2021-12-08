@@ -3,7 +3,7 @@
 
 Invoice::Invoice()
 {
-    
+
 }
 
 Invoice::~Invoice() 
