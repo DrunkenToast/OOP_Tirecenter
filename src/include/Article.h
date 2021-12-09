@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <sstream>
 
 class Article
 {
@@ -8,7 +9,15 @@ public:
         int stock, int diameter, float price /*, char type*/);
     virtual ~Article() = default;
 
-    virtual Article* clone(void) const;
+    virtual Article* clone(void) const = 0;
+
+    friend std::ostream& operator<<(std::ostream& output, const Article &art){
+        output << art.exportData();
+    };
+
+    friend std::istream& operator>>(std::istream& input, Article &art){
+        art.importData(input);
+    };
 
     std::string getName() const;
     void setName(std::string n);
@@ -31,6 +40,8 @@ public:
     virtual void print() const;
 
 private:
+    virtual std::string exportData() const = 0;
+    virtual void importData(std::istream &input) = 0;
     std::string name, manufacturer;
     int stock, diameter;
     float price;

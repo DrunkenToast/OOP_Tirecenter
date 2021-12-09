@@ -29,6 +29,8 @@ class Rim
     void print() const;
 
     private:
+    std::string exportData() const;
+    void importData(std::istream &input);
     std::string color;
     bool isAluminium;
     int width;

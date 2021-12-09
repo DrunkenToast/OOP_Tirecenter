@@ -12,6 +12,55 @@ Rim::Rim(std::string name, std::string manufacturer,
     
 }
 
+
+std::string Rim::exportData() const
+{
+    std::stringstream data;
+    data
+        << getType() << std::endl
+
+        << getName() << std::endl
+        << getManufacturer() << std::endl
+        << getStock() << std::endl
+        << getDiameter() << std::endl
+        << getPrice() << std::endl
+
+        << getWidth() << std::endl
+        << getAluminium() << std::endl
+        << getColor() << std::endl;
+    return data.str();
+}
+
+void Rim::importData(std::istream &input)
+{
+    std::string line;
+    getline(input, line);
+    setName(line);
+
+    getline(input, line);
+    setManufacturer(line);
+
+    getline(input, line);
+    setStock(std::stoi(line));
+
+    getline(input, line);
+    setDiameter(std::stoi(line));
+
+    getline(input, line);
+    setPrice(std::stof(line));
+
+
+    getline(input, line);
+    setWidth(std::stoi(line));
+
+    getline(input, line);
+    setAluminium(std::stoi(line));
+
+    getline(input, line);
+    setColor(line);
+
+}
+
 char Rim::getType() const 
 {
     return 'r';

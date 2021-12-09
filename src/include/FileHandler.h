@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <sstream>
 
 #include "TireCenter.h"
 
@@ -20,10 +21,17 @@ class FileHandler
     private:
     void saveArticles();
     void loadArticles();
+    void inputArticle(std::ifstream, Article*);
+    std::stringstream outputArticle(std::ofstream);
+
+    void saveInvoices();
+    void loadInvoices();
+
 
     TireCenter &tc;
 
     char pathArticles[256] = "data/articles.dat";
+    char pathInvoices[256] = "data/invoices.dat";
     // Returns a file for writing
     std::ofstream outputFile(char* filePath);
     // Returns a file for reading

@@ -13,7 +13,7 @@ class Tire
     virtual ~Tire() = default;
 
     Article* clone(void) const {return new Tire(*this);}
-
+    
     virtual char getType() const override;
 
     int getWidth() const;
@@ -31,6 +31,8 @@ class Tire
     void print() const;
 
     private:
+    std::string exportData() const;
+    void importData(std::istream &input);
     int width, height;
     std::string speedIndex;
     char season;

@@ -461,7 +461,15 @@ void placeOrder(TireCenter &tirecenter)
 {
     Invoice *invoice = new Invoice();
     Article* art = nullptr;
+    Customer* cust = nullptr;
     int amt;
+    
+    do
+    {
+        std::cout << "Select a customer for order:" << std::endl;
+        cust = searchCustomer(tirecenter);
+    } while (cust == nullptr);
+    
     do
     {
         do

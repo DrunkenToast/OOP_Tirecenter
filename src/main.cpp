@@ -100,6 +100,8 @@ int main()
         default:
             break;
         }
+
+        fileHandler.saveAll();
     }
 
     // searchArticle(tirecenter);

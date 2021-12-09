@@ -10,9 +10,61 @@ Tire::Tire(std::string name, std::string manufacturer,
 {
 }
 
+std::string Tire::exportData() const
+{
+    std::stringstream data;
+    data
+        << getType() << std::endl
+
+        << getName() << std::endl
+        << getManufacturer() << std::endl
+        << getStock() << std::endl
+        << getDiameter() << std::endl
+        << getPrice() << std::endl
+
+        << getWidth() << std::endl
+        << getHeight() << std::endl
+        << getSpeedIndex() << std::endl
+        << getSeason() << std::endl;
+    return data.str();
+}
+
+void Tire::importData(std::istream &input)
+{
+    std::string line;
+    getline(input, line);
+    setName(line);
+
+    getline(input, line);
+    setManufacturer(line);
+
+    getline(input, line);
+    setStock(std::stoi(line));
+
+    getline(input, line);
+    setDiameter(std::stoi(line));
+
+    getline(input, line);
+    setPrice(std::stof(line));
+
+
+    getline(input, line);
+    setWidth(std::stoi(line));
+
+    getline(input, line);
+    setHeight(std::stoi(line));
+
+    getline(input, line);
+    setSpeedIndex(line);
+
+    getline(input, line);
+    setSeason(line[0]);
+
+}
+
 char Tire::getType() const 
 {
-    return 'r';
+    return 't';
 }
 
 

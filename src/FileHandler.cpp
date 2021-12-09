@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
 #include <cstdlib>
 
 #include "include/FileHandler.h"
@@ -166,6 +167,52 @@ void FileHandler::loadArticles()
     }
 
     tc.setArticles(articles);
+
+    file.close();
+    std::cout << "Done." << std::endl;
+}
+
+void FileHandler::saveInvoices() 
+{
+    std::cout << "Saving invoices... ";
+
+    std::ofstream file = outputFile(this->pathInvoices);
+    
+    for (auto &art : tc.getInvoices()) {
+        // Article properties
+        file << art->getName() << std ::endl
+            << art->getManufacturer() << std::endl
+            << art->getStock() << std::endl
+            << art->getDiameter() << std::endl
+            << art->getPrice() << std::endl
+            << art->getType() << std::endl;
+
+        // Article specific
+        switch (art->getType())
+        {
+        case 't':
+           {
+               Tire* tire = dynamic_cast<Tire*>(art);
+
+                file << tire->getWidth() << std ::endl
+                << tire->getHeight() << std::endl
+                << tire->getSpeedIndex() << std::endl
+                << tire->getSeason() << std::endl;
+            }
+            break;
+        case 'r':
+            {
+                Rim* rim = dynamic_cast<Rim*>(art);
+
+                file << rim->getWidth() << std ::endl
+                << rim->getAluminium() << std::endl
+                << rim->getColor() << std::endl;
+                break;
+            }
+        default:
+            break;
+        }
+    }
 
     file.close();
     std::cout << "Done." << std::endl;
