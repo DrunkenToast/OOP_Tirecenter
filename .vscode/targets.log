@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Dec  8 21:30:43 2021
+# Make data base, printed on Thu Dec  9 08:06:23 2021
 
 # Variables
 
@@ -23,11 +23,11 @@ KWIN_TRIPLE_BUFFER = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/peter/.gtkrc:/home/peter/.config/gtkrc
 # environment
-STARSHIP_SESSION_KEY = 3388133746308921
+STARSHIP_SESSION_KEY = 1509528270186056
 # environment
 __GL_MaxFramesAllowed = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5943f878-20cb-4d59-adee-c3c4815e731e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6e74272d-312d-4c99-b50e-f7a3ad11f627.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -113,13 +113,13 @@ PT8HOME = /opt/packettracer/
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 369298
+VSCODE_PID = 4910
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/toaster:@/tmp/.ICE-unix/11773,unix/toaster:/tmp/.ICE-unix/11773
+SESSION_MANAGER = local/toaster:@/tmp/.ICE-unix/3798,unix/toaster:/tmp/.ICE-unix/3798
 # automatic
 *F = $(notdir $*)
 # environment
@@ -163,8 +163,6 @@ DEPENDENCIES := ./build/objects/src/Article.d ./build/objects/src/Company.d ./bu
 # environment
 LC_TIME = nl_BE.UTF-8
 # environment
-INVOCATION_ID = ef127f7e955e44f99a59a8dc3c337854
-# environment
 VSCODE_LOG_NATIVE = false
 # environment
 LC_TELEPHONE = nl_BE.UTF-8
@@ -201,7 +199,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 16644
+SYSTEMD_EXEC_PID = 3642
 # environment
 EDITOR = nano
 # environment
@@ -218,8 +216,6 @@ KDE_SESSION_UID = 1000
 BUILD = ./build
 # makefile (from 'Makefile', line 18)
 LDFLAGS = -L/usr/lib -lstdc++ -lm -lncurses
-# environment
-MANAGERPID = 11631
 # makefile (from 'Makefile', line 21)
 APP_DIR := ./build
 # environment
@@ -234,8 +230,6 @@ _ = /usr/bin/make
 LC_PAPER = en_US.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
-# environment
-JOURNAL_STREAM = 8:77738
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -275,7 +269,7 @@ KDE_FULL_SESSION = true
 # environment
 LC_IDENTIFICATION = en_US.UTF-8
 # variable set hash-table stats:
-# Load=132/1024=13%, Rehash=0, Collisions=15/198=8%
+# Load=129/1024=13%, Rehash=0, Collisions=15/195=8%
 
 # Pattern-specific Variable Values
 
@@ -567,6 +561,7 @@ build/objects/src/Tire.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # Not a target:
 build/objects/src/Rim.o:
@@ -575,7 +570,6 @@ build/objects/src/Rim.o:
 #  File has not been updated.
 
 build/tirecenter: build/objects/src/Article.o build/objects/src/Company.o build/objects/src/Customer.o build/objects/src/FileHandler.o build/objects/src/Invoice.o build/objects/src/Menu.o build/objects/src/Rim.o build/objects/src/Tire.o build/objects/src/TireCenter.o build/objects/src/main.o build/objects/src/util.o
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -672,6 +666,6 @@ gdb: debug
 # strcache performance: lookups = 147 / hit rate = 43%
 # hash-table stats:
 # Load=83/8192=1%, Rehash=0, Collisions=0/147=0%
-# Finished Make data base on Wed Dec  8 21:30:43 2021
+# Finished Make data base on Thu Dec  9 08:06:23 2021
 
  

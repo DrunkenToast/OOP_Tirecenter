@@ -11,7 +11,7 @@ public:
 
     std::vector<Article*> getArticles();
     void setArticles(std::vector<Article*> a);
-    void addArticles(Article* a);
+    void addArticle(Article* a);
 
     Customer getCustomer() const;
     void setCustomer(Customer c);

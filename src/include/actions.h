@@ -28,11 +28,11 @@ void changeArticle(Article* art);
 
 Customer* searchCustomer(TireCenter &tirecenter, bool showMenu, std::string needle);
 
-void addCustomer(TireCenter &&tirecenter);
+void addCustomer(TireCenter &tirecenter);
 
-void deleteCustomer(TireCenter &tirecenter);
+void deleteCustomer(TireCenter &tirecenter, Customer *cust);
 
-void changeCustomer(TireCenter &tirecenter);
+void changeCustomer(Customer *cust);
 
 void placeOrder(TireCenter &tirecenter);
 
@@ -40,13 +40,14 @@ void checkInvoices(TireCenter &tirecenter);
 
 //////// =======================
 
+// Searches for articles and returns article pointer, will return nullptr when nothing selected
 Article* searchArticle(TireCenter &tirecenter, bool showMenu = true, std::string needle = "")
 {
     unsigned int option;
-    Article* article = NULL;
-    if (showMenu == true)
+    Article* article = nullptr;
+    if (showMenu == true) // TODO
     {
-        while (article == NULL)
+        while (article == nullptr)
         {
             option = Menu::displayMenu("Search article", std::vector<std::string> {
                 "Cancel search",
@@ -59,7 +60,7 @@ Article* searchArticle(TireCenter &tirecenter, bool showMenu = true, std::string
             switch (option)
             {
             case 0:
-                return NULL;
+                return nullptr;
             case 1:
                 article = FilterKeyword(tirecenter);
                 break;
@@ -119,7 +120,7 @@ Article* FilterKeyword(TireCenter &tc)
     option = Menu::displayMenu("Pick article. Searched: \"" + needle + '"', options);
     if (option == 0)
     {
-        return NULL;
+        return nullptr;
     }
 
     std::cout << "returning!";
@@ -161,7 +162,7 @@ Tire* FilterTires(TireCenter &tc)
     option = Menu::displayMenu("Pick a tire. Searched for diameter: \"" + std::to_string(needle) + '"', options);
     if (option == 0)
     {
-        return NULL;
+        return nullptr;
     }
 
     std::cout << "returning!";
@@ -380,8 +381,6 @@ void addCustomer(TireCenter &tirecenter)
         cust = new Company("New company", "Address", 'c', "VAT", 0);
         break;
     }
-    default:
-        return;
     }
 
     // ADD CHECK FOR DUPE
@@ -461,7 +460,35 @@ void changeCustomer(Customer* cust)
 void placeOrder(TireCenter &tirecenter)
 {
     Invoice *invoice = new Invoice();
+    Article* art = nullptr;
+    int amt;
+    do
+    {
+        do
+        {
+            std::cout << "Select an article for order:" << std::endl;
+            art = searchArticle(tirecenter);
+        } while (art == nullptr);
+        
+        std::cout << "Amount: ";
+        std::cin >> amt;
+
+        if (amt > 0 && art->getStock() >= amt)
+        {
+            // clone article and add to articles
+            Article* entry = art->clone();
+            entry->setStock(amt); //Stock var in invoice is used for amount
+            invoice->addArticle(entry);
+        }
+        else
+        {
+            std::cout << "Can't place order, current stock is " << art->getStock() << "." << std::endl;
+        }
+
+    } while (Menu::boolMenu("Do you want to add an article to this order?"));
+
 }
+
 void checkInvoices(TireCenter &tirecenter)
 {
     std::vector<Invoice> invoices = tirecenter.getInvoices();

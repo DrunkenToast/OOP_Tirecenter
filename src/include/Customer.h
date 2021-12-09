@@ -3,6 +3,7 @@
 
 class Customer {
     public:
+    Customer() = default;
     Customer(std::string name, std::string address, char type);
     virtual ~Customer() = default;
 

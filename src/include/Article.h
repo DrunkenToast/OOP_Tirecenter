@@ -8,6 +8,8 @@ public:
         int stock, int diameter, float price /*, char type*/);
     virtual ~Article() = default;
 
+    virtual Article* clone(void) const;
+
     std::string getName() const;
     void setName(std::string n);
 

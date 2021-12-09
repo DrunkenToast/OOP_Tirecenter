@@ -21,7 +21,7 @@ void Invoice::setArticles(std::vector<Article*> a)
     articles = a;
 }
 
-void Invoice::addArticles(Article* a) 
+void Invoice::addArticle(Article* a) 
 {
     
     articles.push_back(a);

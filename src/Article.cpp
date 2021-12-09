@@ -71,10 +71,12 @@ void Article::setPrice(float p)
 
 void Article::print() const
 {
-    std::cout << std::endl << "== Article: " << getName() << " ==" << std::endl
+    std::cout.precision(2);
+    std::cout
+        << std::endl << "== Article: " << getName() << " ==" << std::endl
         << "Manufacturer: " << getManufacturer() << std::endl
         << "Stock: " << getStock() << std::endl
         << "Diameter:" << getDiameter() << std::endl
-        << "Price: " << getPrice() << std::endl
-        << "Type: " << getType() << std::endl;
+        << "Price: " << getPrice() << "$"<< std::endl
+        << "Type: " << (getType() == 't' ? "Tire" : "Rim") << std::endl;
 }

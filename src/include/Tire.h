@@ -12,6 +12,8 @@ class Tire
         int width, int height, std::string speedIndex, char season);
     virtual ~Tire() = default;
 
+    Article* clone(void) const {return new Tire(*this);}
+
     virtual char getType() const override;
 
     int getWidth() const;
@@ -26,7 +28,7 @@ class Tire
     char getSeason() const;
     void setSeason(char s);
 
-    virtual void print() const override;
+    void print() const;
 
     private:
     int width, height;

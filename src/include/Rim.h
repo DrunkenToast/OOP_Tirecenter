@@ -12,6 +12,9 @@ class Rim
         int width, bool isAluminium, std::string color);
     virtual ~Rim() = default;
 
+    Article* clone(void) const {return new Rim(*this);}
+
+
     virtual char getType() const override;
 
     int getWidth() const;
@@ -23,7 +26,7 @@ class Rim
     std::string getColor() const;
     void setColor(std::string c);
 
-    virtual void print() const override;
+    void print() const;
 
     private:
     std::string color;
