@@ -12,7 +12,7 @@ int main()
     TireCenter tirecenter;
     FileHandler fileHandler(tirecenter);
 
-    fileHandler.loadAll();
+    // fileHandler.loadAll();
 
     // std::vector<Article*> articles {
     //     new Tire("Primacy", "Michelin", 100, 16, 159.99, 215, 118, "V", 'a'),

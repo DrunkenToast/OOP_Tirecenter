@@ -328,11 +328,13 @@ Customer* searchCustomer(TireCenter &tirecenter, bool showMenu = true, std::stri
                 "Search all by keyword"
             });
 
+
             switch (option)
             {
             case 0:
                 return NULL;
             case 1:
+                // TODO give needle
                 // customer = FilterKeyword(tirecenter);
                 for (auto &i : tirecenter.getCustomers())
                 {

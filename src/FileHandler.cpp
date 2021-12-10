@@ -11,16 +11,29 @@
 FileHandler::FileHandler(TireCenter &tc) 
     : tc(tc)
 {    
+    this->loadAll();
+
+}
+
+FileHandler::~FileHandler() 
+{
+    this->saveAll();
 }
 
 void FileHandler::saveAll() 
 {
+    std::cout << std::endl << "Saving to files: " << std::endl;
     this->saveArticles();
+    std::cout << "Done saving." << std::endl << std::endl;
 }
 
 void FileHandler::loadAll() 
 {
+    std::cout << std::endl << "Loading from files: " << std::endl;
+
     this->loadArticles();
+
+    std::cout << "Done loading." << std::endl << std::endl;
 }
 
 
@@ -57,7 +70,6 @@ void FileHandler::saveArticles()
 
     // Export articles
     for (auto art : tc.getArticles()) {
-        std::cout << *art;
         file << *art;
     }
 
@@ -86,12 +98,12 @@ void FileHandler::loadArticles()
         if (line[0] == 't')
         {
             entry = new Tire();
-            file >> *dynamic_cast<Tire*>(entry);
+            file >> *entry;
         }
         else
         {
             entry = new Rim();
-            file >> *dynamic_cast<Rim*>(entry);
+            file >> *entry;
         }
         articles.push_back(entry);
     }

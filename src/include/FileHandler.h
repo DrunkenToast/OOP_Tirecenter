@@ -10,15 +10,19 @@ class FileHandler
 {
     public:
     FileHandler(TireCenter &tc);
+    ~FileHandler();
 
     void saveAll();
+
+    private:
     /** Reads all objects from files into vectors and places it into tirecenter.
      * If the vector from before isn't cleared then this will cause a leak.
      * You're supposed to run this in the beginning of the program to load the files, not during run time.
+     * 
+     * I made it private and placed it in the constructor.
     */
     void loadAll();
 
-    private:
     void saveArticles();
     void loadArticles();
     void inputArticle(std::ifstream, Article*);
