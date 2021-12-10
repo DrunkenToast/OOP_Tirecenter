@@ -13,9 +13,7 @@ public:
     virtual Article* clone(void) const = 0;
 
     friend std::ostream& operator<<(std::ostream& output, const Article &art){
-        std::string test =art.exportData() ;
-        output << test;
-        return output;
+        return (output << art.exportData()); //maybe revert
     };
 
     friend std::istream& operator>>(std::istream& input, Article &art){
