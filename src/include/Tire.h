@@ -6,6 +6,7 @@ class Tire
     : public Article 
 {
     public:
+    Tire() = default;
     Tire(std::string name, std::string manufacturer,
         int stock, int diameter, float price,
         //Tire specific

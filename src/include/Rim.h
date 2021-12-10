@@ -6,6 +6,7 @@ class Rim
     : public Article
 {
     public:
+    Rim() = default;
     Rim(std::string name, std::string manufacturer,
         int stock, int diameter, float price,
         //Rim specific

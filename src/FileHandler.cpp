@@ -51,41 +51,14 @@ void FileHandler::saveArticles()
     std::cout << "Saving articles... ";
 
     std::ofstream file = outputFile(this->pathArticles);
-    
-    for (auto &art : tc.getArticles()) {
-        // Article properties
-        file << art->getName() << std ::endl
-            << art->getManufacturer() << std::endl
-            << art->getStock() << std::endl
-            << art->getDiameter() << std::endl
-            << art->getPrice() << std::endl
-            << art->getType() << std::endl;
 
-        // Article specific
-        switch (art->getType())
-        {
-        case 't':
-           {
-               Tire* tire = dynamic_cast<Tire*>(art);
+    // Export amount of articles
+    file << tc.getArticles().size() << std::endl;
 
-                file << tire->getWidth() << std ::endl
-                << tire->getHeight() << std::endl
-                << tire->getSpeedIndex() << std::endl
-                << tire->getSeason() << std::endl;
-            }
-            break;
-        case 'r':
-            {
-                Rim* rim = dynamic_cast<Rim*>(art);
-
-                file << rim->getWidth() << std ::endl
-                << rim->getAluminium() << std::endl
-                << rim->getColor() << std::endl;
-                break;
-            }
-        default:
-            break;
-        }
+    // Export articles
+    for (auto art : tc.getArticles()) {
+        std::cout << *art;
+        file << *art;
     }
 
     file.close();
@@ -97,73 +70,30 @@ void FileHandler::loadArticles()
     std::cout << "Loading articles... ";
 
     std::ifstream file = inputFile(this->pathArticles);
+    int amt;
     std::vector<Article*> articles;
 
     std::string line;
 
-    //article params
-    std::string name, manufacturer;
-    int stock, diameter;
-    float price;
-    char type;
-    //tire params
-    int width, height;
-    std::string speedIndex;
-    char season;
-    //rim params
-    bool isAluminium;
-    std::string color;
+    getline(file, line);
+    // TODO if empty, empty articles
+    amt = std::stoi(line);
 
-    while(!file.eof())
+    for (int i = 0; i < amt; i++)
     {
+        Article* entry;
         getline(file, line);
-        if (line == "") {break;} // Last line contains nothing
-        name = line;
-        getline(file, line);
-        manufacturer = line;
-        getline(file, line);
-        stock = std::stoi(line);
-        getline(file, line);
-        diameter = std::stoi(line);
-        getline(file, line);
-        price = std::stof(line);
-        getline(file, line);
-        type = line[0];
-
-        switch (type)
+        if (line[0] == 't')
         {
-        case 't':
-            {
-                getline(file, line);
-                width = std::stoi(line);
-                getline(file, line);
-                height = std::stoi(line);
-                getline(file, line);
-                speedIndex = line;
-                getline(file, line);
-                season = line[0];
-
-                articles.push_back(new Tire(name, manufacturer, stock, diameter, price,
-                    width, height, speedIndex, season));
-                break;
-            }
-        case 'r':
-            {
-                getline(file, line);
-                width = std::stoi(line);
-                getline(file, line);
-                isAluminium = std::stoi(line);
-                getline(file, line);
-                color = line;
-
-                articles.push_back(new Rim(name, manufacturer, stock, diameter, price,
-                    width, isAluminium, color));
-                break;
-            }
-        // default:
-        //     articles.push_back(new Article(name, manufacturer, stock, diameter, price, type));
-        //     break;
+            entry = new Tire();
+            file >> *dynamic_cast<Tire*>(entry);
         }
+        else
+        {
+            entry = new Rim();
+            file >> *dynamic_cast<Rim*>(entry);
+        }
+        articles.push_back(entry);
     }
 
     tc.setArticles(articles);
@@ -172,48 +102,48 @@ void FileHandler::loadArticles()
     std::cout << "Done." << std::endl;
 }
 
-void FileHandler::saveInvoices() 
-{
-    std::cout << "Saving invoices... ";
+// void FileHandler::saveInvoices() 
+// {
+//     std::cout << "Saving invoices... ";
 
-    std::ofstream file = outputFile(this->pathInvoices);
+//     std::ofstream file = outputFile(this->pathInvoices);
     
-    for (auto &art : tc.getInvoices()) {
-        // Article properties
-        file << art->getName() << std ::endl
-            << art->getManufacturer() << std::endl
-            << art->getStock() << std::endl
-            << art->getDiameter() << std::endl
-            << art->getPrice() << std::endl
-            << art->getType() << std::endl;
+//     for (auto &art : tc.getInvoices()) {
+//         // Article properties
+//         file << art->getName() << std ::endl
+//             << art->getManufacturer() << std::endl
+//             << art->getStock() << std::endl
+//             << art->getDiameter() << std::endl
+//             << art->getPrice() << std::endl
+//             << art->getType() << std::endl;
 
-        // Article specific
-        switch (art->getType())
-        {
-        case 't':
-           {
-               Tire* tire = dynamic_cast<Tire*>(art);
+//         // Article specific
+//         switch (art->getType())
+//         {
+//         case 't':
+//            {
+//                Tire* tire = dynamic_cast<Tire*>(art);
 
-                file << tire->getWidth() << std ::endl
-                << tire->getHeight() << std::endl
-                << tire->getSpeedIndex() << std::endl
-                << tire->getSeason() << std::endl;
-            }
-            break;
-        case 'r':
-            {
-                Rim* rim = dynamic_cast<Rim*>(art);
+//                 file << tire->getWidth() << std ::endl
+//                 << tire->getHeight() << std::endl
+//                 << tire->getSpeedIndex() << std::endl
+//                 << tire->getSeason() << std::endl;
+//             }
+//             break;
+//         case 'r':
+//             {
+//                 Rim* rim = dynamic_cast<Rim*>(art);
 
-                file << rim->getWidth() << std ::endl
-                << rim->getAluminium() << std::endl
-                << rim->getColor() << std::endl;
-                break;
-            }
-        default:
-            break;
-        }
-    }
+//                 file << rim->getWidth() << std ::endl
+//                 << rim->getAluminium() << std::endl
+//                 << rim->getColor() << std::endl;
+//                 break;
+//             }
+//         default:
+//             break;
+//         }
+//     }
 
-    file.close();
-    std::cout << "Done." << std::endl;
-}
+//     file.close();
+//     std::cout << "Done." << std::endl;
+// }

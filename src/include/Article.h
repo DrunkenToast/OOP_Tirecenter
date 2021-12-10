@@ -5,6 +5,7 @@
 class Article
 {
 public:
+    Article() = default;
     Article(std::string name, std::string manufacturer,
         int stock, int diameter, float price /*, char type*/);
     virtual ~Article() = default;
@@ -12,7 +13,9 @@ public:
     virtual Article* clone(void) const = 0;
 
     friend std::ostream& operator<<(std::ostream& output, const Article &art){
-        output << art.exportData();
+        std::string test =art.exportData() ;
+        output << test;
+        return output;
     };
 
     friend std::istream& operator>>(std::istream& input, Article &art){

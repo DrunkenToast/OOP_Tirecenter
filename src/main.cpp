@@ -14,6 +14,15 @@ int main()
 
     fileHandler.loadAll();
 
+    // std::vector<Article*> articles {
+    //     new Tire("Primacy", "Michelin", 100, 16, 159.99, 215, 118, "V", 'a'),
+    //     new Tire("Primacy", "Michelin", 100, 16, 159.99, 215, 118, "V", 'a'),
+    //     new Rim("test", "inc", 100, 16, 50.75, 118, true, "blue")
+    // };
+
+    // tirecenter.setArticles(articles);
+    // fileHandler.saveAll();
+
     UserType user = Menu::loginMenu();
 
     while(true)
