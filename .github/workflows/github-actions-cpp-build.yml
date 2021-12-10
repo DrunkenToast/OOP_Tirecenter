@@ -24,5 +24,3 @@ jobs:
       # Run trojansourcedetector
       - name: Trojan Source Detector
         uses: haveyoudebuggedit/trojansourcedetector@v1
-        with:
-          config: path/to/config/file
