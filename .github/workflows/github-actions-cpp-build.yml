@@ -14,3 +14,15 @@ jobs:
         submodule_update: ON
         run_tests: ON
         unit_test_build: -Dtest=ON
+  trojansource:
+    name: Trojan Source Detection
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout your project with git
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Run trojansourcedetector
+      - name: Trojan Source Detector
+        uses: haveyoudebuggedit/trojansourcedetector@v1
+        with:
+          config: path/to/config/file
