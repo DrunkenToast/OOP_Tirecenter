@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "include/Company.h"
 
 Company::Company(std::string name, std::string address, char type,
@@ -7,6 +8,39 @@ Company::Company(std::string name, std::string address, char type,
     : Customer(name, address, type), vat(vat), volumeDiscount(volumeDiscount)
 {
     
+}
+
+std::string Company::exportData() const
+{
+    std::stringstream data;
+    data
+        << getType() << std::endl
+
+        << getName() << std::endl
+        << getAddress() << std::endl
+        
+        << getVAT() << std::endl
+        << getVolumeDiscount() << std::endl;
+    return data.str();
+}
+
+void Company::importData(std::istream &input)
+{
+    std::string line;
+    getline(input, line);
+    setType(line[0]);
+
+    getline(input, line);
+    setName(line);
+
+    getline(input, line);
+    setAddress(line);
+
+    getline(input, line);
+    setVAT(line);
+
+    getline(input, line);
+    setVolumeDiscount(std::stoi(line));
 }
 
 std::string Company::getVAT() const

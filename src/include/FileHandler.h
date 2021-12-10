@@ -28,6 +28,9 @@ class FileHandler
     void inputArticle(std::ifstream, Article*);
     std::stringstream outputArticle(std::ofstream);
 
+    void saveCustomers();
+    void loadCustomers();
+
     void saveInvoices();
     void loadInvoices();
 

@@ -20,6 +20,8 @@ class Company
     virtual void print() const;
 
     private:
+    std::string exportData() const;
+    void importData(std::istream &input);
     std::string vat;
     int volumeDiscount;
 };
