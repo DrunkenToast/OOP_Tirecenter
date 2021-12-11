@@ -25,8 +25,6 @@ class FileHandler
 
     void saveArticles();
     void loadArticles();
-    void inputArticle(std::ifstream, Article*);
-    std::stringstream outputArticle(std::ofstream);
 
     void saveCustomers();
     void loadCustomers();
@@ -39,6 +37,7 @@ class FileHandler
 
     char pathArticles[256] = "data/articles.dat";
     char pathInvoices[256] = "data/invoices.dat";
+    char pathCustomers[256] = "data/customers.dat";
     // Returns a file for writing
     std::ofstream outputFile(char* filePath);
     // Returns a file for reading

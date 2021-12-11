@@ -6,6 +6,7 @@ mkdir -p build/objects/src
 g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Article.cpp -MMD -o build/objects/src/Article.o
 mkdir -p build/objects/src
 g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Company.cpp -MMD -o build/objects/src/Company.o
+ 
 mkdir -p build/objects/src
 g++ -std=c++20 -pedantic-errors -Wall -Wextra  -Iinclude/ -c src/Customer.cpp -MMD -o build/objects/src/Customer.o
 mkdir -p build/objects/src
