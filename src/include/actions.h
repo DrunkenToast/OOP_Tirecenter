@@ -11,27 +11,18 @@
     This h file mostly defines Use Cases, see Tire-Center-Use-Case.png
 */
 Article* searchArticle(TireCenter &tirecenter, bool showMenu, std::string needle);
-
 Article* FilterKeyword(TireCenter &tc);
-
 Tire* FilterTires(TireCenter &tc);
-
 Rim* FilterRims(TireCenter &tc);
-
 Article* FilterSize(TireCenter &tc);
-
 void addArticle(TireCenter &tirecenter);
-
 void deleteArticle(TireCenter &tirecenter, Article* art);
-
 void changeArticle(Article* art);
 
-Customer* searchCustomer(TireCenter &tirecenter, bool showMenu, std::string needle);
-
+Customer* searchCustomer(TireCenter &tirecenter);
+Customer* FilterCustomer(TireCenter &tc);
 void addCustomer(TireCenter &tirecenter);
-
 void deleteCustomer(TireCenter &tirecenter, Customer *cust);
-
 void changeCustomer(Customer *cust);
 
 void placeOrder(TireCenter &tirecenter);
@@ -41,55 +32,41 @@ void checkInvoices(TireCenter &tirecenter);
 //////// =======================
 
 // Searches for articles and returns article pointer, will return nullptr when nothing selected
-Article* searchArticle(TireCenter &tirecenter, bool showMenu = true, std::string needle = "")
+Article* searchArticle(TireCenter &tirecenter)
 {
     unsigned int option;
     Article* article = nullptr;
-    if (showMenu == true) // TODO
+    while (article == nullptr)
     {
-        while (article == nullptr)
+        option = Menu::displayMenu("Search article", std::vector<std::string> {
+            "Cancel search",
+            "Search all by keyword",
+            "Filter Tires",
+            "Filter Rims",
+            "Filter Size"
+        });
+
+        switch (option)
         {
-            option = Menu::displayMenu("Search article", std::vector<std::string> {
-                "Cancel search",
-                "Search all by keyword",
-                "Filter Tires",
-                "Filter Rims",
-                "Filter Size"
-            });
-
-            switch (option)
-            {
-            case 0:
-                return nullptr;
-            case 1:
-                article = FilterKeyword(tirecenter);
-                break;
-            case 2:
-                article = dynamic_cast<Article*>(FilterTires(tirecenter));
-                break;
-            case 3:
-                article = dynamic_cast<Article*>(FilterRims(tirecenter));
-                break;
-            case 4:
-                article = FilterSize(tirecenter);
-                break;
-            default:
-                break;
-            }
-        }
-        return article;
-    }
-
-    std::cout << "DEBUG Needle: " << needle << std::endl;
-
-    for (auto &i : tirecenter.getArticles())
-    {
-        if (i->getName().find(needle) != std::string::npos)
-        {
-            return i;
+        case 0:
+            return nullptr;
+        case 1:
+            article = FilterKeyword(tirecenter);
+            break;
+        case 2:
+            article = dynamic_cast<Article*>(FilterTires(tirecenter));
+            break;
+        case 3:
+            article = dynamic_cast<Article*>(FilterRims(tirecenter));
+            break;
+        case 4:
+            article = FilterSize(tirecenter);
+            break;
+        default:
+            break;
         }
     }
-    return NULL;
+    return article;
 }
 
 Article* FilterKeyword(TireCenter &tc)
@@ -109,8 +86,6 @@ Article* FilterKeyword(TireCenter &tc)
         }
     }
 
-    std::cout << "found stuff";
-
     std::vector<std::string> options {"Cancel"};
     for (auto &i : found)
     {
@@ -123,7 +98,6 @@ Article* FilterKeyword(TireCenter &tc)
         return nullptr;
     }
 
-    std::cout << "returning!";
     return found.at(option-1); // -1 for cancel option
 }
 
@@ -315,53 +289,62 @@ void changeArticle(Article* art)
     art->print();
 }
 
-Customer* searchCustomer(TireCenter &tirecenter, bool showMenu = true, std::string needle = "")
+Customer* searchCustomer(TireCenter &tirecenter)
 {
     unsigned int option;
-    Customer* customer = NULL;
-    if (showMenu == true)
+    Customer* customer = nullptr;
+    while (customer == nullptr)
     {
-        while (customer == NULL)
+        option = Menu::displayMenu("Search customer", std::vector<std::string> {
+            "Cancel search",
+            "Search all by keyword"
+        });
+
+
+        switch (option)
         {
-            option = Menu::displayMenu("Search customer", std::vector<std::string> {
-                "Cancel search",
-                "Search all by keyword"
-            });
-
-
-            switch (option)
-            {
-            case 0:
-                return NULL;
-            case 1:
-                // TODO give needle
-                // customer = FilterKeyword(tirecenter);
-                for (auto &i : tirecenter.getCustomers())
-                {
-                    if (i->getName().find(needle) != std::string::npos)
-                    {
-                        customer = i;
-                        break;
-                    }
-                }
-                break;
-            default:
-                break;
-            }
-        }
-        return customer;
-    }
-
-    std::cout << "DEBUG Needle: " << needle << std::endl;
-
-    for (auto &i : tirecenter.getCustomers())
-    {
-        if (i->getName().find(needle) != std::string::npos)
-        {
-            return i;
+        case 0:
+            return nullptr;
+        case 1:
+            customer = FilterCustomer(tirecenter);
+            break;
+        default:
+            break;
         }
     }
-    return NULL;
+    return customer;
+}
+
+Customer* FilterCustomer(TireCenter &tc)
+{
+    unsigned int option;
+    std::vector<Customer*> found {};
+    std::string needle;
+
+    std::cout << "Keyword to search: ";
+    getline(std::cin, needle);
+
+    for (auto &cust : tc.getCustomers())
+    {
+        if (cust->getName().find(needle) != std::string::npos)
+        {
+            found.push_back(cust);
+        }
+    }
+
+    std::vector<std::string> options {"Cancel"};
+    for (auto &i : found)
+    {
+        options.push_back(i->getName());
+    }
+
+    option = Menu::displayMenu("Pick customer. Searched: \"" + needle + '"', options);
+    if (option == 0)
+    {
+        return nullptr;
+    }
+
+    return found.at(option-1); // -1 for cancel option
 }
 
 void addCustomer(TireCenter &tirecenter)
@@ -385,7 +368,7 @@ void addCustomer(TireCenter &tirecenter)
     }
     }
 
-    // ADD CHECK FOR DUPE
+    // TODO ADD CHECK FOR DUPE
 
     changeCustomer(cust);
     tirecenter.addCustomer(cust);
@@ -459,6 +442,7 @@ void changeCustomer(Customer* cust)
     cust->print();
 }
 
+// TODO change stock
 void placeOrder(TireCenter &tirecenter)
 {
     Invoice *invoice = new Invoice();

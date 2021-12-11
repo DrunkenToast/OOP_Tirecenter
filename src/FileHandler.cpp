@@ -7,6 +7,7 @@
 #include "include/FileHandler.h"
 #include "include/Tire.h"
 #include "include/Rim.h"
+#include "include/Company.h"
 
 FileHandler::FileHandler(TireCenter &tc) 
     : tc(tc)
@@ -24,18 +25,17 @@ void FileHandler::saveAll()
 {
     std::cout << std::endl << "Saving to files: " << std::endl;
     this->saveArticles();
+    this->saveCustomers();
     std::cout << "Done saving." << std::endl << std::endl;
 }
 
 void FileHandler::loadAll() 
 {
     std::cout << std::endl << "Loading from files: " << std::endl;
-
     this->loadArticles();
-
+    this->loadCustomers();
     std::cout << "Done loading." << std::endl << std::endl;
 }
-
 
 std::ofstream FileHandler::outputFile(char* filePath) 
 {
@@ -50,6 +50,11 @@ std::ofstream FileHandler::outputFile(char* filePath)
 
 std::ifstream FileHandler::inputFile(char* filePath) 
 {
+    // Make sure file exists. (Open in append and close)
+    std::ofstream tmp{filePath, std::ios::out | std::ios::app};
+    tmp.close();
+
+    // Open file in read.
     std::ifstream inFile{filePath, std::ios::in};
     if (!inFile)
     {
@@ -83,12 +88,12 @@ void FileHandler::loadArticles()
 
     std::ifstream file = inputFile(this->pathArticles);
     int amt;
-    std::vector<Article*> articles;
+    std::vector<Article*> articles {};
 
     std::string line;
 
     getline(file, line);
-    // TODO if empty, empty articles
+    if (line == "") { return; } // empty
     amt = std::stoi(line);
 
     for (int i = 0; i < amt; i++)
@@ -114,48 +119,57 @@ void FileHandler::loadArticles()
     std::cout << "Done." << std::endl;
 }
 
-// void FileHandler::saveInvoices() 
-// {
-//     std::cout << "Saving invoices... ";
+void FileHandler::saveCustomers() 
+{
+    std::cout << "Saving customers... ";
 
-//     std::ofstream file = outputFile(this->pathInvoices);
-    
-//     for (auto &art : tc.getInvoices()) {
-//         // Article properties
-//         file << art->getName() << std ::endl
-//             << art->getManufacturer() << std::endl
-//             << art->getStock() << std::endl
-//             << art->getDiameter() << std::endl
-//             << art->getPrice() << std::endl
-//             << art->getType() << std::endl;
+    std::ofstream file = outputFile(this->pathArticles);
 
-//         // Article specific
-//         switch (art->getType())
-//         {
-//         case 't':
-//            {
-//                Tire* tire = dynamic_cast<Tire*>(art);
+    // Export amount of customers
+    file << tc.getCustomers().size() << std::endl;
 
-//                 file << tire->getWidth() << std ::endl
-//                 << tire->getHeight() << std::endl
-//                 << tire->getSpeedIndex() << std::endl
-//                 << tire->getSeason() << std::endl;
-//             }
-//             break;
-//         case 'r':
-//             {
-//                 Rim* rim = dynamic_cast<Rim*>(art);
+    // Export customers
+    for (auto cust : tc.getCustomers()) {
+        file << *cust;
+    }
 
-//                 file << rim->getWidth() << std ::endl
-//                 << rim->getAluminium() << std::endl
-//                 << rim->getColor() << std::endl;
-//                 break;
-//             }
-//         default:
-//             break;
-//         }
-//     }
+    file.close();
+    std::cout << "Done." << std::endl;
+}
 
-//     file.close();
-//     std::cout << "Done." << std::endl;
-// }
+void FileHandler::loadCustomers() 
+{
+    std::cout << "Loading customers... ";
+
+    std::ifstream file = inputFile(this->pathCustomers);
+    int amt;
+    std::vector<Customer*> customers {};
+
+    std::string line;
+
+    getline(file, line);
+    if (line == "") { return; } // empty
+    amt = std::stoi(line);
+
+    for (int i = 0; i < amt; i++)
+    {
+        Customer* entry;
+        getline(file, line);
+        if (line[0] == 'c')
+        {
+            entry = new Company();
+            file >> *entry;
+        }
+        else
+        {
+            entry = new Customer();
+            file >> *entry;
+        }
+        customers.push_back(entry);
+    }
+
+    tc.setCustomers(customers);
+
+    file.close();
+    std::cout << "Done." << std::endl;
+}

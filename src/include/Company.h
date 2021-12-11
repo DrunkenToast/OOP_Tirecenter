@@ -6,6 +6,7 @@ class Company
     : public Customer
 {
     public:
+    Company() = default;
     Company(std::string name, std::string address, char type,
         //Company specific
         std::string vat, int valumeDiscount);
