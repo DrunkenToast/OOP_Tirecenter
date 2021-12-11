@@ -8,10 +8,14 @@ Project focussed on C++ OOP about a tirecenter.
 
 ## TODO
 
-- [ ] Most use cases
+- [ ] Use cases to finish
+  - [ ] Filter tires/rims
+  - [ ] Update stock
 - [ ] Loading and saving
   - [X] Articles
   - [X] Customers
+  - [ ] Invoices
+  - [ ] Tirecenter (optionally)
 - [ ] Error handling
   - [X] ~~Wrong input types~~ -> not necessary
 - [ ] Make functions for reading lines (low priority)
