@@ -18,6 +18,7 @@ public:
 
     friend std::istream& operator>>(std::istream& input, Article &art){
         art.importData(input);
+        return input;
     };
 
     std::string getName() const;

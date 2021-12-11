@@ -13,6 +13,7 @@ class Customer {
 
     friend std::istream& operator>>(std::istream& input, Customer &cust){
         cust.importData(input);
+        return input;
     };
 
 

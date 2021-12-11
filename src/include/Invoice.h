@@ -15,6 +15,7 @@ public:
 
     friend std::istream& operator>>(std::istream& input, Invoice &inv){
         inv.importData(input);
+        return input;
     };
 
     std::vector<Article*> getArticles() const;
