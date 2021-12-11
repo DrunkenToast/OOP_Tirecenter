@@ -60,12 +60,16 @@ void TireCenter::addCustomer(Customer* c)
     customers.push_back(c);
 }
 
-std::vector<Invoice>& TireCenter::getInvoices() 
+std::vector<Invoice*>& TireCenter::getInvoices() 
 {
     return invoices;
 }
 
-void TireCenter::setInvoices(std::vector<Invoice> i) 
+void TireCenter::setInvoices(std::vector<Invoice*> i) 
 {
     invoices = i;
+}
+void TireCenter::addInvoice(Invoice* i) 
+{
+    invoices.push_back(i);
 }

@@ -2,10 +2,10 @@
 #include <sstream>
 #include "include/Company.h"
 
-Company::Company(std::string name, std::string address, char type,
+Company::Company(std::string name, std::string address,
         //Company specific
         std::string vat, int valumeDiscount)
-    : Customer(name, address, type), vat(vat), volumeDiscount(volumeDiscount)
+    : Customer(name, address, 'c'), vat(vat), volumeDiscount(volumeDiscount)
 {
     
 }
@@ -27,9 +27,8 @@ std::string Company::exportData() const
 void Company::importData(std::istream &input)
 {
     std::string line;
-    getline(input, line);
-    setType(line[0]);
-
+    setType('c');
+    
     getline(input, line);
     setName(line);
 

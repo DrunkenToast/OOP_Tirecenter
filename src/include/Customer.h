@@ -8,7 +8,7 @@ class Customer {
     virtual ~Customer() = default;
 
     friend std::ostream& operator<<(std::ostream& output, const Customer &cust){
-        return (output << cust.exportData()); //maybe revert
+        return (output << cust.exportData());
     };
 
     friend std::istream& operator>>(std::istream& input, Customer &cust){

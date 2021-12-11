@@ -363,7 +363,7 @@ void addCustomer(TireCenter &tirecenter)
     }
     case 2:
     {
-        cust = new Company("New company", "Address", 'c', "VAT", 0);
+        cust = new Company("New company", "Address", "VAT", 0);
         break;
     }
     }
@@ -380,7 +380,7 @@ void deleteCustomer(TireCenter &tirecenter, Customer* cust)
     cust->print();
     if (Menu::boolMenu("Are you sure you want to delete this customer?"))
     {
-        auto it = find(customers.begin(), customers.end(), cust);
+        auto it = std::find(customers.begin(), customers.end(), cust);
 
         if(it != customers.end())
         {
@@ -455,7 +455,8 @@ void placeOrder(TireCenter &tirecenter)
         std::cout << "Select a customer for order:" << std::endl;
         cust = searchCustomer(tirecenter);
     } while (cust == nullptr);
-    
+    invoice->setCustomer(*cust);
+
     do
     {
         do
@@ -472,6 +473,7 @@ void placeOrder(TireCenter &tirecenter)
             // clone article and add to articles
             Article* entry = art->clone();
             entry->setStock(amt); //Stock var in invoice is used for amount
+            art->setStock(art->getStock() - amt);
             invoice->addArticle(entry);
         }
         else
@@ -481,13 +483,18 @@ void placeOrder(TireCenter &tirecenter)
 
     } while (Menu::boolMenu("Do you want to add an article to this order?"));
 
+
+    tirecenter.addInvoice(invoice);
+    std::cout << "Placed order." << std::endl;
+    invoice->print();
+
+    return;
 }
 
 void checkInvoices(TireCenter &tirecenter)
 {
-    std::vector<Invoice> invoices = tirecenter.getInvoices();
-    for (auto&i : invoices)
+    for (auto i : tirecenter.getInvoices())
     {
-        i.print();
+        i->print();
     }
 }

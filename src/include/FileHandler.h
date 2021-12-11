@@ -13,6 +13,9 @@ class FileHandler
     ~FileHandler();
 
     void saveAll();
+    void saveArticles();
+    void saveCustomers();
+    void saveInvoices();
 
     private:
     /** Reads all objects from files into vectors and places it into tirecenter.
@@ -22,24 +25,18 @@ class FileHandler
      * I made it private and placed it in the constructor.
     */
     void loadAll();
-
-    void saveArticles();
     void loadArticles();
-
-    void saveCustomers();
     void loadCustomers();
-
-    void saveInvoices();
     void loadInvoices();
-
 
     TireCenter &tc;
 
-    char pathArticles[256] = "data/articles.dat";
-    char pathInvoices[256] = "data/invoices.dat";
-    char pathCustomers[256] = "data/customers.dat";
+    const char pathArticles[256] = "data/articles.dat";
+    const char pathCustomers[256] = "data/customers.dat";
+    const char pathInvoices[256] = "data/invoices.dat";
+
     // Returns a file for writing
-    std::ofstream outputFile(char* filePath);
+    std::ofstream outputFile(const char* filePath);
     // Returns a file for reading
-    std::ifstream inputFile(char* filePath);
+    std::ifstream inputFile(const char* filePath);
 };

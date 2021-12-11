@@ -26,7 +26,8 @@ void FileHandler::saveAll()
     std::cout << std::endl << "Saving to files: " << std::endl;
     this->saveArticles();
     this->saveCustomers();
-    std::cout << "Done saving." << std::endl << std::endl;
+    this->saveInvoices();
+    std::cout << std::endl;
 }
 
 void FileHandler::loadAll() 
@@ -34,21 +35,22 @@ void FileHandler::loadAll()
     std::cout << std::endl << "Loading from files: " << std::endl;
     this->loadArticles();
     this->loadCustomers();
-    std::cout << "Done loading." << std::endl << std::endl;
+    this->loadInvoices();
+    std::cout << std::endl;
 }
 
-std::ofstream FileHandler::outputFile(char* filePath) 
+std::ofstream FileHandler::outputFile(const char* filePath) 
 {
     std::ofstream outFile{filePath, std::ios::out};
     if (!outFile)
     {
-        std::cerr << "File " << filePath << " couldn't be opened for writing!";
+        std::cerr << "File " << filePath << " couldn't be opened for writing!" << std::endl;
         exit(EXIT_FAILURE);
     }
     return outFile;
 }
 
-std::ifstream FileHandler::inputFile(char* filePath) 
+std::ifstream FileHandler::inputFile(const char* filePath) 
 {
     // Make sure file exists. (Open in append and close)
     std::ofstream tmp{filePath, std::ios::out | std::ios::app};
@@ -93,8 +95,8 @@ void FileHandler::loadArticles()
     std::string line;
 
     getline(file, line);
-    if (line == "") { return; } // empty
-    amt = std::stoi(line);
+    if (line == "") { amt = 0; } 
+    else {amt = std::stoi(line);}
 
     for (int i = 0; i < amt; i++)
     {
@@ -123,7 +125,7 @@ void FileHandler::saveCustomers()
 {
     std::cout << "Saving customers... ";
 
-    std::ofstream file = outputFile(this->pathArticles);
+    std::ofstream file = outputFile(this->pathCustomers);
 
     // Export amount of customers
     file << tc.getCustomers().size() << std::endl;
@@ -148,8 +150,8 @@ void FileHandler::loadCustomers()
     std::string line;
 
     getline(file, line);
-    if (line == "") { return; } // empty
-    amt = std::stoi(line);
+    if (line == "") { amt = 0; } 
+    else {amt = std::stoi(line);}
 
     for (int i = 0; i < amt; i++)
     {
@@ -169,6 +171,51 @@ void FileHandler::loadCustomers()
     }
 
     tc.setCustomers(customers);
+
+    file.close();
+    std::cout << "Done." << std::endl;
+}
+
+void FileHandler::saveInvoices() 
+{
+    std::cout << "Saving invoices... ";
+
+    std::ofstream file = outputFile(this->pathInvoices);
+
+    // Export amount of customers
+    file << tc.getInvoices().size() << std::endl;
+
+    // Export invoices
+    for (auto inv : tc.getInvoices()) {
+        file << *inv;
+    }
+
+    file.close();
+    std::cout << "Done." << std::endl;
+}
+
+void FileHandler::loadInvoices() 
+{
+    std::cout << "Loading invoices... ";
+
+    std::ifstream file = inputFile(this->pathInvoices);
+    int amt;
+    std::vector<Invoice*> invoices {};
+
+    std::string line;
+
+    getline(file, line);
+    if (line == "") { amt = 0; } 
+    else {amt = std::stoi(line);}
+
+    for (int i = 0; i < amt; i++)
+    {
+        Invoice* entry = new Invoice();
+        file >> *entry;
+        invoices.push_back(entry);
+    }
+
+    tc.setInvoices(invoices);
 
     file.close();
     std::cout << "Done." << std::endl;

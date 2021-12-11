@@ -7,7 +7,7 @@ class Company
 {
     public:
     Company() = default;
-    Company(std::string name, std::string address, char type,
+    Company(std::string name, std::string address,
         //Company specific
         std::string vat, int valumeDiscount);
     virtual ~Company() = default;

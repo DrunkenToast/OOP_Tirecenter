@@ -90,12 +90,13 @@ public:
     void setCustomers(std::vector<Customer*> c);
     void addCustomer(Customer* c);
 
-    std::vector<Invoice>& getInvoices();
-    void setInvoices(std::vector<Invoice> i);
+    std::vector<Invoice*>& getInvoices();
+    void setInvoices(std::vector<Invoice*> i);
+    void addInvoice(Invoice* i);
 
 private:
     std::string name, address;
     std::vector<Article*> articles;
     std::vector<Customer*> customers;
-    std::vector<Invoice> invoices;
+    std::vector<Invoice*> invoices;
 };

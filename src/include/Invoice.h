@@ -9,7 +9,15 @@ public:
     Invoice();
     ~Invoice();
 
-    std::vector<Article*> getArticles();
+    friend std::ostream& operator<<(std::ostream& output, const Invoice &inv){
+        return (output << inv.exportData());
+    };
+
+    friend std::istream& operator>>(std::istream& input, Invoice &inv){
+        inv.importData(input);
+    };
+
+    std::vector<Article*> getArticles() const;
     void setArticles(std::vector<Article*> a);
     void addArticle(Article* a);
 
@@ -24,6 +32,8 @@ public:
 
     void print() const;
 private:
+    virtual std::string exportData() const;
+    virtual void importData(std::istream &input);
     std::vector<Article*> articles;
     Customer customer;
     float price;
