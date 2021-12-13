@@ -22,7 +22,7 @@ std::string Customer::exportData() const
 void Customer::importData(std::istream &input)
 {
     std::string line;
-    setType('c');
+    setType('p');
 
     getline(input, line);
     setName(line);
