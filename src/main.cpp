@@ -12,6 +12,7 @@ int main()
     TireCenter tirecenter;
     FileHandler fileHandler(tirecenter);
 
+    tirecenter.welcome();
     // fileHandler.loadAll();
 
     // std::vector<Article*> articles {
@@ -33,6 +34,7 @@ int main()
         {
         case Actions::EXIT:
         {
+            tirecenter.goodbye();
             return 0;
         }
         case Actions::BACK:

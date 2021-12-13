@@ -81,12 +81,22 @@ class TireCenter
 {
 public:
     TireCenter();
+    TireCenter(std::string name, std::string address);
     ~TireCenter();
 
-    std::string getName();
+    friend std::ostream& operator<<(std::ostream& output, const TireCenter &cust){
+        return (output << cust.exportData());
+    };
+
+    friend std::istream& operator>>(std::istream& input, TireCenter &cust){
+        cust.importData(input);
+        return input;
+    };
+
+    std::string getName() const;
     void setName(std::string n);
 
-    std::string getAddress();
+    std::string getAddress() const;
     void setAddress(std::string a);
 
     std::vector<Article*>& getArticles();
@@ -101,7 +111,11 @@ public:
     void setInvoices(std::vector<Invoice*> i);
     void addInvoice(Invoice* i);
 
+    void welcome() const;
+    void goodbye() const;
 private:
+    virtual std::string exportData() const;
+    virtual void importData(std::istream &input);
     std::string name, address;
     std::vector<Article*> articles;
     std::vector<Customer*> customers;

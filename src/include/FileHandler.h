@@ -13,6 +13,7 @@ class FileHandler
     ~FileHandler();
 
     void saveAll();
+    void saveTireCenter();
     void saveArticles();
     void saveCustomers();
     void saveInvoices();
@@ -25,12 +26,14 @@ class FileHandler
      * I made it private and placed it in the constructor.
     */
     void loadAll();
+    void loadTireCenter();
     void loadArticles();
     void loadCustomers();
     void loadInvoices();
 
     TireCenter &tc;
 
+    const char pathTireCenter[256] = "data/tirecenter.dat";
     const char pathArticles[256] = "data/articles.dat";
     const char pathCustomers[256] = "data/customers.dat";
     const char pathInvoices[256] = "data/invoices.dat";

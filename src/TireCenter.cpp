@@ -1,9 +1,10 @@
 #include "include/TireCenter.h"
-
-TireCenter::TireCenter() 
-{
-    
-}
+#include <iostream>
+#include <sstream>
+TireCenter::TireCenter() {}
+TireCenter::TireCenter(std::string name, std::string address)
+    : name(name), address(address)
+{}
 
 TireCenter::~TireCenter() 
 {
@@ -27,7 +28,26 @@ TireCenter::~TireCenter()
 
 }
 
-std::string TireCenter::getName() 
+std::string TireCenter::exportData() const
+{
+    std::stringstream data;
+    data
+        << getName() << std::endl
+        << getAddress() << std::endl;
+    return data.str();
+}
+
+void TireCenter::importData(std::istream &input)
+{
+    std::string line;
+    getline(input, line);
+    setName(line);
+
+    getline(input, line);
+    setAddress(line);
+}
+
+std::string TireCenter::getName() const
 {
     return name;
 }
@@ -37,7 +57,7 @@ void TireCenter::setName(std::string n)
     name = n;
 }
 
-std::string TireCenter::getAddress() 
+std::string TireCenter::getAddress() const
 {
     return address;
 }
@@ -86,7 +106,35 @@ void TireCenter::setInvoices(std::vector<Invoice*> i)
 {
     invoices = i;
 }
+
 void TireCenter::addInvoice(Invoice* i) 
 {
     invoices.push_back(i);
+}
+
+void TireCenter::welcome() const
+{
+    std::cout
+    << " ███████████  ███                          █████████                       █████                      " << std::endl
+    << "░█░░░███░░░█ ░░░                          ███░░░░░███                     ░░███                       " << std::endl
+    << "░   ░███  ░  ████  ████████   ██████     ███     ░░░   ██████  ████████   ███████    ██████  ████████ " << std::endl
+    << "    ░███    ░░███ ░░███░░███ ███░░███   ░███          ███░░███░░███░░███ ░░░███░    ███░░███░░███░░███" << std::endl
+    << "    ░███     ░███  ░███ ░░░ ░███████    ░███         ░███████  ░███ ░███   ░███    ░███████  ░███ ░░░ " << std::endl
+    << "    ░███     ░███  ░███     ░███░░░     ░░███     ███░███░░░   ░███ ░███   ░███ ███░███░░░   ░███     " << std::endl
+    << "    █████    █████ █████    ░░██████     ░░█████████ ░░██████  ████ █████  ░░█████ ░░██████  █████    " << std::endl
+    << "   ░░░░░    ░░░░░ ░░░░░      ░░░░░░       ░░░░░░░░░   ░░░░░░  ░░░░ ░░░░░    ░░░░░   ░░░░░░  ░░░░░     " << std::endl
+    << std::endl << getName() << std::endl
+    << "Address: " << getAddress() << std::endl << std::endl;
+}
+
+void TireCenter::goodbye() const
+{
+    std::cout
+    << "  ______                 _ _                 "  << std::endl
+    << " / _____)               | | |                " << std::endl
+    << "| /  ___  ___   ___   _ | | | _  _   _  ____ " << std::endl
+    << "| | (___)/ _ \\ / _ \\ / || | || \\| | | |/ _  )" << std::endl
+    << "| \\____/| |_| | |_| ( (_| | |_) ) |_| ( (/ / " << std::endl
+    << " \\_____/ \\___/ \\___/ \\____|____/ \\__  |\\____)" << std::endl
+    << "                                (____/       " << std::endl;
 }

@@ -24,6 +24,7 @@ FileHandler::~FileHandler()
 void FileHandler::saveAll() 
 {
     std::cout << std::endl << "Saving to files: " << std::endl;
+    this->saveTireCenter();
     this->saveArticles();
     this->saveCustomers();
     this->saveInvoices();
@@ -33,6 +34,7 @@ void FileHandler::saveAll()
 void FileHandler::loadAll() 
 {
     std::cout << std::endl << "Loading from files: " << std::endl;
+    this->loadTireCenter();
     this->loadArticles();
     this->loadCustomers();
     this->loadInvoices();
@@ -64,6 +66,30 @@ std::ifstream FileHandler::inputFile(const char* filePath)
         exit(EXIT_FAILURE);
     }
     return inFile;
+}
+
+void FileHandler::saveTireCenter() 
+{
+    std::cout << "Saving tire center... ";
+
+    std::ofstream file = outputFile(this->pathTireCenter);
+
+    file << tc;
+
+    file.close();
+    std::cout << "Done." << std::endl;
+}
+
+void FileHandler::loadTireCenter() 
+{
+    std::cout << "Loading tire center... ";
+
+    std::ifstream file = inputFile(this->pathTireCenter);
+    
+    file >> tc;
+
+    file.close();
+    std::cout << "Done." << std::endl;
 }
 
 void FileHandler::saveArticles() 

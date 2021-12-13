@@ -464,6 +464,7 @@ void placeOrder(TireCenter &tirecenter)
         
         std::cout << "Amount: ";
         std::cin >> amt;
+        std::cin.ignore();
 
         if (amt > 0 && art->getStock() >= amt)
         {

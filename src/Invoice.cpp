@@ -175,9 +175,10 @@ float Invoice::calculateDiscount() const
     }
     else
     {
+        Company* cust = dynamic_cast<Company*>(this->getCustomer());
         for (auto art : this->getArticles())
         {
-            if ((art->getStock() / SET) > 10)
+            if ((art->getStock() / SET) >= cust->getVolumeDiscount())
             {
                 d += art->getStock() * art->getPrice() * getDiscount() * 0.01;
             }
