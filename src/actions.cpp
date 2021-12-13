@@ -25,16 +25,16 @@ Article* searchArticle(TireCenter &tirecenter)
         case 0:
             return nullptr;
         case 1:
-            article = FilterKeyword(tirecenter);
+            article = filterKeyword(tirecenter);
             break;
         case 2:
-            article = dynamic_cast<Article*>(FilterTires(tirecenter));
+            article = dynamic_cast<Article*>(filterTires(tirecenter));
             break;
         case 3:
-            article = dynamic_cast<Article*>(FilterRims(tirecenter));
+            article = dynamic_cast<Article*>(filterRims(tirecenter));
             break;
         case 4:
-            article = FilterSize(tirecenter);
+            article = filterSize(tirecenter);
             break;
         default:
             break;
@@ -43,7 +43,7 @@ Article* searchArticle(TireCenter &tirecenter)
     return article;
 }
 
-Article* FilterKeyword(TireCenter &tc)
+Article* filterKeyword(TireCenter &tc)
 {
     unsigned int option;
     std::vector<Article*> found {};
@@ -75,7 +75,7 @@ Article* FilterKeyword(TireCenter &tc)
     return found.at(option-1); // -1 for cancel option
 }
 
-Tire* FilterTires(TireCenter &tc)
+Tire* filterTires(TireCenter &tc)
 {
     unsigned int option;
     std::string buffer;
@@ -118,7 +118,7 @@ Tire* FilterTires(TireCenter &tc)
     return tires.at(option-1); // -1 for cancel option
 }
 
-Rim* FilterRims(TireCenter &tc)
+Rim* filterRims(TireCenter &tc)
 {
     unsigned int option;
     std::string buffer;
@@ -161,7 +161,7 @@ Rim* FilterRims(TireCenter &tc)
     return rims.at(option-1); // -1 for cancel option
 }
 
-Article* FilterSize(TireCenter &tc)
+Article* filterSize(TireCenter &tc)
 {
     unsigned int option;
     std::string buffer;
@@ -348,7 +348,7 @@ Customer* searchCustomer(TireCenter &tirecenter)
         case 0:
             return nullptr;
         case 1:
-            customer = FilterCustomer(tirecenter);
+            customer = filterCustomer(tirecenter);
             break;
         default:
             break;
@@ -357,7 +357,7 @@ Customer* searchCustomer(TireCenter &tirecenter)
     return customer;
 }
 
-Customer* FilterCustomer(TireCenter &tc)
+Customer* filterCustomer(TireCenter &tc)
 {
     unsigned int option;
     std::vector<Customer*> found {};
@@ -534,8 +534,35 @@ void placeOrder(TireCenter &tirecenter)
 
 void checkInvoices(TireCenter &tirecenter)
 {
-    for (auto i : tirecenter.getInvoices())
+    int option = Menu::displayMenu("Check invoices", {
+        "Cancel",
+        "Check all invoices",
+        "Filter by customer"
+    });
+
+    if (option == 0) {return;}
+
+    if(option == 1)
     {
-        i->print();
+        for (auto i : tirecenter.getInvoices())
+        {
+            i->print();
+        }
+    }
+    else
+    {
+        Customer* cust = nullptr;
+        do
+        {
+            cust = filterCustomer(tirecenter);
+        } while (cust == nullptr);
+        
+        for (auto i : tirecenter.getInvoices())
+        {
+            if (i->getCustomer()->getName() == cust->getName())
+            {
+                i->print();
+            }
+        }
     }
 }

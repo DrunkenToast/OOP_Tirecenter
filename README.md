@@ -9,11 +9,11 @@ Project focussed on C++ OOP about a tirecenter.
 ## TODO
 
 - [ ] Use cases to finish
-  - [ ] Filter tires/rims
+  - [X] Filter tires/rims
   - [ ] Update stock?
 - [ ] Invoice calc discount etc
   - [ ] fix discount
-- [ ] Lookup invoice per customer
+- [X] Lookup invoice per customer
 - [X] Loading and saving
   - [X] Articles
   - [X] Customers
