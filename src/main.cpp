@@ -25,6 +25,8 @@ int main()
 
     UserType user = Menu::loginMenu();
 
+    std::cout << std::fixed << std::cout.precision(2);
+
     while(true)
     {
         switch (Menu::actionMenu(userPermissions[(int)user]))

@@ -452,7 +452,7 @@ void placeOrder(TireCenter &tirecenter)
         std::cout << "Select a customer for order:" << std::endl;
         cust = searchCustomer(tirecenter);
     } while (cust == nullptr);
-    invoice->setCustomer(*cust);
+    invoice->setCustomer(cust->clone());
 
     do
     {

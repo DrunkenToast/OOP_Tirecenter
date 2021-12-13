@@ -7,6 +7,8 @@ class Customer {
     Customer(std::string name, std::string address, char type);
     virtual ~Customer() = default;
 
+    virtual Customer* clone(void) const {return new Customer(*this);}
+
     friend std::ostream& operator<<(std::ostream& output, const Customer &cust){
         return (output << cust.exportData());
     };
@@ -15,7 +17,6 @@ class Customer {
         cust.importData(input);
         return input;
     };
-
 
     std::string getName() const;
     void setName(std::string n);

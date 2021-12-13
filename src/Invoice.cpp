@@ -26,7 +26,7 @@ std::string Invoice::exportData() const
         data << *art;
     }
     // Customer
-    data << this->getCustomer();
+    data << *this->getCustomer();
     // Price and discount
     data << this->getPrice() << std::endl
          << this->getDiscount() << std::endl;
@@ -81,8 +81,7 @@ void Invoice::importData(std::istream &input)
         input >> *cust;
     }
 
-    this->setCustomer(*cust);
-    delete cust; // cloned
+    this->setCustomer(cust);
 
     getline(input, line);
     this->setPrice(std::stof(line));
@@ -107,12 +106,12 @@ void Invoice::addArticle(Article *a)
     articles.push_back(a);
 }
 
-Customer Invoice::getCustomer() const
+Customer* Invoice::getCustomer() const
 {
     return customer;
 }
 
-void Invoice::setCustomer(Customer c)
+void Invoice::setCustomer(Customer* c)
 {
     customer = c;
 }
@@ -142,7 +141,7 @@ float Invoice::calculateDiscount() const
 {
     float d = 0;
 
-    if (this->getCustomer().getType() == 'p')
+    if (this->getCustomer()->getType() == 'p')
     {
         std::map<int, int> diameter; // diameter tire + amount of sets
         // If customer buys a set they get a discount for that set
@@ -190,7 +189,7 @@ float Invoice::calculatePrice() const
             p += art->getPrice();
         }
     }
-    if (this->getCustomer().getType() == 'p')
+    if (this->getCustomer()->getType() == 'p')
     {
         p *= 1.21;
     }
@@ -200,8 +199,9 @@ float Invoice::calculatePrice() const
 
 void Invoice::print() const
 {
+
     std::cout << "== Invoice ==" << std::endl
-              << "Customer: " << getCustomer().getName() << std::endl
+              << "Customer: " << getCustomer()->getName() << std::endl
               << "Total price: " << calculatePrice() << std::endl
               << "Discount: " << calculateDiscount() << std::endl
               << "Price: " << getPrice() << std::endl

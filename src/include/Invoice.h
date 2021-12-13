@@ -22,8 +22,8 @@ public:
     void setArticles(std::vector<Article*> a);
     void addArticle(Article* a);
 
-    Customer getCustomer() const;
-    void setCustomer(Customer c);
+    Customer* getCustomer() const;
+    void setCustomer(Customer* c);
 
     // Returns total price - discount
     float getPrice() const;
@@ -37,7 +37,7 @@ private:
     virtual std::string exportData() const;
     virtual void importData(std::istream &input);
     std::vector<Article*> articles;
-    Customer customer;
+    Customer* customer;
     float price = 0;
     int discount = 10;
 

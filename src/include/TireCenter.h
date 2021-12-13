@@ -58,13 +58,20 @@ enum class UserType {
 };
 
 const std::vector<Actions> userPermissions[] {
-        {Actions::A_ADD, Actions::A_DELETE, Actions::A_CHANGE, Actions::A_SEARCH,
-        Actions::C_ADD, Actions::C_DELETE, Actions::C_CHANGE, Actions::C_SEARCH, 
-        Actions::O_PLACE, Actions::I_SEARCH,},
 
-        {Actions::A_CHANGE, Actions::A_SEARCH,
-        Actions::C_ADD, Actions::C_CHANGE, Actions::C_SEARCH, 
-        Actions::O_PLACE, Actions::I_SEARCH,}
+        {
+            Actions::EXIT, Actions::BACK,
+            Actions::A_ADD, Actions::A_DELETE, Actions::A_CHANGE, Actions::A_SEARCH,
+            Actions::C_ADD, Actions::C_DELETE, Actions::C_CHANGE, Actions::C_SEARCH, 
+            Actions::O_PLACE, Actions::I_SEARCH,
+        },
+
+        {
+            Actions::EXIT, Actions::BACK,
+            Actions::A_CHANGE, Actions::A_SEARCH,
+            Actions::C_ADD, Actions::C_CHANGE, Actions::C_SEARCH, 
+            Actions::O_PLACE, Actions::I_SEARCH,
+        }
 };
 
 static_assert(sizeof(actionDescriptions)/sizeof(actionDescriptions[0]) == (unsigned int)Actions::LENGTH,

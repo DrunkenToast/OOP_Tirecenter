@@ -12,6 +12,8 @@ class Company
         std::string v, int d);
     virtual ~Company() = default;
 
+    Customer* clone(void) const {return new Company(*this);}
+
     std::string getVAT() const;
     void setVAT(std::string v);
 
