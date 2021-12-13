@@ -168,17 +168,18 @@ void deleteArticle(TireCenter &tirecenter, Article* art)
     art->print();
     if (Menu::boolMenu("Are you sure you want to delete this article?"))
     {
-        auto it = find(articles.begin(), articles.end(), art);
+        int index = 0;
 
-        if(it != articles.end())
+        // find index with address
+        for (unsigned int i = 0; i < tirecenter.getArticles().size(); i++)
         {
-            int index = it - articles.begin();
-            articles.erase(articles.begin() + index);
-            delete art;
-        }
-        else
-        {
-            std::cout << "Couldn't find article to delete!" << std::endl;
+            if (art == tirecenter.getArticles().at(i))
+            {
+                tirecenter.getArticles().erase(tirecenter.getArticles().begin() + i);
+                delete art;
+                std::cout << "Article deleted" << std::endl;
+                break;
+            }
         }
     }
     return;
@@ -356,21 +357,22 @@ void addCustomer(TireCenter &tirecenter)
 
 void deleteCustomer(TireCenter &tirecenter, Customer* cust)
 {
-    std::vector<Customer*> customers = tirecenter.getCustomers();
+    std::vector<Customer*> articles = tirecenter.getCustomers();
     cust->print();
     if (Menu::boolMenu("Are you sure you want to delete this customer?"))
     {
-        auto it = std::find(customers.begin(), customers.end(), cust);
+        int index = 0;
 
-        if(it != customers.end())
+        // find index with address
+        for (unsigned int i = 0; i < tirecenter.getCustomers().size(); i++)
         {
-            int index = it - customers.begin();
-            customers.erase(customers.begin() + index);
-            delete cust;
-        }
-        else
-        {
-            std::cout << "Couldn't find customer to delete!" << std::endl;
+            if (cust == tirecenter.getCustomers().at(i))
+            {
+                tirecenter.getCustomers().erase(tirecenter.getCustomers().begin() + i);
+                delete cust;
+                std::cout << "Customer deleted" << std::endl;
+                break;
+            }
         }
     }
     return;

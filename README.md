@@ -31,7 +31,7 @@ Project focussed on C++ OOP about a tirecenter.
 - [ ] Clean up parameters in actions (full tirecenter not necessary)
 - [X] convert to `nullptr`
 - [X] fix customer constructor
-- [ ] Split up actions into header and cpp
+- [X] Split up actions into header and cpp
 - [ ] Convert files to lowercase
 - [X] Delete all pointers in tirecenter/invoices deconstructor
 
