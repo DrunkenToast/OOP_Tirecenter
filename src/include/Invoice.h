@@ -25,6 +25,7 @@ public:
     Customer getCustomer() const;
     void setCustomer(Customer c);
 
+    // Returns total price - discount
     float getPrice() const;
     void setPrice(float p);
 
@@ -37,10 +38,11 @@ private:
     virtual void importData(std::istream &input);
     std::vector<Article*> articles;
     Customer customer;
-    float price;
-    int discount;
+    float price = 0;
+    int discount = 10;
 
-    // What do these do??
-    // float calculateDiscount();
-    // float calculatePrice();
+    // Calculates the discount
+    float calculateDiscount() const;
+    // Calculates total price
+    float calculatePrice() const;
 };

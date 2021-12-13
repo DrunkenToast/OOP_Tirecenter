@@ -9,7 +9,7 @@ class Company
     Company() = default;
     Company(std::string name, std::string address,
         //Company specific
-        std::string vat, int valumeDiscount);
+        std::string v, int d);
     virtual ~Company() = default;
 
     std::string getVAT() const;

@@ -4,8 +4,8 @@
 
 Company::Company(std::string name, std::string address,
         //Company specific
-        std::string vat, int valumeDiscount)
-    : Customer(name, address, 'c'), vat(vat), volumeDiscount(volumeDiscount)
+        std::string v, int d)
+    : Customer(name, address, 'c'), vat(v), volumeDiscount(d)
 {
     
 }

@@ -212,7 +212,6 @@ void changeArticle(Article* art)
     std::string name, manufacturer, buffer;
     int stock, diameter;
     float price;
-    char type;
     //tire params
     int width, height;
     std::string speedIndex;
@@ -247,7 +246,6 @@ void changeArticle(Article* art)
         {
             Tire* tire = dynamic_cast<Tire*>(art);
 
-            type = 't';
             std::cout << "Width: ";
             getline(std::cin, buffer);
             width = std::stoi(buffer);
@@ -271,7 +269,6 @@ void changeArticle(Article* art)
         {
             Rim* rim = dynamic_cast<Rim*>(art);
 
-            type = 'r';
             std::cout << "Width: ";
             getline(std::cin, buffer);
             width = std::stoi(buffer);

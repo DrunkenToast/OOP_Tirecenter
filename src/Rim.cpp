@@ -12,7 +12,6 @@ Rim::Rim(std::string name, std::string manufacturer,
     
 }
 
-
 std::string Rim::exportData() const
 {
     std::stringstream data;

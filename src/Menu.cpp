@@ -106,7 +106,7 @@ bool Menu::boolMenu(std::string title)
         )
         {
             picked = true;
-            return true;
+            option = true;
         }
         else if (
             buffer == "no" ||
@@ -115,7 +115,9 @@ bool Menu::boolMenu(std::string title)
         )
         {
             picked = true;
-            return false;
+            option = false;
         }
     } while (!picked);
+
+    return option;
 }

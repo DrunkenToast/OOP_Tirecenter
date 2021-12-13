@@ -32,7 +32,7 @@ class Rim
     private:
     std::string exportData() const;
     void importData(std::istream &input);
-    std::string color;
-    bool isAluminium;
     int width;
+    bool isAluminium;
+    std::string color;
 };
