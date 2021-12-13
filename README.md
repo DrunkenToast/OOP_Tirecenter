@@ -10,13 +10,14 @@ Project focussed on C++ OOP about a tirecenter.
 
 - [ ] Use cases to finish
   - [ ] Filter tires/rims
-  - [ ] Update stock
+  - [ ] Update stock?
 - [ ] Invoice calc discount etc
+  - [ ] fix discount
 - [ ] Lookup invoice per customer
-- [ ] Loading and saving
+- [X] Loading and saving
   - [X] Articles
   - [X] Customers
-  - [ ] Invoices (has to be fixed)
+  - [X] Invoices (has to be fixed)
   - [ ] Tirecenter (optionally)
 - [ ] Error handling
   - [X] ~~Wrong input types~~ -> not necessary
@@ -32,7 +33,7 @@ Project focussed on C++ OOP about a tirecenter.
 - [X] fix customer constructor
 - [ ] Split up actions into header and cpp
 - [ ] Convert files to lowercase
-- [ ] Delete all pointers in tirecenter/invoices deconstructor
+- [X] Delete all pointers in tirecenter/invoices deconstructor
 
 ## Project info
 
