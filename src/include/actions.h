@@ -6,6 +6,7 @@
 /*
     This h file mostly defines Use Cases, see Tire-Center-Use-Case.png
 */
+// Searches for articles and returns article pointer, will return nullptr when nothing selected
 Article* searchArticle(TireCenter &tirecenter);
 Article* FilterKeyword(TireCenter &tc);
 Tire* FilterTires(TireCenter &tc);
@@ -24,6 +25,3 @@ void changeCustomer(Customer *cust);
 void placeOrder(TireCenter &tirecenter);
 
 void checkInvoices(TireCenter &tirecenter);
-
-//////// =======================
-

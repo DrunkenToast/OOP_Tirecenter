@@ -6,7 +6,6 @@
 
 #include <iostream>
 #include <vector>
-// Searches for articles and returns article pointer, will return nullptr when nothing selected
 Article* searchArticle(TireCenter &tirecenter)
 {
     unsigned int option;
@@ -79,12 +78,14 @@ Article* FilterKeyword(TireCenter &tc)
 Tire* FilterTires(TireCenter &tc)
 {
     unsigned int option;
+    std::string buffer;
     std::vector<Tire*> tires {};
     std::vector<Tire*> found {};
     int needle;
 
-    std::cout << "Diameter to filter tire: ";
-    std::cin >> needle;
+    std::cout << "Diameter to filter tires: ";
+    std::getline(std::cin, buffer);
+    needle = stoi(buffer);
 
     for (auto &art : tc.getArticles())
     {
@@ -114,22 +115,85 @@ Tire* FilterTires(TireCenter &tc)
         return nullptr;
     }
 
-    std::cout << "returning!";
     return tires.at(option-1); // -1 for cancel option
 }
 
 Rim* FilterRims(TireCenter &tc)
 {
-    // TODO
-    tc.welcome();
-    return nullptr;
+    unsigned int option;
+    std::string buffer;
+    std::vector<Rim*> rims {};
+    std::vector<Rim*> found {};
+    int needle;
+
+    std::cout << "Diameter to filter rims: ";
+    std::getline(std::cin, buffer);
+    needle = stoi(buffer);
+
+    for (auto &art : tc.getArticles())
+    {
+        if (art->getType() == 'r')
+        {
+            rims.push_back(dynamic_cast<Rim*>(art));
+        }
+    }
+
+    for (auto &tire : rims)
+    {
+        if (tire->getDiameter() == needle)
+        {
+            found.push_back(dynamic_cast<Rim*>(tire));
+        }
+    }
+
+    std::vector<std::string> options {"Cancel"};
+    for (auto &i : found)
+    {
+        options.push_back(i->getName());
+    }
+
+    option = Menu::displayMenu("Pick a rim. Searched for diameter: \"" + std::to_string(needle) + '"', options);
+    if (option == 0)
+    {
+        return nullptr;
+    }
+
+    return rims.at(option-1); // -1 for cancel option
 }
 
 Article* FilterSize(TireCenter &tc)
 {
-    // TODO
-    tc.welcome();
-    return nullptr;
+    unsigned int option;
+    std::string buffer;
+    int needle;
+    std::vector<Article*> found {};
+
+    std::cout << "Diameter to filter articles: ";
+    std::getline(std::cin, buffer);
+    needle = stoi(buffer);
+
+    for (auto &art : tc.getArticles())
+    {
+    
+        if (art->getDiameter() == needle)
+        {
+            found.push_back(art);
+        }
+    }
+
+    std::vector<std::string> options {"Cancel"};
+    for (auto &i : found)
+    {
+        options.push_back(i->getName());
+    }
+
+    option = Menu::displayMenu("Pick a tire. Searched for diameter: \"" + std::to_string(needle) + '"', options);
+    if (option == 0)
+    {
+        return nullptr;
+    }
+
+    return tc.getArticles().at(option-1); // -1 for cancel option
 }
 
 void addArticle(TireCenter &tirecenter)
@@ -168,9 +232,6 @@ void deleteArticle(TireCenter &tirecenter, Article* art)
     art->print();
     if (Menu::boolMenu("Are you sure you want to delete this article?"))
     {
-        int index = 0;
-
-        // find index with address
         for (unsigned int i = 0; i < tirecenter.getArticles().size(); i++)
         {
             if (art == tirecenter.getArticles().at(i))
@@ -361,9 +422,6 @@ void deleteCustomer(TireCenter &tirecenter, Customer* cust)
     cust->print();
     if (Menu::boolMenu("Are you sure you want to delete this customer?"))
     {
-        int index = 0;
-
-        // find index with address
         for (unsigned int i = 0; i < tirecenter.getCustomers().size(); i++)
         {
             if (cust == tirecenter.getCustomers().at(i))
