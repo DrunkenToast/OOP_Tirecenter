@@ -7,7 +7,24 @@ TireCenter::TireCenter()
 
 TireCenter::~TireCenter() 
 {
-    
+    // Deconstruct articles
+    for (auto art : this->getArticles())
+    {
+        delete art;
+    }
+
+    // Deconstruct customers
+    for (auto cust : this->getCustomers())
+    {
+        delete cust;
+    }
+
+    // Deconstruct invoicers
+    for (auto inv : this->getInvoices())
+    {
+        delete inv;
+    }
+
 }
 
 std::string TireCenter::getName() 

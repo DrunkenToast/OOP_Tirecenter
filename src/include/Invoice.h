@@ -34,8 +34,8 @@ public:
 
     void print() const;
 private:
-    virtual std::string exportData() const;
-    virtual void importData(std::istream &input);
+    std::string exportData() const;
+    void importData(std::istream &input);
     std::vector<Article*> articles;
     Customer* customer;
     float price = 0;

@@ -13,6 +13,14 @@ Invoice::Invoice()
 
 Invoice::~Invoice()
 {
+    // Deconstruct articles
+    for (auto art : this->getArticles())
+    {
+        delete art;
+    }
+
+    // Deconstruct customer
+    delete getCustomer();
 }
 
 std::string Invoice::exportData() const
