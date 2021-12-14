@@ -4,9 +4,9 @@ Project focused on C++ OOP about a tire center.
 
 ## TODO
 
-- [ ] Use cases to finish
+- [X] Use cases to finish
   - [X] Filter tires/rims
-  - [ ] Update stock?
+  - [X] Update stock?
 - [ ] Invoice calc discount etc
   - [ ] fix discount
 - [X] Lookup invoice per customer
@@ -14,7 +14,7 @@ Project focused on C++ OOP about a tire center.
   - [X] Articles
   - [X] Customers
   - [X] Invoices (has to be fixed)
-  - [ ] Tirecenter (optionally)
+  - [X] Tirecenter (optionally)
 - [ ] Error handling
   - [X] ~~Wrong input types~~ -> not necessary
 - [ ] Make functions for reading lines (low priority)
@@ -24,7 +24,7 @@ Project focused on C++ OOP about a tire center.
   - [ ] Spacing
 - [ ] Minimize warnings
 - [X] Abstract article class
-- [ ] Clean up parameters in actions (full tirecenter not necessary)
+- [X] Clean up parameters in actions (full tirecenter not necessary)
 - [X] convert to `nullptr`
 - [X] fix customer constructor
 - [X] Split up actions into header and cpp
