@@ -3,10 +3,12 @@
 #include "include/Rim.h"
 #include "include/Company.h"
 #include "include/Menu.h"
+#include "include/util.h"
 
 #include <iostream>
 #include <vector>
-Article* searchArticle(TireCenter &tirecenter)
+
+Article* searchArticle(std::vector<Article*> &articles)
 {
     unsigned int option;
     Article* article = nullptr;
@@ -19,22 +21,21 @@ Article* searchArticle(TireCenter &tirecenter)
             "Filter Rims",
             "Filter Size"
         });
-
         switch (option)
         {
         case 0:
             return nullptr;
         case 1:
-            article = filterKeyword(tirecenter);
+            article = filterKeyword(articles);
             break;
         case 2:
-            article = dynamic_cast<Article*>(filterTires(tirecenter));
+            article = dynamic_cast<Article*>(filterTires(articles));
             break;
         case 3:
-            article = dynamic_cast<Article*>(filterRims(tirecenter));
+            article = dynamic_cast<Article*>(filterRims(articles));
             break;
         case 4:
-            article = filterSize(tirecenter);
+            article = filterSize(articles);
             break;
         default:
             break;
@@ -43,7 +44,7 @@ Article* searchArticle(TireCenter &tirecenter)
     return article;
 }
 
-Article* filterKeyword(TireCenter &tc)
+Article* filterKeyword(std::vector<Article*> &articles)
 {
     unsigned int option;
     std::vector<Article*> found {};
@@ -52,16 +53,16 @@ Article* filterKeyword(TireCenter &tc)
     std::cout << "Keyword to search: ";
     getline(std::cin, needle);
 
-    for (auto &art : tc.getArticles())
+    for (auto art : articles)
     {
-        if (art->getName().find(needle) != std::string::npos)
+        if (Util::asciiToLower(art->getName()).find(Util::asciiToLower(needle)) != std::string::npos)
         {
             found.push_back(art);
         }
     }
 
     std::vector<std::string> options {"Cancel"};
-    for (auto &i : found)
+    for (auto i : found)
     {
         options.push_back(i->getName());
     }
@@ -75,7 +76,7 @@ Article* filterKeyword(TireCenter &tc)
     return found.at(option-1); // -1 for cancel option
 }
 
-Tire* filterTires(TireCenter &tc)
+Tire* filterTires(std::vector<Article*> &articles)
 {
     unsigned int option;
     std::string buffer;
@@ -87,7 +88,7 @@ Tire* filterTires(TireCenter &tc)
     std::getline(std::cin, buffer);
     needle = stoi(buffer);
 
-    for (auto &art : tc.getArticles())
+    for (auto art : articles)
     {
         if (art->getType() == 't')
         {
@@ -95,7 +96,7 @@ Tire* filterTires(TireCenter &tc)
         }
     }
 
-    for (auto &tire : tires)
+    for (auto tire : tires)
     {
         if (tire->getDiameter() == needle)
         {
@@ -118,7 +119,7 @@ Tire* filterTires(TireCenter &tc)
     return tires.at(option-1); // -1 for cancel option
 }
 
-Rim* filterRims(TireCenter &tc)
+Rim* filterRims(std::vector<Article*> &articles)
 {
     unsigned int option;
     std::string buffer;
@@ -130,7 +131,7 @@ Rim* filterRims(TireCenter &tc)
     std::getline(std::cin, buffer);
     needle = stoi(buffer);
 
-    for (auto &art : tc.getArticles())
+    for (auto art : articles)
     {
         if (art->getType() == 'r')
         {
@@ -138,7 +139,7 @@ Rim* filterRims(TireCenter &tc)
         }
     }
 
-    for (auto &tire : rims)
+    for (auto tire : rims)
     {
         if (tire->getDiameter() == needle)
         {
@@ -161,7 +162,7 @@ Rim* filterRims(TireCenter &tc)
     return rims.at(option-1); // -1 for cancel option
 }
 
-Article* filterSize(TireCenter &tc)
+Article* filterSize(std::vector<Article*> &articles)
 {
     unsigned int option;
     std::string buffer;
@@ -172,7 +173,7 @@ Article* filterSize(TireCenter &tc)
     std::getline(std::cin, buffer);
     needle = stoi(buffer);
 
-    for (auto &art : tc.getArticles())
+    for (auto art : articles)
     {
     
         if (art->getDiameter() == needle)
@@ -193,14 +194,14 @@ Article* filterSize(TireCenter &tc)
         return nullptr;
     }
 
-    return tc.getArticles().at(option-1); // -1 for cancel option
+    return articles.at(option-1); // -1 for cancel option
 }
 
-void addArticle(TireCenter &tirecenter)
+void addArticle(std::vector<Article*> &articles)
 {
     int option = Menu::displayMenu("Add article", std::vector<std::string> {"Exit", "Add tire", "Add rim"});
     Article* art;
-
+    bool dupe;
     switch (option)
     {
     case 0:
@@ -219,24 +220,36 @@ void addArticle(TireCenter &tirecenter)
         return;
     }
 
-    // ADD CHECK FOR DUPE
+    do
+    {
+        changeArticle(art);
+        dupe = false;
+        for (auto a : articles)
+        {
+            if (art->getName() == a->getName())
+            {
+                std::cout << "An article with this name already exists. Try again." << std::endl;
+                dupe = true;
+                break;
+            }
+        }
+    } while (dupe);
 
-    changeArticle(art);
-
-    tirecenter.addArticle(art);
+    articles.push_back(art);
+    // tirecenter.addArticle(art);
 }
 
-void deleteArticle(TireCenter &tirecenter, Article* art)
+void deleteArticle(std::vector<Article*> &articles, Article* art)
 {
-    std::vector<Article*> articles = tirecenter.getArticles();
+    // std::vector<Article*> articles = tirecenter.getArticles();
     art->print();
     if (Menu::boolMenu("Are you sure you want to delete this article?"))
     {
-        for (unsigned int i = 0; i < tirecenter.getArticles().size(); i++)
+        for (unsigned int i = 0; i < articles.size(); i++)
         {
-            if (art == tirecenter.getArticles().at(i))
+            if (art == articles.at(i))
             {
-                tirecenter.getArticles().erase(tirecenter.getArticles().begin() + i);
+                articles.erase(articles.begin() + i);
                 delete art;
                 std::cout << "Article deleted" << std::endl;
                 break;
@@ -331,7 +344,7 @@ void changeArticle(Article* art)
     art->print();
 }
 
-Customer* searchCustomer(TireCenter &tirecenter)
+Customer* searchCustomer(std::vector<Customer*> &customers)
 {
     unsigned int option;
     Customer* customer = nullptr;
@@ -348,7 +361,7 @@ Customer* searchCustomer(TireCenter &tirecenter)
         case 0:
             return nullptr;
         case 1:
-            customer = filterCustomer(tirecenter);
+            customer = filterCustomer(customers);
             break;
         default:
             break;
@@ -357,7 +370,7 @@ Customer* searchCustomer(TireCenter &tirecenter)
     return customer;
 }
 
-Customer* filterCustomer(TireCenter &tc)
+Customer* filterCustomer(std::vector<Customer*> &customers)
 {
     unsigned int option;
     std::vector<Customer*> found {};
@@ -366,16 +379,16 @@ Customer* filterCustomer(TireCenter &tc)
     std::cout << "Keyword to search: ";
     getline(std::cin, needle);
 
-    for (auto &cust : tc.getCustomers())
+    for (auto cust : customers)
     {
-        if (cust->getName().find(needle) != std::string::npos)
+        if (Util::asciiToLower(cust->getName()).find(Util::asciiToLower(needle)) != std::string::npos)
         {
             found.push_back(cust);
         }
     }
 
     std::vector<std::string> options {"Cancel"};
-    for (auto &i : found)
+    for (auto i : found)
     {
         options.push_back(i->getName());
     }
@@ -389,10 +402,11 @@ Customer* filterCustomer(TireCenter &tc)
     return found.at(option-1); // -1 for cancel option
 }
 
-void addCustomer(TireCenter &tirecenter)
+void addCustomer(std::vector<Customer*> &customers)
 {
     int option = Menu::displayMenu("Add customer", std::vector<std::string> {"Exit", "Add private person", "Add company"});
     Customer* cust;
+    bool dupe;
 
     switch (option)
     {
@@ -410,23 +424,34 @@ void addCustomer(TireCenter &tirecenter)
     }
     }
 
-    // TODO ADD CHECK FOR DUPE
+    do
+    {
+        changeCustomer(cust);
+        dupe = false;
+        for (auto c : customers)
+        {
+            if (cust->getName() == c->getName())
+            {
+                std::cout << "A customer with this name already exists. Try again." << std::endl;
+                dupe = true;
+                break;
+            }
+        }
+    } while (dupe);
 
-    changeCustomer(cust);
-    tirecenter.addCustomer(cust);
+    customers.push_back(cust);
 }
 
-void deleteCustomer(TireCenter &tirecenter, Customer* cust)
+void deleteCustomer(std::vector<Customer*> &customers, Customer *cust)
 {
-    std::vector<Customer*> articles = tirecenter.getCustomers();
     cust->print();
     if (Menu::boolMenu("Are you sure you want to delete this customer?"))
     {
-        for (unsigned int i = 0; i < tirecenter.getCustomers().size(); i++)
+        for (unsigned int i = 0; i < customers.size(); i++)
         {
-            if (cust == tirecenter.getCustomers().at(i))
+            if (cust == customers.at(i))
             {
-                tirecenter.getCustomers().erase(tirecenter.getCustomers().begin() + i);
+                customers.erase(customers.begin() + i);
                 delete cust;
                 std::cout << "Customer deleted" << std::endl;
                 break;
@@ -493,7 +518,7 @@ void placeOrder(TireCenter &tirecenter)
     do
     {
         std::cout << "Select a customer for order:" << std::endl;
-        cust = searchCustomer(tirecenter);
+        cust = searchCustomer(tirecenter.getCustomers());
     } while (cust == nullptr);
     invoice->setCustomer(cust->clone());
 
@@ -502,7 +527,7 @@ void placeOrder(TireCenter &tirecenter)
         do
         {
             std::cout << "Select an article for order:" << std::endl;
-            art = searchArticle(tirecenter);
+            art = searchArticle(tirecenter.getArticles());
         } while (art == nullptr);
         
         std::cout << "Amount: ";
@@ -532,7 +557,7 @@ void placeOrder(TireCenter &tirecenter)
     return;
 }
 
-void checkInvoices(TireCenter &tirecenter)
+void checkInvoices(std::vector<Invoice*> &invoices, std::vector<Customer*> &customers)
 {
     int option = Menu::displayMenu("Check invoices", {
         "Cancel",
@@ -544,7 +569,7 @@ void checkInvoices(TireCenter &tirecenter)
 
     if(option == 1)
     {
-        for (auto i : tirecenter.getInvoices())
+        for (auto i : invoices)
         {
             i->print();
         }
@@ -554,10 +579,10 @@ void checkInvoices(TireCenter &tirecenter)
         Customer* cust = nullptr;
         do
         {
-            cust = filterCustomer(tirecenter);
+            cust = filterCustomer(customers);
         } while (cust == nullptr);
         
-        for (auto i : tirecenter.getInvoices())
+        for (auto i : invoices)
         {
             if (i->getCustomer()->getName() == cust->getName())
             {

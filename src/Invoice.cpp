@@ -211,9 +211,9 @@ void Invoice::print() const
 
     std::cout << "== Invoice ==" << std::endl
               << "Customer: " << getCustomer()->getName() << std::endl
-              << "Total price: " << calculatePrice() << std::endl
-              << "Discount: " << calculateDiscount() << std::endl
-              << "Price: " << getPrice() << std::endl
+              << "Total price: " << calculatePrice() << " $" << std::endl
+              << "Discount: " << calculateDiscount() << " $" << std::endl
+              << "Price: " << getPrice() << " $" << std::endl
               << "articles: " << std::endl;
     for (auto art : this->getArticles())
     {

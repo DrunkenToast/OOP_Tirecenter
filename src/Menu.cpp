@@ -97,7 +97,7 @@ bool Menu::boolMenu(std::string title)
     {
         std::cout << title << " (Yes/No): " ;
         getline(std::cin, buffer);
-        Util::asciiToLower(buffer);
+        buffer = Util::asciiToLower(buffer);
 
         if (
             buffer == "yes" ||
