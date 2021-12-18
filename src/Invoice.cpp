@@ -222,7 +222,7 @@ void Invoice::print() const
     {
         std::cout << "\t- " << "x" << art->getStock() << " "
         << art->getName() << " - " << art->getManufacturer() << " | "
-        << (art->getType() == 't' ? "Tire" : "Rim")
+        << (art->getType() == 't' ? "Tire" : "Rim") << " "
         << art->getPrice() << " $"
         << std::endl;
     }
