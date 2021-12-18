@@ -549,7 +549,7 @@ void placeOrder(TireCenter &tirecenter)
 
     } while (Menu::boolMenu("Do you want to add an article to this order?"));
 
-
+    invoice->calculatePrice();
     tirecenter.addInvoice(invoice);
     std::cout << "Placed order." << std::endl;
     invoice->print();

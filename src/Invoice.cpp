@@ -36,8 +36,10 @@ std::string Invoice::exportData() const
     // Customer
     data << *this->getCustomer();
     // Price and discount
-    data << this->getPrice() << std::endl
-         << this->getDiscount() << std::endl;
+    data 
+        // Won't save price because you can calculate afterwards
+        // << this->getPrice() << std::endl
+        << this->getDiscount() << std::endl;
 
     return data.str();
 }
@@ -76,7 +78,6 @@ void Invoice::importData(std::istream &input)
         arts.push_back(entry);
     }
     this->setArticles(arts);
-
     getline(input, line);
     if (line[0] == 'c')
     {
@@ -91,11 +92,14 @@ void Invoice::importData(std::istream &input)
 
     this->setCustomer(cust);
 
-    getline(input, line);
-    this->setPrice(std::stof(line));
+    // getline(input, line);
+    // this->setPrice(std::stof(line));
 
     getline(input, line);
     this->setDiscount(std::stoi(line));
+    // Instead of saving the price, I recalculate with the given articles saved in the invoice
+    // Articles and customer stay the same so the price will too
+    this->calculatePrice();
 }
 
 std::vector<Article *> Invoice::getArticles() const
@@ -136,8 +140,7 @@ void Invoice::setDiscount(int d)
 
 float Invoice::getPrice() const
 {
-    // return price; // ???
-    return calculatePrice() - calculateDiscount();
+    return price;
 }
 
 void Invoice::setPrice(float p)
@@ -184,11 +187,10 @@ float Invoice::calculateDiscount() const
             }
         }
     }
-    // this->setDiscount(d);
     return d;
 }
 
-float Invoice::calculatePrice() const
+float Invoice::calculatePrice()
 {
     float p = 0;
     for (auto art : this->getArticles())
@@ -202,7 +204,8 @@ float Invoice::calculatePrice() const
     {
         p *= 1.21;
     }
-    
+
+    this->setPrice(p);
     return p;
 }
 
@@ -211,12 +214,16 @@ void Invoice::print() const
 
     std::cout << "== Invoice ==" << std::endl
               << "Customer: " << getCustomer()->getName() << std::endl
-              << "Total price: " << calculatePrice() << " $" << std::endl
+              << "Total price: " << getPrice() << " $" << std::endl
               << "Discount: " << calculateDiscount() << " $" << std::endl
-              << "Price: " << getPrice() << " $" << std::endl
+              << "Price: " << getPrice() - calculateDiscount() << " $" << std::endl
               << "articles: " << std::endl;
     for (auto art : this->getArticles())
     {
-        std::cout << "\t- " << art->getName() << " x" << art->getStock() << std::endl;
+        std::cout << "\t- " << "x" << art->getStock() << " "
+        << art->getName() << " - " << art->getManufacturer() << " | "
+        << (art->getType() == 't' ? "Tire" : "Rim")
+        << art->getPrice() << " $"
+        << std::endl;
     }
 }

@@ -14,6 +14,7 @@ int main()
     FileHandler fileHandler(tirecenter);
 
     tirecenter.welcome();
+    
     // fileHandler.loadAll();
 
     // std::vector<Article*> articles {
@@ -27,7 +28,8 @@ int main()
 
     UserType user = Menu::loginMenu();
 
-    std::cout << std::fixed << std::cout.precision(2); // TODO figur out why it prints 6
+    std::cout.precision(2);
+    std::cout << std::fixed;
 
     while(true)
     {

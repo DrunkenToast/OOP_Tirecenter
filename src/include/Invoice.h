@@ -33,7 +33,11 @@ public:
     void setDiscount(int d);
 
     void print() const;
+    // Calculates total price
+    float calculatePrice();
 private:
+    // Calculates the discount
+    float calculateDiscount() const;
     std::string exportData() const;
     void importData(std::istream &input);
     std::vector<Article*> articles;
@@ -41,8 +45,4 @@ private:
     float price = 0;
     int discount = 10;
 
-    // Calculates the discount
-    float calculateDiscount() const;
-    // Calculates total price
-    float calculatePrice() const;
 };
