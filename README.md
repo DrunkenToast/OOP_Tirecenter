@@ -4,9 +4,19 @@ Project focused on C++ OOP about a tire center.
 
 [Github repo](https://github.com/DrunkenToast/OOP_Tirecenter)
 
+## TOC
+- [Object Oriented Programming: Tirecenter](#object-oriented-programming-tirecenter)
+  - [TOC](#toc)
+  - [Preperation](#preperation)
+  - [Build & run](#build--run)
+  - [TODO](#todo)
+  - [Project info & checklist](#project-info--checklist)
+
 ## Preperation
 
-> This isn't necessary to fill, purely style points :)
+Make sure a folder `data` exists in root of the project.
+
+> The following isn't necessary to fill, purely style points :)
 
 Enter a name and address of your tirecenter in `data/tirecenter.dat` with the format:
 ```
@@ -19,7 +29,7 @@ De Nayer
 Jan De Nayerlaan 5, 2860 Sint-Katelijne-Waver
 ```
 
-## Build & running
+## Build & run
 
 Running natively:  
 ```shell
@@ -61,14 +71,14 @@ For a good experience make your terminal large enough to comfortably fit all the
 - [X] convert to `nullptr`
 - [X] fix customer constructor
 - [X] Split up actions into header and cpp
-- [ ] Convert files to lowercase
+- [X] Convert files to lowercase
 - [X] Delete all pointers in tirecenter/invoices deconstructor
 
 ![Class](Tire-Center-Class.png)
 
 ![Use case](./Tire-Center-Use-Case.png)
 
-## Project info
+## Project info & checklist
 
 >- [X] De bandencentrale verkoopt banden en velgen in verschillende maten. Ze hebben hiervan een kleine stock, die ze graag met het programma zouden beheren. Ook willen ze de klanten in dit programma bijhouden en willen ze van elke klant weten welke banden en/of velgen deze gekocht hebben.  
 
