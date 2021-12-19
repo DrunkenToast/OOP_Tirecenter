@@ -422,6 +422,8 @@ void addCustomer(std::vector<Customer*> &customers)
         cust = new Company("New company", "Address", "VAT", 0);
         break;
     }
+    default: //it should never enter this but if it does cust would be uninitialised. Doing the same as cancel.
+        return;
     }
 
     do
