@@ -1,5 +1,5 @@
 #pragma once
-#include "Customer.h"
+#include "customer.h"
 #include <string>
 
 class Company

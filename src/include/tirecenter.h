@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "Article.h"
-#include "Customer.h"
-#include "Invoice.h"
+#include "article.h"
+#include "customer.h"
+#include "invoice.h"
 #include <map>
 
 class TireCenter

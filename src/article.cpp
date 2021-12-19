@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/Article.h"
+#include "include/article.h"
 
 Article::Article(std::string name, std::string manufacturer,
     int stock, int diameter, float price) 

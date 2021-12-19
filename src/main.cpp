@@ -1,9 +1,9 @@
 #include <iostream>
-#include "include/TireCenter.h"
-#include "include/Menu.h"
+#include "include/tirecenter.h"
+#include "include/menu.h"
 #include <vector>
 #include "include/actions.h"
-#include "include/FileHandler.h"
+#include "include/filehandler.h"
 #include "include/util.h"
 
 int login();

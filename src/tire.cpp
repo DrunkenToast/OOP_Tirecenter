@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/Tire.h"
+#include "include/tire.h"
 
 Tire::Tire(std::string name, std::string manufacturer,
         int stock, int diameter, float price,

@@ -4,10 +4,10 @@
 #include <sstream>
 #include <cstdlib>
 
-#include "include/FileHandler.h"
-#include "include/Tire.h"
-#include "include/Rim.h"
-#include "include/Company.h"
+#include "include/filehandler.h"
+#include "include/tire.h"
+#include "include/rim.h"
+#include "include/company.h"
 
 FileHandler::FileHandler(TireCenter &tc) 
     : tc(tc)

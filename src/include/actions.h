@@ -2,9 +2,9 @@
     This h file mostly defines Use Cases, see Tire-Center-Use-Case.png
 */
 #pragma once
-#include "TireCenter.h"
-#include "Tire.h"
-#include "Rim.h"
+#include "tirecenter.h"
+#include "tire.h"
+#include "rim.h"
 
 
 enum class Actions {

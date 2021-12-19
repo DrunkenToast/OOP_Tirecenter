@@ -1,6 +1,6 @@
 #include <iostream>
-#include "include/Rim.h"
-#include "include/Article.h"
+#include "include/rim.h"
+#include "include/article.h"
 
 Rim::Rim(std::string name, std::string manufacturer,
         int stock, int diameter, float price,

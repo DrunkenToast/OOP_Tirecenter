@@ -5,8 +5,8 @@
 #include <vector>
 #include <stdexcept>
 
-#include "include/Menu.h"
-#include "include/TireCenter.h"
+#include "include/menu.h"
+#include "include/tirecenter.h"
 #include "include/util.h"
 
 UserType Menu::loginMenu() 

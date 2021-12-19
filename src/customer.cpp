@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include "include/Customer.h"
+#include "include/customer.h"
 
 Customer::Customer(std::string name, std::string address, char type)
     : name(name), address(address), type(type)

@@ -1,4 +1,4 @@
-#include "include/TireCenter.h"
+#include "include/tirecenter.h"
 #include <iostream>
 #include <sstream>
 TireCenter::TireCenter() {}

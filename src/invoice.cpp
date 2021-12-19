@@ -1,9 +1,9 @@
 #include <iostream>
 #include <map>
-#include "include/Invoice.h"
-#include "include/Tire.h"
-#include "include/Rim.h"
-#include "include/Company.h"
+#include "include/invoice.h"
+#include "include/tire.h"
+#include "include/rim.h"
+#include "include/company.h"
 
 #define SET 4
 

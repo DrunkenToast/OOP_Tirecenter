@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include "include/Company.h"
+#include "include/company.h"
 
 Company::Company(std::string name, std::string address,
         //Company specific

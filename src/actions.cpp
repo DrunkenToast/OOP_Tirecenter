@@ -1,8 +1,8 @@
 #include "include/actions.h"
-#include "include/Tire.h"
-#include "include/Rim.h"
-#include "include/Company.h"
-#include "include/Menu.h"
+#include "include/tire.h"
+#include "include/rim.h"
+#include "include/company.h"
+#include "include/menu.h"
 #include "include/util.h"
 
 #include <iostream>

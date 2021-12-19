@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "TireCenter.h"
+#include "tirecenter.h"
 
 class FileHandler 
 {
