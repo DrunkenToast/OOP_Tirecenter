@@ -84,7 +84,7 @@ For a good experience make your terminal large enough to comfortably fit all the
 
 Je kan articles zoeken en filteren, hierbij wordt stock weergeven. De stock kan je updaten met `change article`.
 
->- [ ] Het programma moet de stock kunnen weergeven van alle banden en velgen die er verkocht worden. Ook indien ze niet voorradig zijn moeten deze weergegeven worden. De stock moet volledig kunnen weergegeven worden, maar er moet ook kunnen gefilterd worden op banden of velgen. Ook hadden ze graag kunnen filteren op maat.
+>- [X] Het programma moet de stock kunnen weergeven van alle banden en velgen die er verkocht worden. Ook indien ze niet voorradig zijn moeten deze weergegeven worden. De stock moet volledig kunnen weergegeven worden, maar er moet ook kunnen gefilterd worden op banden of velgen. Ook hadden ze graag kunnen filteren op maat.
 
 `Search articles` heeft filter opties op diameter, samen met een keyword search functie.
 Stock wordt weergeven samen met de rest van het article eigenschappen.
