@@ -1,6 +1,6 @@
 # Object Oriented Programming: Tirecenter
 
-Project focused on C++ OOP about a tire center.
+School project focused on C++ OOP about a tire center.
 
 [Github repo](https://github.com/DrunkenToast/OOP_Tirecenter)
 
